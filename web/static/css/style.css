@@ -873,6 +873,8 @@ body {
   align-items: center;
   gap: 0.45rem;
 }
+.goalscorer-card { margin-top: 0.85rem; }
+.goalscorer-card .section-label { margin-bottom: 0.45rem; }
 .pill.small { font-size: 0.65rem; padding: 0.15rem 0.45rem; }
 
 /* Tables */

@@ -12,7 +12,7 @@ from src.config import get_paths
 from src.dataio import load_parquet
 
 
-st.set_page_config(page_title="Premier League Predictor", layout="wide")
+st.set_page_config(page_title="PitchCast", layout="wide")
 
 paths = get_paths()
 features_path = paths.processed_dir / "match_features_played.parquet"
@@ -20,7 +20,7 @@ preds_path = paths.processed_dir / "predictions_upcoming.parquet"
 model_path = paths.models_dir / "pl_ftr_logreg.pkl"
 report_path = paths.models_dir / "pl_ftr_logreg.report.json"
 
-st.title("Premier League Predictor (Starter)")
+st.title("PitchCast (Starter)")
 
 colA, colB, colC = st.columns(3)
 colA.metric("Features file", "Found" if features_path.exists() else "Missing")

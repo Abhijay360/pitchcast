@@ -23,7 +23,7 @@ paths = get_paths()
 WEB_DIR = Path(__file__).resolve().parent
 STATIC_DIR = WEB_DIR / "static"
 
-app = FastAPI(title="Premier League Predictor", version="1.0.0")
+app = FastAPI(title="PitchCast", version="1.0.0")
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
@@ -285,6 +285,17 @@ def fixture_insights_api(home: str, away: str, date: str = "", recent_n: int = 5
     from src.predict.fixture_insights import fixture_insights
 
     return fixture_insights(rec, recent_n=int(recent_n))
+
+
+@app.get("/api/fixture/goalscorers")
+def fixture_goalscorers_api(home: str, away: str, date: str = "") -> dict[str, Any]:
+    """Anytime / first goalscorer probabilities from squad stats + team xG."""
+    rec = fixture_detail(home=home, away=away, date=date)
+    from src.predict.goalscorer import fixture_goalscorers
+
+    lam = float(rec.get("dc_lambda") or rec.get("pred_home_xg") or 1.4)
+    mu = float(rec.get("dc_mu") or rec.get("pred_away_xg") or 1.2)
+    return fixture_goalscorers(home, away, lam, mu)
 
 
 @app.get("/api/report")

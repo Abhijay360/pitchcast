@@ -349,6 +349,54 @@ function renderH2H(ins) {
   `;
 }
 
+function renderGoalscorers(ins) {
+  const gs = ins.goalscorers;
+  if (!gs) return '';
+  const method = gs.method || {};
+  const note = method.notes
+    ? `<p class="muted small">${method.notes}</p>`
+    : `<p class="muted small">${method.summary || 'Anytime goalscorer from squad shots/goals + team xG.'}</p>`;
+
+  const face = (p) => p.photo_url
+    ? `<img class="player-face-sm" src="${p.photo_url}" alt="" loading="lazy" onerror="this.style.display='none'" />`
+    : '';
+
+  const table = (rows, team) => {
+    if (!rows?.length) return `<p class="muted">No scorer projections for ${team}.</p>`;
+    return `<div class="table-wrap"><table class="standings-table">
+      <thead><tr><th>Player</th><th>Pos</th><th>G/90</th><th>Sh/90</th><th>xG</th><th>Anytime</th><th>First</th></tr></thead>
+      <tbody>
+        ${rows.map((p) => `
+          <tr class="clickable-row" data-href="${playerUrl(team, p.name)}">
+            <td>${face(p)}${p.name}</td>
+            <td>${p.position || '—'}</td>
+            <td>${p.goals_per90 ?? '—'}</td>
+            <td>${p.shots_per90 ?? '—'}</td>
+            <td>${p.player_xg ?? '—'}</td>
+            <td><strong>${pct(p.p_anytime)}</strong></td>
+            <td>${pct(p.p_first)}</td>
+          </tr>`).join('')}
+      </tbody>
+    </table></div>`;
+  };
+
+  return `
+    <div class="mt-sm card goalscorer-card">
+      <h3>Likely goalscorers</h3>
+      ${note}
+      <div class="grid-2 mt-sm">
+        <div>
+          <div class="section-label">${gs.home} · team xG ${fmt(gs.home_xg, 2)}</div>
+          ${table(gs.home_scorers, gs.home)}
+        </div>
+        <div>
+          <div class="section-label">${gs.away} · team xG ${fmt(gs.away_xg, 2)}</div>
+          ${table(gs.away_scorers, gs.away)}
+        </div>
+      </div>
+    </div>`;
+}
+
 function renderInsights(ins) {
   if (!ins) return '<p class="empty-state">No insights available.</p>';
   const xg = ins.xg || {};
@@ -400,6 +448,7 @@ function renderInsights(ins) {
     </div>
     ${renderWinProbability(ins)}
     ${xgBar}
+    ${renderGoalscorers(ins)}
     <div class="mt-sm"><h3>Recent form (last ${form.recent_n || 5})</h3>${formSection}</div>
     ${renderTeamRadar(ins)}
     ${renderH2H(ins)}

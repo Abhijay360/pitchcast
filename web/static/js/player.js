@@ -49,7 +49,10 @@ function renderSeasonStats(stats) {
     </tbody></table></div>
     <p class="muted small">Career timeline from Transfermarkt transfers.</p>`;
   }
-  return `<div class="table-wrap"><table class="standings-table"><thead><tr><th>Season</th><th>Club</th><th>Competition</th><th>Apps</th><th>G</th><th>A</th><th>Mins</th></tr></thead><tbody>
+  const hasShots = stats.some((s) => s.shots != null);
+  return `<div class="table-wrap"><table class="standings-table"><thead><tr>
+    <th>Season</th><th>Club</th><th>Competition</th><th>Apps</th><th>G</th><th>A</th>${hasShots ? '<th>Sh</th><th>SoT</th>' : ''}<th>Mins</th>
+  </tr></thead><tbody>
     ${stats.map((s) => `<tr>
       <td>${s.season}</td>
       <td>${s.club}</td>
@@ -57,6 +60,7 @@ function renderSeasonStats(stats) {
       <td>${s.apps ?? '—'}</td>
       <td>${s.goals ?? '—'}</td>
       <td>${s.assists ?? '—'}</td>
+      ${hasShots ? `<td>${s.shots ?? '—'}</td><td>${s.shots_on_target ?? '—'}</td>` : ''}
       <td>${s.minutes ?? '—'}</td>
     </tr>`).join('')}
   </tbody></table></div>`;
@@ -72,7 +76,7 @@ async function load() {
   }
 
   const p = await fetchJSON(`/api/players/profile?team=${encodeURIComponent(team)}&name=${encodeURIComponent(name)}`);
-  document.title = `${p.name} · ${team}`;
+  document.title = `${p.name} · PitchCast`;
   const totals = p.career_totals || {};
 
   document.getElementById('player-hero').innerHTML = `

@@ -1,6 +1,6 @@
-# Premier League Predictor
+# PitchCast
 
-End-to-end Premier League season prediction engine with a live web dashboard.
+Premier League season forecasts with a live web dashboard.
 
 Predicts the full **2026–27** campaign using 10 seasons of historical results, Transfermarkt squad data, and a custom **Dixon-Coles Poisson + Monte Carlo** simulator.
 
@@ -9,14 +9,15 @@ Predicts the full **2026–27** campaign using 10 seasons of historical results,
 - **AdvancedFootballSimulator** — player capabilities, manager chemistry, H2H modifiers, Dixon-Coles goal rates
 - **Monte Carlo season simulation** — 5,000 iterations with expected points and 95% confidence intervals
 - **10-year backtesting & self-calibration** — automated hyperparameter tuning via `scipy.optimize`
-- **Web dashboard** — fixtures, projected table, match detail pages with squads
-- **Transfer-aware** — squad market value, top-11 strength, net spend (Spurs/Chelsea etc.)
+- **Web dashboard** — fixtures, projected table, match insights, team & player profiles
+- **Likely goalscorers** — anytime/first scorer probs from squad shots, goals, and team xG
+- **Transfer-aware** — squad market value, top-11 strength, net spend
 
 ## Quick start
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/premier-league-predictor.git
-cd premier-league-predictor
+git clone https://github.com/Abhijay360/pitchcast.git
+cd pitchcast
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -67,13 +68,14 @@ python -m src.predict.backtest_calibration --pl --simulations 500
 ## Project structure
 
 ```
-premier-league-predictor/
+pitchcast/
 ├── src/
 │   ├── ingest/              # CSV download, squads, fixtures
 │   ├── features/            # Rolling form / Elo (legacy features)
 │   ├── predict/
 │   │   ├── advanced_simulator.py    # Dixon-Coles + Monte Carlo
 │   │   ├── backtest_calibration.py  # 10-year backtest + optimizer
+│   │   ├── goalscorer.py            # Anytime / first scorer probs
 │   │   └── simulate_season.py       # Primary prediction pipeline
 │   └── pipeline.py
 ├── web/                     # FastAPI + dashboard

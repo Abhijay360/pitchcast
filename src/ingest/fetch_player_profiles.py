@@ -108,7 +108,15 @@ def aggregate_season_stats(
     """Aggregate TM match performances into season/competition rows + career totals."""
     club_names = club_names or {}
     buckets: dict[tuple, dict[str, Any]] = {}
-    totals = {"apps": 0, "goals": 0, "assists": 0, "minutes": 0, "starts": 0}
+    totals = {
+        "apps": 0,
+        "goals": 0,
+        "assists": 0,
+        "minutes": 0,
+        "starts": 0,
+        "shots": 0,
+        "shots_on_target": 0,
+    }
 
     for g in performance or []:
         gi = g.get("gameInformation") or {}
@@ -140,6 +148,8 @@ def aggregate_season_stats(
                 "assists": 0,
                 "minutes": 0,
                 "starts": 0,
+                "shots": 0,
+                "shots_on_target": 0,
             }
 
         gs = st.get("goalStatistics") or {}
@@ -148,18 +158,24 @@ def aggregate_season_stats(
         assists = int(gs.get("assistsOfficial") or gs.get("assists") or 0)
         minutes = int(mins.get("playedMinutes") or 0)
         started = bool(mins.get("isStarting"))
+        shots = int(gs.get("scoringAttempts") or 0)
+        shots_ot = int(gs.get("scoringAttemptsOnGoal") or 0)
 
         buckets[key]["apps"] += 1
         buckets[key]["goals"] += goals
         buckets[key]["assists"] += assists
         buckets[key]["minutes"] += minutes
         buckets[key]["starts"] += int(started)
+        buckets[key]["shots"] += shots
+        buckets[key]["shots_on_target"] += shots_ot
 
         totals["apps"] += 1
         totals["goals"] += goals
         totals["assists"] += assists
         totals["minutes"] += minutes
         totals["starts"] += int(started)
+        totals["shots"] += shots
+        totals["shots_on_target"] += shots_ot
 
     def _season_sort_key(season: str) -> tuple:
         m = re.match(r"(\d{4})", season or "")
@@ -328,7 +344,12 @@ def enrich_player_stats(
     skipped = 0
     for key, row in cache["players"].items():
         if resume and row.get("stats_fetched") and row.get("photo_url"):
-            skipped += 1
+            # Re-fetch if shot totals were never stored (older cache)
+            tot = row.get("career_totals") or {}
+            if "shots" in tot:
+                skipped += 1
+                continue
+            pending.append((key, row))
             continue
         tm_id = row.get("tm_player_id")
         if not tm_id:

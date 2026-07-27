@@ -48,7 +48,7 @@ def download_official_fixtures(season: str) -> pd.DataFrame:
         )
 
     url = FIXTURE_URLS[season]
-    r = requests.get(url, timeout=60, headers={"User-Agent": "premier-league-predictor/1.0"})
+    r = requests.get(url, timeout=60, headers={"User-Agent": "pitchcast/1.0"})
     r.raise_for_status()
 
     rows = _parse_fixtures_html(r.text)

@@ -355,6 +355,9 @@ def fixture_insights(
     h2h = _h2h(hist, home, away, n=8)
 
     conf = confidence_from_probs(p_home, p_draw, p_away)
+    from src.predict.goalscorer import fixture_goalscorers
+
+    goalscorers = fixture_goalscorers(home, away, lam, mu, top_n=6)
     return {
         "home": home,
         "away": away,
@@ -371,6 +374,7 @@ def fixture_insights(
         "team_radar": _team_radar(home_form, away_form, lam, mu),
         "comparison_charts": _comparison_charts(home_form, away_form),
         "score_heatmap": score_heatmap(lam, mu, max_goals=5),
+        "goalscorers": goalscorers,
         "explanations": explain_match(home, away, home_form, away_form, lam, mu),
     }
 

@@ -111,7 +111,7 @@ async function load() {
     fetchJSON(`/api/teams/${encodeURIComponent(team)}/squad`).catch(() => ({ players: [] })),
   ]);
 
-  document.title = `${team} · Premier League Predictor`;
+  document.title = `${team} · PitchCast`;
   const info = profile.info || {};
   const stadiumImg = info.stadium_image || '';
 
