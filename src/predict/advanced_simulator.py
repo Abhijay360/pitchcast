@@ -381,9 +381,9 @@ class AdvancedFootballSimulator:
             pts_arr = points[t]
             rows.append({
                 "team": t,
-                "expected_points": float(np.mean(pts_arr)),
-                "points_p95_upper": float(np.percentile(pts_arr, 97.5)),
-                "points_p95_lower": float(np.percentile(pts_arr, 2.5)),
+                "expected_points": int(round(float(np.mean(pts_arr)))),
+                "points_p95_upper": int(round(float(np.percentile(pts_arr, 97.5)))),
+                "points_p95_lower": int(round(float(np.percentile(pts_arr, 2.5)))),
                 "avg_goals_scored": float(np.mean(gf[t])),
                 "avg_goals_conceded": float(np.mean(ga[t])),
                 "expected_gf": int(round(np.mean(gf[t]))),
@@ -425,11 +425,12 @@ class AdvancedFootballSimulator:
 
         rows = []
         for t in team_list:
+            pts_i = int(round(pts[t]))
             rows.append({
                 "team": t,
-                "expected_points": pts[t],
-                "points_p95_upper": pts[t],
-                "points_p95_lower": pts[t],
+                "expected_points": pts_i,
+                "points_p95_upper": pts_i,
+                "points_p95_lower": pts_i,
                 "avg_goals_scored": gf[t],
                 "avg_goals_conceded": ga[t],
                 "expected_gf": int(round(gf[t])),

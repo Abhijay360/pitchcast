@@ -27,8 +27,9 @@ def run_pipeline(
     _run([py, "-m", "src.ingest.download_csv", "--seasons", *train_seasons])
     _run([py, "-m", "src.validate_training_data", "--predict-season", predict_season])
 
-    # 2) Squad values and transfer spend (Transfermarkt)
+    # 2) Squad values, transfers (Transfermarkt) + live injuries (FPL API)
     _run([py, "-m", "src.ingest.fetch_squad_data", "--season", predict_season])
+    _run([py, "-m", "src.ingest.fetch_injuries", "--season", predict_season])
     _run([py, "scripts/download_stadiums.py"])
 
     # 3) Official fixture list for the season we're predicting

@@ -113,7 +113,7 @@ def run_simulation(
 def monte_carlo_to_standings(mc: pd.DataFrame) -> pd.DataFrame:
     """Convert Monte Carlo output to legacy standings schema for the web UI."""
     out = mc.copy()
-    out["points"] = out["expected_points"].round().astype(int)
+    out["points"] = out["expected_points"].astype(int)
     out["gf"] = out["expected_gf"].astype(int)
     out["ga"] = out["expected_ga"].astype(int)
     out["gd"] = out["expected_gd"].astype(int)
@@ -157,8 +157,8 @@ def main() -> None:
     for _, r in mc.head(5).iterrows():
         print(
             f"  {int(r['position'])}. {r['team']}: "
-            f"{r['expected_points']:.1f} pts "
-            f"[{r['points_p95_lower']:.0f}–{r['points_p95_upper']:.0f}]"
+            f"{int(r['expected_points'])} pts "
+            f"[{int(r['points_p95_lower'])}–{int(r['points_p95_upper'])}]"
         )
 
 

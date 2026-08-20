@@ -14,7 +14,7 @@ from fastapi.staticfiles import StaticFiles
 from src.config import PREDICT_SEASON, TRAIN_SEASONS, get_paths
 from src.dataio import load_parquet
 from src.ingest.fetch_squad_data import load_squad_data
-from src.manager_adjustments import MANAGER_BOOST, MANAGER_NOTES
+from src.manager_adjustments import MANAGER_BOOST, MANAGER_NOTES, manager_ranking
 from src.standings import build_standings_from_simulation
 from src.teams_meta import team_info, team_stadium, team_stadium_image
 from src.train.train_model import FEATURE_COLS
@@ -192,9 +192,10 @@ def methodology() -> dict[str, Any]:
         "training_data_source": "football-data.co.uk (E0 Premier League CSVs)",
         "fixture_source": "Official 2026/27 fixture release via fixturedownload.com (mirrors premierleague.com)",
         "squad_source": "Transfermarkt — squad market values, player list, net transfer spend",
+        "injury_source": "Fantasy Premier League API — current injuries, suspensions, availability %",
         "features_used": [
             "Player capabilities (0–1) from market values, top-11 starting XI",
-            "Live player health with non-linear penalty below 80% (health²)",
+            "Live injuries / availability from FPL (injured players dropped from XI; health² penalty below 80%)",
             "Player-player chemistry from starting-XI capability variance",
             "Manager-player chemistry from 10-year manager skill ratings",
             "H2H goal-differential modifier with time decay (10 seasons)",
@@ -203,15 +204,15 @@ def methodology() -> dict[str, Any]:
         ],
         "does_not_use": [
             "scikit-learn / xgboost for match prediction (legacy model kept for accuracy reporting only)",
-            "Injuries unless player health is set below 1.0",
             "Market betting odds",
         ],
         "how_predictions_update": (
-            "Re-run python -m src.predict.simulate_season after matchdays. "
-            "H2H records and squad data refresh; Monte Carlo re-simulates the full season."
+            "Re-run fetch_squad_data + fetch_injuries, then simulate_season after matchdays. "
+            "H2H, squad, and injury data refresh; Monte Carlo re-simulates the full season."
         ),
         "manager_adjustments": MANAGER_BOOST,
         "manager_notes": MANAGER_NOTES,
+        "manager_ranking": manager_ranking(),
     }
 
 

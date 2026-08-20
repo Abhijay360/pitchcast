@@ -9,14 +9,17 @@ import pandas as pd
 
 from src.config import PREDICT_SEASON, TRAIN_SEASONS
 from src.dataio import load_raw_seasons
+from src.ingest.fetch_injuries import load_player_health_map
 from src.ingest.fetch_squad_data import load_squad_data
-from src.manager_adjustments import MANAGER_BOOST
+from src.manager_adjustments import manager_skill as _manager_skill
 from src.predict.advanced_simulator import AdvancedFootballSimulator
 from src.predict.backtest_calibration import apply_calibrated_params
 
 # Position weights for attack vs defence composites
 _ATTACK_POS = {"FW", "AM", "LW", "RW", "CF", "SS"}
 _DEFENCE_POS = {"GK", "CB", "LB", "RB", "WB", "DM"}
+# Below this health, player is left out of the projected starting XI
+_STARTER_HEALTH_MIN = 0.45
 
 
 def _player_id(team: str, name: str) -> str:
@@ -28,11 +31,6 @@ def _capability_from_value(value_m: float, league_max: float) -> float:
         return 0.5
     raw = value_m / league_max
     return float(np.clip(0.25 + raw * 0.70, 0.20, 0.98))
-
-
-def _manager_skill(team: str) -> float:
-    boost = MANAGER_BOOST.get(team, 0.0)
-    return float(np.clip(0.55 + boost * 1.8, 0.40, 0.96))
 
 
 def _position_weights(position: str) -> tuple[float, float]:
@@ -60,6 +58,7 @@ class PremierLeagueSimulatorSeed:
 
         eng = AdvancedFootballSimulator()
         apply_calibrated_params(eng)
+        health_map = load_player_health_map(self.season)
         player_max_mv = max(
             (
                 float(p.get("market_value_m", 0))
@@ -74,12 +73,11 @@ class PremierLeagueSimulatorSeed:
             mgr_id = f"mgr|{team}"
             eng.register_manager(mgr_id, _manager_skill(team))
 
-        # Players & rosters
+        # Players & rosters (injuries lower health and drop out of XI)
         for team, data in squad.items():
             players = data.get("players", [])
             roster: list[str] = []
-            starter_ids: list[str] = []
-            top11 = sorted(players, key=lambda p: p.get("market_value_m", 0), reverse=True)[:11]
+            health_by_pid: dict[str, float] = {}
 
             for p in players:
                 pid = _player_id(team, p["name"])
@@ -88,10 +86,18 @@ class PremierLeagueSimulatorSeed:
                 atk_w, def_w = _position_weights(p.get("position", ""))
                 eng.player_attack_weight[pid] = atk_w
                 eng.player_defence_weight[pid] = def_w
+                health = float(health_map.get(pid, 1.0))
+                eng.set_player_health(pid, health)
+                health_by_pid[pid] = health
                 roster.append(pid)
 
-            for p in top11:
-                starter_ids.append(_player_id(team, p["name"]))
+            available = [
+                p for p in players
+                if health_by_pid.get(_player_id(team, p["name"]), 1.0) >= _STARTER_HEALTH_MIN
+            ]
+            pool = available if len(available) >= 11 else players
+            top11 = sorted(pool, key=lambda p: p.get("market_value_m", 0), reverse=True)[:11]
+            starter_ids = [_player_id(team, p["name"]) for p in top11]
 
             if not starter_ids and roster:
                 starter_ids = roster[:11]
