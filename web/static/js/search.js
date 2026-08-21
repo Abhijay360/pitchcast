@@ -57,7 +57,7 @@ function initMatchSearch(root) {
       return;
     }
     try {
-      const res = await fetch(`/api/matches/search?q=${encodeURIComponent(query)}&limit=20`);
+      const res = await fetch(`/api/matches/search?q=${encodeURIComponent(query)}&limit=40`);
       if (!res.ok) throw new Error('Search failed');
       const data = await res.json();
       const matches = data.matches || [];
@@ -65,7 +65,18 @@ function initMatchSearch(root) {
         show('<div class="search-empty muted">No matches found</div>');
         return;
       }
-      show(matches.map(renderSearchResult).join(''));
+      let html = '';
+      if (data.team && data.team_url) {
+        html += `<a class="search-result search-team-link" href="${data.team_url}" role="option">
+          <div class="search-result-main">
+            <span class="search-result-teams">All ${data.count} predictions · ${data.team}</span>
+            <span class="search-result-score">Open →</span>
+          </div>
+          <div class="search-result-meta muted">Full 2026–27 predicted fixture list</div>
+        </a>`;
+      }
+      html += matches.map(renderSearchResult).join('');
+      show(html);
     } catch {
       show('<div class="search-empty muted">Search unavailable</div>');
     }

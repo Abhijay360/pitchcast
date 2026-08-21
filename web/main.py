@@ -266,14 +266,43 @@ def fixture_detail(home: str, away: str, date: str = "") -> dict[str, Any]:
 
 
 @app.get("/api/matches/search")
-def search_matches(q: str = "", limit: int = 25) -> dict[str, Any]:
+def search_matches(q: str = "", limit: int = 40) -> dict[str, Any]:
+    """Search fixtures. Typing one club returns that team's full season predictions."""
     df = _load_all_fixtures()
     if df.empty:
         raise HTTPException(404, "Fixtures not found. Run the pipeline first.")
-    limit = max(1, min(int(limit), 50))
+    limit = max(1, min(int(limit or 40), 50))
+    q_clean = (q or "").strip()
+    ql = q_clean.lower()
+
+    team_hit: str | None = None
+    if q_clean and " vs " not in ql and " v " not in ql and " - " not in ql:
+        teams = sorted(
+            set(df["HomeTeam"].dropna().astype(str)) | set(df["AwayTeam"].dropna().astype(str)),
+            key=len,
+            reverse=True,
+        )
+        for t in teams:
+            tl = t.lower()
+            if ql == tl or tl.startswith(ql) or ql in tl:
+                team_hit = t
+                break
+
+    if team_hit:
+        mask = (df["HomeTeam"] == team_hit) | (df["AwayTeam"] == team_hit)
+        hits = df[mask].sort_values("Date").head(limit)
+        records = [_enrich_fixture_record(r) for r in _df_to_records(hits)]
+        return {
+            "query": q,
+            "count": len(records),
+            "matches": records,
+            "team": team_hit,
+            "team_url": f"/team?team={team_hit}",
+        }
+
     hits = _search_fixtures(df, q, limit=limit)
     records = [_enrich_fixture_record(r) for r in _df_to_records(hits)]
-    return {"query": q, "count": len(records), "matches": records}
+    return {"query": q, "count": len(records), "matches": records, "team": None}
 
 
 @app.get("/api/fixture/insights")

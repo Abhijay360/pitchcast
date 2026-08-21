@@ -51,32 +51,50 @@ function renderHistory(rows) {
   return html;
 }
 
+function pct1(n) {
+  return Number.isFinite(n) ? `${(n * 100).toFixed(0)}%` : '—';
+}
+
 function renderFixtures(fixtures, team) {
+  const up = fixtures.upcoming || [];
+  const played = fixtures.played || [];
+  const all = [...played, ...up].sort((a, b) => String(a.Date || '').localeCompare(String(b.Date || '')));
+
   const card = (m) => {
     const isHome = m.HomeTeam === team;
     const opp = isHome ? m.AwayTeam : m.HomeTeam;
-    const venue = isHome ? 'Home' : 'Away';
-    const score = m.played ? `${m.FTHG}–${m.FTAG}` : (m.pred_score || '—');
-    const date = m.Date ? new Date(m.Date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
+    const venue = isHome ? 'H' : 'A';
+    const playedMatch = !!m.played;
+    const score = playedMatch
+      ? `${m.FTHG}–${m.FTAG}`
+      : (m.pred_score || `${m.pred_home_goals ?? '–'}–${m.pred_away_goals ?? '–'}`);
+    const date = m.Date
+      ? new Date(m.Date).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })
+      : '—';
+    const probs = !playedMatch && m.p_home != null
+      ? `<div class="fixture-mini-probs muted">H ${pct1(m.p_home)} · D ${pct1(m.p_draw)} · A ${pct1(m.p_away)}</div>`
+      : '';
+    const badge = playedMatch ? 'Played' : 'Predicted';
     return `<a class="fixture-mini" href="${matchUrl(m)}">
-      <div class="fixture-mini-top"><span class="muted">${date}</span><span class="pill small">${venue}</span></div>
-      <div class="fixture-mini-main"><strong>${team}</strong> vs ${opp}</div>
+      <div class="fixture-mini-top">
+        <span class="muted">${date}</span>
+        <span class="pill small">${venue} · ${badge}</span>
+      </div>
+      <div class="fixture-mini-main">${isHome ? `<strong>${team}</strong> vs ${opp}` : `${opp} vs <strong>${team}</strong>`}</div>
       <div class="fixture-mini-score">${score}</div>
+      ${probs}
     </a>`;
   };
-  const up = fixtures.upcoming || [];
-  const played = fixtures.played || [];
+
+  if (!all.length) {
+    return '<p class="muted">No fixtures found for this team.</p>';
+  }
+
   return `
-    <div class="grid-2">
-      <div>
-        <h3>Upcoming (${up.length})</h3>
-        <div class="fixture-mini-list">${up.length ? up.slice(0, 8).map(card).join('') : '<p class="muted">No upcoming fixtures.</p>'}</div>
-      </div>
-      <div>
-        <h3>Played (${played.length})</h3>
-        <div class="fixture-mini-list">${played.length ? played.slice(-8).reverse().map(card).join('') : '<p class="muted">Season not started.</p>'}</div>
-      </div>
-    </div>`;
+    <p class="muted small" style="margin-bottom:0.75rem">
+      All ${all.length} matches this season — predicted scorelines and win/draw/away odds. Click any row for full match insights.
+    </p>
+    <div class="fixture-mini-list fixture-season-list">${all.map(card).join('')}</div>`;
 }
 
 function renderSquad(squad, team) {
@@ -138,7 +156,7 @@ async function load() {
   document.getElementById('team-content').innerHTML = `
     ${stats}
     <div class="card mt"><h2>Honours</h2>${renderTrophies(profile.trophies, profile.most_recent_major)}</div>
-    <div class="card mt"><h2>${profile.predict_season_label} fixtures</h2>${renderFixtures(profile.fixtures, team)}</div>
+    <div class="card mt"><h2>${profile.predict_season_label} — all predictions</h2>${renderFixtures(profile.fixtures, team)}</div>
     <div class="grid-2 mt">
       <div class="card"><h2>PL season history</h2>${renderHistory(profile.season_history || [])}</div>
       <div class="card"><h2>Squad</h2>${renderSquad(squad, team)}</div>
