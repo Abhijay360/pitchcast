@@ -216,11 +216,17 @@ function renderAccuracyBreakdown(data) {
 function renderStandings(rows) {
   const tbody = $('#standings-table tbody');
   if (!rows.length) {
-    tbody.innerHTML = '<tr><td colspan="10" class="empty-state">No standings data yet.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="12" class="empty-state">No standings data yet.</td></tr>';
     return;
   }
   tbody.innerHTML = rows.map((r) => {
     const meta = teamMeta(r.team);
+    const scorerLabel = r.top_scorer
+      ? `${r.top_scorer} (${r.top_scorer_goals}${r.top_scorer_live ? '' : '*'})`
+      : '—';
+    const assisterLabel = r.top_assister
+      ? `${r.top_assister} (${r.top_assister_assists}${r.top_assister_live ? '' : '*'})`
+      : '—';
     return `
     <tr class="pos-${r.position <= 4 ? r.position : ''}">
       <td>${r.position}</td>
@@ -233,26 +239,55 @@ function renderStandings(rows) {
       <td>${r.ga}</td>
       <td>${r.gd > 0 ? '+' : ''}${r.gd}</td>
       <td><strong>${r.points}</strong></td>
+      <td class="player-stat-cell">${scorerLabel}</td>
+      <td class="player-stat-cell">${assisterLabel}</td>
     </tr>`;
+  }).join('');
+}
+
+function renderScorersLeaderboard(players) {
+  const tbody = $('#scorers-table tbody');
+  if (!tbody) return;
+  if (!players.length) {
+    tbody.innerHTML = '<tr><td colspan="6" class="empty-state">No player stats yet.</td></tr>';
+    return;
+  }
+  const list = players;
+  tbody.innerHTML = list.map((p, i) => {
+    const g = p.goals > 0 ? p.goals : (p.prev_pl_goals ? `${p.prev_pl_goals}*` : '0');
+    const a = p.assists > 0 ? p.assists : (p.prev_pl_assists ? `${p.prev_pl_assists}*` : '0');
+    return `
+      <tr>
+        <td>${i + 1}</td>
+        <td><a class="team-name-link" href="/player?team=${encodeURIComponent(p.team)}&name=${encodeURIComponent(p.player)}">${p.player}</a></td>
+        <td class="team-cell">${p.team}</td>
+        <td>${p.position}</td>
+        <td>${g}</td>
+        <td>${a}</td>
+      </tr>`;
   }).join('');
 }
 
 function renderResults(matches) {
   const tbody = $('#results-table tbody');
   if (!matches.length) {
-    tbody.innerHTML = '<tr><td colspan="6" class="empty-state">No played matches yet this season.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="7" class="empty-state">No played matches yet this season.</td></tr>';
     return;
   }
   tbody.innerHTML = [...matches].reverse().map((m) => {
     const date = m.Date ? new Date(m.Date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }) : '—';
-    const ok = m.correct ? 'correct' : 'incorrect';
+    const predScore = m.pred_score || `${m.pred_home_goals ?? '–'}–${m.pred_away_goals ?? '–'}`;
+    const actualScore = m.actual_score || `${m.FTHG}–${m.FTAG}`;
+    const outcomeOk = m.correct ? 'correct' : 'incorrect';
+    const scoreOk = m.score_correct ? 'correct' : 'incorrect';
     return `
       <tr>
         <td>${date}</td>
         <td class="team-cell">${m.HomeTeam} vs ${m.AwayTeam}</td>
-        <td>${m.FTHG}–${m.FTAG}</td>
+        <td class="${scoreOk}"><strong>${predScore}</strong></td>
+        <td><strong>${actualScore}</strong></td>
         <td><span class="result-chip ${m.FTR}">${ftrLabel(m.FTR)}</span></td>
-        <td class="${ok}"><span class="result-chip ${m.pred_ftr}">${ftrLabel(m.pred_ftr)}</span></td>
+        <td class="${outcomeOk}"><span class="result-chip ${m.pred_ftr}">${ftrLabel(m.pred_ftr)}</span></td>
         <td class="mini-probs">H ${pct(m.p_home)} · D ${pct(m.p_draw)} · A ${pct(m.p_away)}</td>
       </tr>`;
   }).join('');
@@ -312,7 +347,7 @@ async function load() {
 
     TEAMS = await fetchJSON('/api/teams').catch(() => ({}));
 
-    const [report, accuracy, upcoming, standings, season, manifest, methodology] = await Promise.all([
+    const [report, accuracy, upcoming, standings, season, manifest, methodology, scorers] = await Promise.all([
       fetchJSON('/api/report').catch(() => null),
       fetchJSON('/api/accuracy/recent?n=200').catch(() => null),
       fetchJSON('/api/predictions/upcoming').catch(() => []),
@@ -320,6 +355,7 @@ async function load() {
       fetchJSON(`/api/matches/season/${PREDICT_SEASON}`).catch(() => ({ played: [], played_count: 0, accuracy: null })),
       fetchJSON('/api/training-manifest').catch(() => null),
       fetchJSON('/api/methodology').catch(() => null),
+      fetchJSON('/api/players/leaderboard?sort=goals').catch(() => ({ players: [] })),
     ]);
 
     renderHeroStats(report, accuracy, season, seasonLabel);
@@ -339,9 +375,13 @@ async function load() {
     setupFixtureFilter(seasonLabel);
 
     renderStandings(standings);
+    renderScorersLeaderboard(scorers.players || []);
 
     if (season.accuracy != null) {
-      $('#season-accuracy').textContent = `${pct(season.accuracy)} accuracy (${season.played_count} played)`;
+      const scorePart = season.score_accuracy != null
+        ? ` · ${pct(season.score_accuracy)} exact score`
+        : '';
+      $('#season-accuracy').textContent = `${pct(season.accuracy)} outcome (${season.played_count} played)${scorePart}`;
     } else if (season.played_count === 0) {
       $('#season-accuracy').textContent = 'Season not started';
     }

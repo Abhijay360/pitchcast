@@ -15,6 +15,7 @@ from src.config import PREDICT_SEASON, TRAIN_SEASONS, get_paths
 from src.dataio import load_parquet
 from src.ingest.fetch_squad_data import load_squad_data
 from src.manager_adjustments import MANAGER_BOOST, MANAGER_NOTES, manager_ranking
+from src.player_leaderboard import enrich_standings_with_leaders, league_leaderboard
 from src.standings import build_standings_from_simulation
 from src.teams_meta import team_info, team_stadium, team_stadium_image
 from src.train.train_model import FEATURE_COLS
@@ -348,34 +349,42 @@ def upcoming_predictions() -> list[dict[str, Any]]:
 
 @app.get("/api/matches/season/{season}")
 def season_matches(season: str) -> dict[str, Any]:
-    played = _season_played(season)
-    preds_path = paths.processed_dir / "predictions_upcoming.parquet"
-    upcoming = load_parquet(preds_path) if preds_path.exists() else pd.DataFrame()
-    model_path = paths.models_dir / "pl_ftr_logreg.pkl"
-
+    """Played matches with Dixon-Coles predictions vs actual results."""
+    sim_path = paths.processed_dir / "season_simulation.parquet"
     played_with_preds: list[dict[str, Any]] = []
     accuracy: float | None = None
+    score_accuracy: float | None = None
+    played_count = 0
 
-    if len(played) > 0 and model_path.exists():
-        model = joblib.load(model_path)
-        X = played[FEATURE_COLS].astype(float)
-        proba = model.predict_proba(X)
-        pred = np.argmax(proba, axis=1)
-        enriched = played.copy()
-        enriched["p_home"] = proba[:, 0]
-        enriched["p_draw"] = proba[:, 1]
-        enriched["p_away"] = proba[:, 2]
-        enriched["pred_ftr"] = pd.Series(pred).map({0: "H", 1: "D", 2: "A"})
-        enriched["correct"] = enriched["pred_ftr"] == enriched["FTR"]
-        accuracy = float(enriched["correct"].mean())
-        played_with_preds = _df_to_records(enriched)
+    if sim_path.exists():
+        sim = load_parquet(sim_path)
+        if "season" in sim.columns:
+            sim = sim[sim["season"].astype(str) == season]
+        played = sim[sim["played"] == True].copy()  # noqa: E712
+        played_count = int(len(played))
+        if played_count > 0:
+            played["correct"] = played["pred_ftr"] == played["FTR"]
+            played["score_correct"] = (
+                (played["pred_home_goals"] == played["FTHG"])
+                & (played["pred_away_goals"] == played["FTAG"])
+            )
+            played["actual_score"] = played["FTHG"].astype(int).astype(str) + "–" + played["FTAG"].astype(int).astype(str)
+            accuracy = float(played["correct"].mean())
+            score_accuracy = float(played["score_correct"].mean())
+            played_with_preds = _df_to_records(played)
+
+    upcoming_count = 0
+    preds_path = paths.processed_dir / "predictions_upcoming.parquet"
+    if preds_path.exists():
+        upcoming_count = int(len(load_parquet(preds_path)))
 
     return {
         "season": season,
         "played": played_with_preds,
-        "upcoming_count": int(len(upcoming)),
-        "played_count": int(len(played)),
+        "upcoming_count": upcoming_count,
+        "played_count": played_count,
         "accuracy": accuracy,
+        "score_accuracy": score_accuracy,
     }
 
 
@@ -390,19 +399,30 @@ def monte_carlo_standings() -> list[dict[str, Any]]:
 
 @app.get("/api/standings")
 def standings() -> list[dict[str, Any]]:
+    sim_path = paths.processed_dir / "season_simulation.parquet"
+    if sim_path.exists():
+        sim = load_parquet(sim_path)
+        table = build_standings_from_simulation(sim)
+        table = enrich_standings_with_leaders(table, PREDICT_SEASON)
+        return _df_to_records(table)
+
     mc_path = paths.processed_dir / "monte_carlo_standings.parquet"
     if mc_path.exists():
         from src.predict.simulate_season import monte_carlo_to_standings
         mc = load_parquet(mc_path)
         table = monte_carlo_to_standings(mc)
+        table = enrich_standings_with_leaders(table, PREDICT_SEASON)
         return _df_to_records(table)
 
-    sim_path = paths.processed_dir / "season_simulation.parquet"
-    if not sim_path.exists():
-        raise HTTPException(404, "Season simulation not found. Run the pipeline first.")
-    sim = load_parquet(sim_path)
-    table = build_standings_from_simulation(sim)
-    return _df_to_records(table)
+    raise HTTPException(404, "Season simulation not found. Run the pipeline first.")
+
+
+@app.get("/api/players/leaderboard")
+def players_leaderboard(sort: str = "goals") -> dict[str, Any]:
+    """All squad players ranked by goals or assists (2627 actuals + prior PL baseline)."""
+    sort_key = "assists" if sort.lower().startswith("a") else "goals"
+    rows = league_leaderboard(PREDICT_SEASON, sort_by=sort_key)
+    return {"sort": sort_key, "count": len(rows), "players": rows}
 
 
 @app.get("/api/accuracy/recent")

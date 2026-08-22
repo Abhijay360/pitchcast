@@ -1,0 +1,29 @@
+{
+  "season": "2627",
+  "matches": [
+    {
+      "date": "2026-08-21",
+      "home": "Arsenal",
+      "away": "Coventry",
+      "fthg": 3,
+      "ftag": 0,
+      "ftr": "H",
+      "goals": [
+        {"team": "Arsenal", "player": "Kai Havertz"},
+        {"team": "Arsenal", "player": "Bukayo Saka"},
+        {"team": "Arsenal", "player": "Martin Ødegaard"}
+      ],
+      "assists": [
+        {"team": "Arsenal", "player": "Riccardo Calafiori", "for": "Kai Havertz"},
+        {"team": "Arsenal", "player": "Ben White", "for": "Martin Ødegaard"}
+      ]
+    }
+  ],
+  "player_totals": {
+    "Arsenal|Kai Havertz": {"goals": 1, "assists": 0},
+    "Arsenal|Bukayo Saka": {"goals": 1, "assists": 0},
+    "Arsenal|Martin Ødegaard": {"goals": 1, "assists": 0},
+    "Arsenal|Riccardo Calafiori": {"goals": 0, "assists": 1},
+    "Arsenal|Ben White": {"goals": 0, "assists": 1}
+  }
+}
