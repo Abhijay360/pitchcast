@@ -10,17 +10,17 @@ function formatMatchDate(d) {
 }
 
 function renderSearchResult(m) {
-  const played = m.played || (m.FTHG != null && m.FTAG != null);
-  const score = played
-    ? `${m.FTHG}–${m.FTAG}`
-    : (m.pred_score || `${m.pred_home_goals ?? '–'}–${m.pred_away_goals ?? '–'}`);
+  const played = isPlayedMatch(m);
+  const scoreHtml = played
+    ? `<div class="search-result-scores"><span class="score-pred">Pred ${predScoreText(m)}</span><span class="score-actual">Actual ${actualScoreText(m)}</span></div>`
+    : `<span class="search-result-score">${predScoreText(m)}</span>`;
   const status = played ? 'Played' : 'Upcoming';
   const md = m.Round ? ` · MD ${m.Round}` : '';
   return `
     <a class="search-result" href="${matchSearchUrl(m)}" role="option">
       <div class="search-result-main">
         <span class="search-result-teams">${m.HomeTeam} vs ${m.AwayTeam}</span>
-        <span class="search-result-score">${score}</span>
+        ${scoreHtml}
       </div>
       <div class="search-result-meta muted">
         <span>${formatMatchDate(m.Date)}${md}</span>

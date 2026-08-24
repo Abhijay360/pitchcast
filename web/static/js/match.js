@@ -492,7 +492,7 @@ async function load() {
     <div class="fixture-body">
       <div class="fixture-matchup">
         <div class="team-side home">${logoLink(fixture.home_logo || homeMeta.logo, home)}<a class="team-name team-name-link" href="${teamUrl(home)}">${home}</a></div>
-        <div class="score-center"><div class="pred-score">${fixture.pred_score || '—'}</div><div class="score-label">Predicted score</div></div>
+        ${renderScoreCompare(fixture, { size: 'lg' })}
         <div class="team-side away">${logoLink(fixture.away_logo || awayMeta.logo, away)}<a class="team-name team-name-link" href="${teamUrl(away)}">${away}</a></div>
       </div>
       <p style="text-align:center;margin:0.75rem 0;color:var(--muted);font-size:0.85rem">

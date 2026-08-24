@@ -80,13 +80,11 @@ function renderFixtureCard(m) {
   const stadiumImg = (home.stadium_image && home.stadium_image.startsWith('/static/'))
     ? home.stadium_image
     : ((m.stadium_image && m.stadium_image.startsWith('/static/')) ? m.stadium_image : home.stadium_image || m.stadium_image);
-  const score = m.pred_score || `${m.pred_home_goals ?? '–'}–${m.pred_away_goals ?? '–'}`;
-
   const stadiumHtml = stadiumImg
     ? `<div class="fixture-stadium"><img src="${stadiumImg}" alt="" loading="lazy" onerror="this.onerror=null;this.src='${stadiumImg.replace('.jpg','.svg')}'" /><div class="fixture-stadium-overlay"><span class="home-badge">Home · ${m.HomeTeam}</span><span class="stadium-name">${stadium}</span></div></div>`
     : `<div class="fixture-stadium fixture-stadium-plain"><div class="fixture-stadium-overlay"><span class="home-badge">Home · ${m.HomeTeam}</span><span class="stadium-name">${stadium}</span></div></div>`;
-
   const matchUrl = `/match?home=${encodeURIComponent(m.HomeTeam)}&away=${encodeURIComponent(m.AwayTeam)}&date=${encodeURIComponent(m.Date || '')}`;
+  const scoreBlock = renderScoreCompare(m);
 
   return `
     <div class="fixture-card" data-href="${matchUrl}" role="link" tabindex="0">
@@ -94,17 +92,14 @@ function renderFixtureCard(m) {
       <div class="fixture-body">
         <div class="fixture-top">
           <span class="fixture-date">${date}${m.Round ? ` · MD ${m.Round}` : ''}</span>
-          <span class="pred-badge ${m.pred_ftr}">${ftrLabel(m.pred_ftr)}</span>
+          <span class="pred-badge ${isPlayedMatch(m) ? m.FTR : m.pred_ftr}">${isPlayedMatch(m) ? ftrLabel(m.FTR) : ftrLabel(m.pred_ftr)}</span>
         </div>
         <div class="fixture-matchup">
           <div class="team-side home">
             ${logoLinkTeam(homeLogo, m.HomeTeam)}
             <a class="team-name team-name-link" href="${teamPageUrl(m.HomeTeam)}">${m.HomeTeam}</a>
           </div>
-          <div class="score-center">
-            <div class="pred-score">${score}</div>
-            <div class="score-label">Predicted score</div>
-          </div>
+          ${scoreBlock}
           <div class="team-side away">
             ${logoLinkTeam(awayLogo, m.AwayTeam)}
             <a class="team-name team-name-link" href="${teamPageUrl(m.AwayTeam)}">${m.AwayTeam}</a>
@@ -290,8 +285,8 @@ function renderResults(matches) {
   }
   tbody.innerHTML = [...matches].reverse().map((m) => {
     const date = m.Date ? new Date(m.Date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }) : '—';
-    const predScore = m.pred_score || `${m.pred_home_goals ?? '–'}–${m.pred_away_goals ?? '–'}`;
-    const actualScore = m.actual_score || `${m.FTHG}–${m.FTAG}`;
+    const predScore = predScoreText(m);
+    const actualScore = actualScoreText(m);
     const outcomeOk = m.correct ? 'correct' : 'incorrect';
     const scoreOk = m.score_correct ? 'correct' : 'incorrect';
     return `

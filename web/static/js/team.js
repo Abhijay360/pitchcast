@@ -64,10 +64,10 @@ function renderFixtures(fixtures, team) {
     const isHome = m.HomeTeam === team;
     const opp = isHome ? m.AwayTeam : m.HomeTeam;
     const venue = isHome ? 'H' : 'A';
-    const playedMatch = !!m.played;
-    const score = playedMatch
-      ? `${m.pred_score || `${m.pred_home_goals ?? '–'}–${m.pred_away_goals ?? '–'}`} → ${m.FTHG}–${m.FTAG}`
-      : (m.pred_score || `${m.pred_home_goals ?? '–'}–${m.pred_away_goals ?? '–'}`);
+    const playedMatch = isPlayedMatch(m);
+    const scoreHtml = playedMatch
+      ? `<div class="fixture-mini-scores"><span class="score-pred">Pred ${predScoreText(m)}</span><span class="score-actual">Actual ${actualScoreText(m)}</span></div>`
+      : `<div class="fixture-mini-score">${predScoreText(m)}</div>`;
     const date = m.Date
       ? new Date(m.Date).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })
       : '—';
@@ -81,7 +81,7 @@ function renderFixtures(fixtures, team) {
         <span class="pill small">${venue} · ${badge}</span>
       </div>
       <div class="fixture-mini-main">${isHome ? `<strong>${team}</strong> vs ${opp}` : `${opp} vs <strong>${team}</strong>`}</div>
-      <div class="fixture-mini-score">${score}</div>
+      ${scoreHtml}
       ${probs}
     </a>`;
   };

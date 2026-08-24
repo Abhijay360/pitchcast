@@ -433,6 +433,72 @@ body {
   margin-top: 0.15rem;
 }
 
+.score-compare-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.score-compare-col {
+  text-align: center;
+  min-width: 3.5rem;
+}
+
+.score-compare-col.correct .score-compare-value { color: var(--success, #4ade80); }
+.score-compare-col.incorrect .score-compare-value { color: var(--warning, #fbbf24); }
+.score-compare-col.actual .score-compare-value { color: var(--text); }
+
+.score-compare-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.score-compare.score-lg .score-compare-value,
+.score-compare.score-lg .pred-score { font-size: 1.6rem; }
+
+.score-compare-vs {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.score-compare-meta {
+  margin-top: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.score-compare-meta.correct { color: var(--success, #4ade80); }
+.score-compare-meta.incorrect { color: var(--danger, #f87171); }
+
+.search-result-scores {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+  font-size: 0.82rem;
+  line-height: 1.2;
+}
+
+.search-result-scores .score-pred { color: var(--muted); }
+.search-result-scores .score-actual { font-weight: 700; }
+
+.fixture-mini-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-weight: 600;
+}
+
+.fixture-mini-scores .score-pred { font-size: 0.78rem; color: var(--muted); font-weight: 500; }
+.fixture-mini-scores .score-actual { font-size: 0.95rem; }
+
 .standings-table .team-cell {
   display: flex;
   align-items: center;
