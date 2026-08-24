@@ -1,8 +1,9 @@
-"""Download real stadium photos locally (Unsplash, free license)."""
+"""Download per-team stadium photos (club / Premier League partner CDNs + Wikimedia fallbacks)."""
 
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 import time
 from pathlib import Path
@@ -21,32 +22,53 @@ HEADERS = {
     "Accept": "image/*,*/*",
 }
 
-# One consistent wide stadium photo — lit stands, crowd, pitch (same look on every card)
-STADIUM_PHOTO_URL = (
-    "https://images.unsplash.com/photo-1731312084255-6b38e3ea2484"
-    "?w=1400&h=520&fit=crop&crop=top&q=88&auto=format"
-)
+MIN_BYTES = 15_000
 
 
-def download_stadium_photos(out_dir: Path, *, force: bool = False) -> int:
+def _load_sources(data_dir: Path) -> dict[str, dict[str, str]]:
+    path = data_dir / "stadium_image_sources.json"
+    if not path.exists():
+        raise FileNotFoundError(f"Missing stadium source map: {path}")
+    raw = json.loads(path.read_text())
+    return {k: v for k, v in raw.items() if not k.startswith("_")}
+
+
+def download_stadium_photos(
+    out_dir: Path,
+    *,
+    sources: dict[str, dict[str, str]] | None = None,
+    force: bool = False,
+) -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
+    if sources is None:
+        sources = _load_sources(Path(__file__).resolve().parents[1] / "data")
+
     ok = 0
     for team, slug in LOGO_SLUG.items():
         dest = out_dir / f"{slug}.jpg"
-        if not force and dest.exists() and dest.stat().st_size > 50_000:
+        if not force and dest.exists() and dest.stat().st_size > MIN_BYTES:
             ok += 1
             continue
+
+        entry = sources.get(team)
+        if not entry or not entry.get("url"):
+            print(f"  ✗ {team} (no source URL)")
+            continue
+
+        url = entry["url"]
+        source = entry.get("source", "unknown")
         try:
-            r = requests.get(STADIUM_PHOTO_URL, headers=HEADERS, timeout=45)
-            if r.status_code == 200 and len(r.content) > 40_000:
+            r = requests.get(url, headers=HEADERS, timeout=60)
+            if r.status_code == 200 and len(r.content) >= MIN_BYTES:
                 dest.write_bytes(r.content)
                 ok += 1
-                print(f"  ✓ {team}")
+                print(f"  ✓ {team} ({source}, {len(r.content) // 1024} KB)")
             else:
-                print(f"  ✗ {team} (HTTP {r.status_code})")
-        except Exception as e:
-            print(f"  ✗ {team}: {e}")
-        time.sleep(0.15)
+                print(f"  ✗ {team} HTTP {r.status_code} / {len(r.content)} bytes ({source})")
+        except Exception as exc:
+            print(f"  ✗ {team}: {exc}")
+        time.sleep(1.2)
+
     return ok
 
 
@@ -56,7 +78,7 @@ def main() -> None:
     p.add_argument("--force", action="store_true")
     args = p.parse_args()
     root = Path(__file__).resolve().parents[1]
-    print("Downloading consistent stadium photos…")
+    print("Downloading per-team stadium photos…")
     n = download_stadium_photos(root / args.out, force=args.force)
     print(f"Done: {n}/{len(LOGO_SLUG)} stadium photos ready.")
 
