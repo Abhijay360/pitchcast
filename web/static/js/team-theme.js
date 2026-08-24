@@ -39,11 +39,34 @@ function hexToRgb(hex) {
   };
 }
 
+function rgbToHex(r, g, b) {
+  return `#${[r, g, b].map((v) => Math.max(0, Math.min(255, v)).toString(16).padStart(2, '0')).join('')}`;
+}
+
+function mixHex(base, accent, weight) {
+  const b = hexToRgb(base);
+  const a = hexToRgb(accent);
+  if (!b || !a) return base;
+  const w = weight;
+  return rgbToHex(
+    Math.round(b.r * (1 - w) + a.r * w),
+    Math.round(b.g * (1 - w) + a.g * w),
+    Math.round(b.b * (1 - w) + a.b * w),
+  );
+}
+
+function luminance(rgb) {
+  return (0.2126 * rgb.r + 0.7152 * rgb.g + 0.0722 * rgb.b) / 255;
+}
+
 function isLightColor(hex) {
   const c = hexToRgb(hex);
-  if (!c) return false;
-  const lum = (0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b) / 255;
-  return lum > 0.72;
+  return c ? luminance(c) > 0.72 : false;
+}
+
+function isDarkColor(hex) {
+  const c = hexToRgb(hex);
+  return c ? luminance(c) < 0.12 : false;
 }
 
 function applyTeamTheme(color, rootEl) {
@@ -53,19 +76,46 @@ function applyTeamTheme(color, rootEl) {
   if (!rgb) return;
 
   const light = isLightColor(color);
+  const dark = isDarkColor(color);
+  document.body.classList.add('team-page-body');
   app.classList.add('team-themed');
+
+  const bgTint = light
+    ? mixHex('#0a0e17', '#1D428A', 0.28)
+    : dark
+      ? mixHex('#0a0e17', '#ffffff', 0.05)
+      : mixHex('#0a0e17', color, 0.32);
+  const surface = light
+    ? mixHex('#12182a', '#1D428A', 0.22)
+    : mixHex('#12182a', color, 0.24);
+  const surface2 = light
+    ? mixHex('#1a2238', '#1D428A', 0.18)
+    : mixHex('#1a2238', color, 0.2);
+
   app.style.setProperty('--team-color', color);
-  app.style.setProperty('--team-soft', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.18)`);
-  app.style.setProperty('--team-border', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${light ? 0.75 : 0.55})`);
-  app.style.setProperty('--team-glow', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.45)`);
+  app.style.setProperty('--team-soft', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${light ? 0.14 : 0.22})`);
+  app.style.setProperty('--team-mid', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${light ? 0.35 : 0.45})`);
+  app.style.setProperty('--team-strong', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${light ? 0.55 : 0.65})`);
+  app.style.setProperty('--team-border', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${light ? 0.7 : 0.5})`);
+  app.style.setProperty('--team-glow', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.55)`);
+  app.style.setProperty('--team-gradient', `linear-gradient(135deg, rgba(${rgb.r},${rgb.g},${rgb.b},0.72) 0%, rgba(${rgb.r},${rgb.g},${rgb.b},0.28) 42%, rgba(${rgb.r},${rgb.g},${rgb.b},0.08) 100%)`);
+  app.style.setProperty('--team-gradient-soft', `linear-gradient(180deg, rgba(${rgb.r},${rgb.g},${rgb.b},0.35) 0%, transparent 70%)`);
   app.style.setProperty('--team-heading', color);
-  app.style.setProperty('--team-stat', light ? color : 'var(--text)');
+  app.style.setProperty('--team-on-color', light || dark ? '#f8fafc' : '#ffffff');
   app.style.setProperty('--team-on-badge', light ? '#0b0f1a' : color);
-  const accent2 = light
-    ? color
-    : `rgb(${Math.min(rgb.r + 40, 255)}, ${Math.min(rgb.g + 40, 255)}, ${Math.min(rgb.b + 40, 255)})`;
+  app.style.setProperty('--bg', bgTint);
+  app.style.setProperty('--surface', surface);
+  app.style.setProperty('--surface-2', surface2);
+  app.style.setProperty('--border', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.35)`);
+
+  const bodyVars = ['--team-color', '--team-soft', '--team-mid', '--team-strong', '--team-border', '--team-glow', '--team-gradient', '--bg', '--surface', '--surface-2', '--border'];
+  document.body.classList.add('team-page-body');
+  for (const key of bodyVars) {
+    const val = app.style.getPropertyValue(key);
+    if (val) document.body.style.setProperty(key, val);
+  }
   document.body.style.setProperty('--accent', color);
-  document.body.style.setProperty('--accent-2', accent2);
+  document.body.style.setProperty('--accent-2', light ? color : mixHex(color, '#ffffff', 0.35));
 }
 
 function initTeamPageTheme() {

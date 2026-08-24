@@ -140,8 +140,6 @@ async function load() {
       <a href="${teamUrl(team)}" class="profile-logo-link">${logoImg(info.logo)}</a>
       <div>
         <h1>${team}</h1>
-        <div class="team-color-bar" style="background:${clubColor}"></div>
-        <div class="team-color-chip"><span class="team-color-swatch" style="background:${clubColor}"></span>${clubColor}</div>
         <p class="hero-sub">${info.stadium || ''}${info.city ? ` · ${info.city}` : ''}${profile.nickname ? ` · ${profile.nickname}` : ''}${profile.founded ? ` · Est. ${profile.founded}` : ''}</p>
         ${profile.most_recent_major ? `<div class="hero-badge">${profile.most_recent_major.label}</div>` : ''}
       </div>
@@ -150,17 +148,19 @@ async function load() {
 
   const cs = profile.current_season || {};
   const stats = `
-    <div class="stats-row">
-      <div class="stat-card highlight-stat"><div class="stat-label">${profile.predict_season_label} table</div><div class="stat-value">${cs.position ? `#${cs.position}` : '—'} · ${cs.points ?? 0} pts</div></div>
-      <div class="stat-card"><div class="stat-label">Record</div><div class="stat-value">${cs.won ?? 0}W-${cs.drawn ?? 0}D-${cs.lost ?? 0}L</div></div>
-      <div class="stat-card"><div class="stat-label">Goals</div><div class="stat-value">${cs.gf ?? 0} scored · ${cs.ga ?? 0} conceded</div></div>
-      <div class="stat-card"><div class="stat-label">Form</div><div class="stat-value">${cs.form || '—'}</div></div>
-    </div>
-    <div class="stats-row">
-      <div class="stat-card"><div class="stat-label">Top scorer</div><div class="stat-value">${cs.top_scorer ? `${cs.top_scorer} (${cs.top_scorer_goals})` : '—'}</div></div>
-      <div class="stat-card"><div class="stat-label">Top assister</div><div class="stat-value">${cs.top_assister ? `${cs.top_assister} (${cs.top_assister_assists})` : '—'}</div></div>
-      <div class="stat-card"><div class="stat-label">Squad value</div><div class="stat-value">${squad.market_value_m ? `€${Math.round(squad.market_value_m)}m` : '—'}</div></div>
-      <div class="stat-card"><div class="stat-label">Net spend</div><div class="stat-value">${squad.net_spend_m != null ? `€${squad.net_spend_m.toFixed(0)}m` : '—'}</div></div>
+    <div class="team-summary-panel">
+      <div class="stats-row">
+        <div class="stat-card highlight-stat"><div class="stat-label">${profile.predict_season_label} table</div><div class="stat-value">${cs.position ? `#${cs.position}` : '—'} · ${cs.points ?? 0} pts</div></div>
+        <div class="stat-card"><div class="stat-label">Record</div><div class="stat-value">${cs.won ?? 0}W-${cs.drawn ?? 0}D-${cs.lost ?? 0}L</div></div>
+        <div class="stat-card"><div class="stat-label">Goals</div><div class="stat-value">${cs.gf ?? 0} scored · ${cs.ga ?? 0} conceded</div></div>
+        <div class="stat-card"><div class="stat-label">Form</div><div class="stat-value">${cs.form || '—'}</div></div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-label">Top scorer</div><div class="stat-value">${cs.top_scorer ? `${cs.top_scorer} (${cs.top_scorer_goals})` : '—'}</div></div>
+        <div class="stat-card"><div class="stat-label">Top assister</div><div class="stat-value">${cs.top_assister ? `${cs.top_assister} (${cs.top_assister_assists})` : '—'}</div></div>
+        <div class="stat-card"><div class="stat-label">Squad value</div><div class="stat-value">${squad.market_value_m ? `€${Math.round(squad.market_value_m)}m` : '—'}</div></div>
+        <div class="stat-card"><div class="stat-label">Net spend</div><div class="stat-value">${squad.net_spend_m != null ? `€${squad.net_spend_m.toFixed(0)}m` : '—'}</div></div>
+      </div>
     </div>`;
 
   document.getElementById('team-content').innerHTML = `
