@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+import json
+
+from src.config import get_paths
+
 LOGO_SLUG: dict[str, str] = {
     "Arsenal": "arsenal",
     "Aston Villa": "aston-villa",
@@ -27,32 +31,37 @@ LOGO_SLUG: dict[str, str] = {
     "Ipswich": "ipswich",
 }
 
-# Official club primary colours (canonical team name -> hex)
-TEAM_COLORS: dict[str, str] = {
-    "Arsenal": "#EF0107",
-    "Aston Villa": "#670E36",
-    "Bournemouth": "#DA291C",
-    "Brentford": "#E30613",
-    "Brighton": "#0057B8",
-    "Chelsea": "#034694",
-    "Coventry": "#69B3E7",
-    "Crystal Palace": "#1B458F",
-    "Everton": "#003399",
-    "Fulham": "#000000",
-    "Hull": "#F58220",
-    "Ipswich": "#003B94",
-    "Leeds": "#FFFFFF",
-    "Liverpool": "#C8102E",
-    "Man City": "#6CABDD",
-    "Man United": "#DA291C",
-    "Newcastle": "#241F20",
-    "Nott'm Forest": "#DD0000",
-    "Sunderland": "#EB172B",
-    "Tottenham": "#132257",
-    # Fallbacks for teams not in the user's list
-    "West Ham": "#7A263A",
-    "Wolves": "#FDB913",
+# Official PL names from user palette -> canonical app names
+_OFFICIAL_TO_CANONICAL: dict[str, str] = {
+    "Coventry City": "Coventry",
+    "Hull City": "Hull",
+    "Ipswich Town": "Ipswich",
+    "Leeds United": "Leeds",
+    "Manchester City": "Man City",
+    "Manchester United": "Man United",
+    "Newcastle United": "Newcastle",
+    "Nottingham Forest": "Nott'm Forest",
+    "Tottenham Hotspur": "Tottenham",
 }
+
+
+def _load_official_colors() -> dict[str, str]:
+    path = get_paths().data_dir / "team_colors.json"
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text())
+
+
+def _build_team_colors() -> dict[str, str]:
+    official = _load_official_colors()
+    colors: dict[str, str] = {}
+    for name, hex_code in official.items():
+        canonical = _OFFICIAL_TO_CANONICAL.get(name, name)
+        colors[canonical] = hex_code.upper()
+    return colors
+
+
+TEAM_COLORS: dict[str, str] = _build_team_colors()
 
 STADIUM_META: dict[str, dict[str, str]] = {
     "Arsenal": {"stadium": "Emirates Stadium", "city": "London", "stadium_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Emirates_Stadium_-_East_side_-_Composite.jpg/640px-Emirates_Stadium_-_East_side_-_Composite.jpg"},

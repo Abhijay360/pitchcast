@@ -29,7 +29,12 @@ function ftrLabel(code) {
 }
 
 function teamMeta(name) {
-  return TEAMS[name] || { name, logo: '', stadium: 'Home Ground', stadium_image: '', city: '' };
+  return TEAMS[name] || { name, logo: '', stadium: 'Home Ground', stadium_image: '', city: '', color: getTeamColor(name) };
+}
+
+function teamColorDot(color) {
+  if (!color) return '';
+  return `<span class="team-color-dot" style="background:${color}" aria-hidden="true"></span>`;
 }
 
 function renderProbBars(pHome, pDraw, pAway) {
@@ -225,7 +230,7 @@ function renderStandings(rows) {
     return `
     <tr class="pos-${r.position <= 4 ? r.position : ''}">
       <td>${r.position}</td>
-      <td class="team-cell">${logoImg(meta.logo, 'team-logo-sm')}<a class="team-name-link" href="${teamPageUrl(r.team)}">${r.team}</a></td>
+      <td class="team-cell">${teamColorDot(meta.color || getTeamColor(r.team))}${logoImg(meta.logo, 'team-logo-sm')}<a class="team-name-link" href="${teamPageUrl(r.team)}">${r.team}</a></td>
       <td>${r.played}</td>
       <td>${r.won}</td>
       <td>${r.drawn}</td>
@@ -275,6 +280,26 @@ function renderTopAssisters(players, limit = 25) {
 function renderScorersLeaderboard(players) {
   renderTopScorers(players);
   renderTopAssisters(players);
+}
+
+function renderRecentResults(matches) {
+  const tbody = $('#recent-results-table tbody');
+  if (!tbody) return;
+  const recent = [...(matches || [])].reverse().slice(0, 10);
+  if (!recent.length) {
+    tbody.innerHTML = '<tr><td colspan="4" class="empty-state">No played matches yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = recent.map((m) => {
+    const outcomeOk = m.correct ? 'correct' : 'incorrect';
+    return `
+      <tr>
+        <td class="team-cell">${m.HomeTeam} vs ${m.AwayTeam}</td>
+        <td><strong>${predScoreText(m)}</strong></td>
+        <td><strong>${actualScoreText(m)}</strong></td>
+        <td class="${outcomeOk}"><span class="result-chip ${m.pred_ftr}">${ftrLabel(m.pred_ftr)}</span> → <span class="result-chip ${m.FTR}">${ftrLabel(m.FTR)}</span></td>
+      </tr>`;
+  }).join('');
 }
 
 function renderResults(matches) {
@@ -397,6 +422,7 @@ async function load() {
       $('#season-accuracy').textContent = 'Season not started';
     }
     $('#season-results-label').textContent = `${seasonLabel} Season`;
+    renderRecentResults(season.played || []);
     renderResults(season.played || []);
   } catch (err) {
     toast(`Failed to load data: ${err.message}`, true);
