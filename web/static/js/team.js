@@ -21,6 +21,45 @@ function matchUrl(m) {
   return `/match?home=${encodeURIComponent(m.HomeTeam)}&away=${encodeURIComponent(m.AwayTeam)}&date=${encodeURIComponent(m.Date || '')}`;
 }
 
+function hexToRgb(hex) {
+  const h = (hex || '').replace('#', '');
+  if (h.length !== 6) return null;
+  return {
+    r: parseInt(h.slice(0, 2), 16),
+    g: parseInt(h.slice(2, 4), 16),
+    b: parseInt(h.slice(4, 6), 16),
+  };
+}
+
+function isLightColor(hex) {
+  const c = hexToRgb(hex);
+  if (!c) return false;
+  const lum = (0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b) / 255;
+  return lum > 0.72;
+}
+
+function applyTeamTheme(color) {
+  const app = document.getElementById('team-app');
+  if (!app || !color) return;
+  const rgb = hexToRgb(color);
+  if (!rgb) return;
+
+  const light = isLightColor(color);
+  app.classList.add('team-themed');
+  app.style.setProperty('--team-color', color);
+  app.style.setProperty('--team-soft', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.14)`);
+  app.style.setProperty('--team-border', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${light ? 0.65 : 0.45})`);
+  app.style.setProperty('--team-glow', `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.35)`);
+  app.style.setProperty('--team-heading', light ? color : color);
+  app.style.setProperty('--team-stat', light ? color : 'var(--text)');
+  app.style.setProperty('--team-on-badge', light ? '#0b0f1a' : color);
+  const accent2 = light
+    ? color
+    : `rgb(${Math.min(rgb.r + 40, 255)}, ${Math.min(rgb.g + 40, 255)}, ${Math.min(rgb.b + 40, 255)})`;
+  document.body.style.setProperty('--accent', color);
+  document.body.style.setProperty('--accent-2', accent2);
+}
+
 function renderTrophies(trophies, recent) {
   const recentBlock = recent
     ? `<div class="highlight-card trophy-highlight">
@@ -132,12 +171,15 @@ async function load() {
   document.title = `${team} · PitchCast`;
   const info = profile.info || {};
   const stadiumImg = info.stadium_image || '';
+  const clubColor = info.color || '#7c3aed';
+  applyTeamTheme(clubColor);
 
   document.getElementById('team-hero').innerHTML = `
     <div class="profile-hero-row">
       <a href="${teamUrl(team)}" class="profile-logo-link">${logoImg(info.logo)}</a>
       <div>
         <h1>${team}</h1>
+        <div class="team-color-bar" style="background:${clubColor}" aria-hidden="true"></div>
         <p class="hero-sub">${info.stadium || ''}${info.city ? ` · ${info.city}` : ''}${profile.nickname ? ` · ${profile.nickname}` : ''}${profile.founded ? ` · Est. ${profile.founded}` : ''}</p>
         ${profile.most_recent_major ? `<div class="hero-badge">${profile.most_recent_major.label}</div>` : ''}
       </div>

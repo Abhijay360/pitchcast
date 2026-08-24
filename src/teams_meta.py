@@ -27,6 +27,33 @@ LOGO_SLUG: dict[str, str] = {
     "Ipswich": "ipswich",
 }
 
+# Official club primary colours (canonical team name -> hex)
+TEAM_COLORS: dict[str, str] = {
+    "Arsenal": "#EF0107",
+    "Aston Villa": "#670E36",
+    "Bournemouth": "#DA291C",
+    "Brentford": "#E30613",
+    "Brighton": "#0057B8",
+    "Chelsea": "#034694",
+    "Coventry": "#69B3E7",
+    "Crystal Palace": "#1B458F",
+    "Everton": "#003399",
+    "Fulham": "#000000",
+    "Hull": "#F58220",
+    "Ipswich": "#003B94",
+    "Leeds": "#FFFFFF",
+    "Liverpool": "#C8102E",
+    "Man City": "#6CABDD",
+    "Man United": "#DA291C",
+    "Newcastle": "#241F20",
+    "Nott'm Forest": "#DD0000",
+    "Sunderland": "#EB172B",
+    "Tottenham": "#132257",
+    # Fallbacks for teams not in the user's list
+    "West Ham": "#7A263A",
+    "Wolves": "#FDB913",
+}
+
 STADIUM_META: dict[str, dict[str, str]] = {
     "Arsenal": {"stadium": "Emirates Stadium", "city": "London", "stadium_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Emirates_Stadium_-_East_side_-_Composite.jpg/640px-Emirates_Stadium_-_East_side_-_Composite.jpg"},
     "Aston Villa": {"stadium": "Villa Park", "city": "Birmingham", "stadium_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Villa_Park_aerial.jpg/640px-Villa_Park_aerial.jpg"},
@@ -74,8 +101,13 @@ def team_stadium_image(team: str) -> str:
     return ""
 
 
+def team_color(team: str) -> str:
+    return TEAM_COLORS.get(team, "#7c3aed")
+
+
 def team_info(team: str) -> dict[str, str]:
     meta = STADIUM_META.get(team, {})
+    color = team_color(team)
     return {
         "name": team,
         "logo": team_logo(team),
@@ -83,4 +115,5 @@ def team_info(team: str) -> dict[str, str]:
         "stadium": meta.get("stadium", "Home Ground"),
         "city": meta.get("city", ""),
         "stadium_image": team_stadium_image(team),
+        "color": color,
     }
