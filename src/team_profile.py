@@ -11,6 +11,8 @@ import pandas as pd
 from src.config import PREDICT_SEASON, TRAIN_SEASONS, get_paths
 from src.dataio import load_parquet, load_raw_seasons
 from src.manager_adjustments import MANAGER_BOOST, MANAGER_NOTES
+from src.player_leaderboard import team_leaders
+from src.standings import build_standings_from_simulation
 from src.teams_meta import team_info
 
 
@@ -94,6 +96,67 @@ def _team_fixtures(team: str, season: str = PREDICT_SEASON) -> dict[str, list[di
     return {"upcoming": upcoming, "played": played}
 
 
+def _current_season_stats(team: str, season: str = PREDICT_SEASON) -> dict[str, Any]:
+    paths = get_paths()
+    sim_path = paths.processed_dir / "season_simulation.parquet"
+    empty = {
+        "position": None,
+        "played": 0,
+        "won": 0,
+        "drawn": 0,
+        "lost": 0,
+        "gf": 0,
+        "ga": 0,
+        "gd": 0,
+        "points": 0,
+        "form": "",
+        "top_scorer": None,
+        "top_scorer_goals": 0,
+        "top_assister": None,
+        "top_assister_assists": 0,
+    }
+    if not sim_path.exists():
+        return empty
+
+    sim = load_parquet(sim_path)
+    if "season" in sim.columns:
+        sim = sim[sim["season"].astype(str) == season]
+
+    table = build_standings_from_simulation(sim)
+    row = table[table["team"] == team]
+    if row.empty:
+        return empty
+    r = row.iloc[0]
+    leaders = team_leaders(season).get(team, {})
+
+    played = sim[sim["played"] == True]  # noqa: E712
+    team_played = played[(played["HomeTeam"] == team) | (played["AwayTeam"] == team)].sort_values("Date")
+    form_chars: list[str] = []
+    for _, m in team_played.iterrows():
+        ftr = str(m["FTR"])
+        if m["HomeTeam"] == team:
+            form_chars.append("W" if ftr == "H" else ("D" if ftr == "D" else "L"))
+        else:
+            form_chars.append("W" if ftr == "A" else ("D" if ftr == "D" else "L"))
+
+    return {
+        "position": int(r["position"]),
+        "played": int(r["played"]),
+        "won": int(r["won"]),
+        "drawn": int(r["drawn"]),
+        "lost": int(r["lost"]),
+        "gf": int(r["gf"]),
+        "ga": int(r["ga"]),
+        "gd": int(r["gd"]),
+        "points": int(r["points"]),
+        "form": "-".join(form_chars[-5:]),
+        "top_scorer": leaders.get("top_scorer"),
+        "top_scorer_goals": leaders.get("top_scorer_goals", 0),
+        "top_assister": leaders.get("top_assister"),
+        "top_assister_assists": leaders.get("top_assister_assists", 0),
+    }
+
+
 def team_profile(team: str, *, season: str = PREDICT_SEASON) -> dict[str, Any]:
     info = team_info(team)
     trophies = _load_trophies().get(team, {})
@@ -115,6 +178,7 @@ def team_profile(team: str, *, season: str = PREDICT_SEASON) -> dict[str, Any]:
         "season_history": history,
         "best_pl_season": best,
         "fixtures": fixtures,
+        "current_season": _current_season_stats(team, season=season),
         "predict_season": season,
         "predict_season_label": _season_label(season),
     }

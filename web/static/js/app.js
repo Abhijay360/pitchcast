@@ -245,27 +245,41 @@ function renderStandings(rows) {
   }).join('');
 }
 
-function renderScorersLeaderboard(players) {
-  const tbody = $('#scorers-table tbody');
+function renderTopScorers(players, limit = 25) {
+  const tbody = $('#top-scorers-table tbody');
   if (!tbody) return;
-  if (!players.length) {
-    tbody.innerHTML = '<tr><td colspan="6" class="empty-state">No player stats yet.</td></tr>';
-    return;
-  }
-  const list = players;
-  tbody.innerHTML = list.map((p, i) => {
-    const g = p.goals > 0 ? p.goals : (p.prev_pl_goals ? `${p.prev_pl_goals}*` : '0');
-    const a = p.assists > 0 ? p.assists : (p.prev_pl_assists ? `${p.prev_pl_assists}*` : '0');
-    return `
+  const live = players.filter((p) => p.goals > 0).sort((a, b) => b.goals - a.goals || b.assists - a.assists);
+  const list = live.length ? live.slice(0, limit) : players.slice(0, limit);
+  tbody.innerHTML = list.length
+    ? list.map((p, i) => `
       <tr>
         <td>${i + 1}</td>
         <td><a class="team-name-link" href="/player?team=${encodeURIComponent(p.team)}&name=${encodeURIComponent(p.player)}">${p.player}</a></td>
-        <td class="team-cell">${p.team}</td>
-        <td>${p.position}</td>
-        <td>${g}</td>
-        <td>${a}</td>
-      </tr>`;
-  }).join('');
+        <td>${p.team}</td>
+        <td><strong>${p.goals > 0 ? p.goals : `${p.prev_pl_goals}*`}</strong></td>
+      </tr>`).join('')
+    : '<tr><td colspan="4" class="empty-state">No data yet.</td></tr>';
+}
+
+function renderTopAssisters(players, limit = 25) {
+  const tbody = $('#top-assisters-table tbody');
+  if (!tbody) return;
+  const live = [...players].filter((p) => p.assists > 0).sort((a, b) => b.assists - a.assists || b.goals - a.goals);
+  const list = live.length ? live.slice(0, limit) : [...players].sort((a, b) => b.prev_pl_assists - a.prev_pl_assists).slice(0, limit);
+  tbody.innerHTML = list.length
+    ? list.map((p, i) => `
+      <tr>
+        <td>${i + 1}</td>
+        <td><a class="team-name-link" href="/player?team=${encodeURIComponent(p.team)}&name=${encodeURIComponent(p.player)}">${p.player}</a></td>
+        <td>${p.team}</td>
+        <td><strong>${p.assists > 0 ? p.assists : `${p.prev_pl_assists}*`}</strong></td>
+      </tr>`).join('')
+    : '<tr><td colspan="4" class="empty-state">No data yet.</td></tr>';
+}
+
+function renderScorersLeaderboard(players) {
+  renderTopScorers(players);
+  renderTopAssisters(players);
 }
 
 function renderResults(matches) {
@@ -347,7 +361,7 @@ async function load() {
 
     TEAMS = await fetchJSON('/api/teams').catch(() => ({}));
 
-    const [report, accuracy, upcoming, standings, season, manifest, methodology, scorers] = await Promise.all([
+    const [report, accuracy, upcoming, standings, season, manifest, methodology, scorers, assisters] = await Promise.all([
       fetchJSON('/api/report').catch(() => null),
       fetchJSON('/api/accuracy/recent?n=200').catch(() => null),
       fetchJSON('/api/predictions/upcoming').catch(() => []),
@@ -356,6 +370,7 @@ async function load() {
       fetchJSON('/api/training-manifest').catch(() => null),
       fetchJSON('/api/methodology').catch(() => null),
       fetchJSON('/api/players/leaderboard?sort=goals').catch(() => ({ players: [] })),
+      fetchJSON('/api/players/leaderboard?sort=assists').catch(() => ({ players: [] })),
     ]);
 
     renderHeroStats(report, accuracy, season, seasonLabel);
@@ -375,7 +390,8 @@ async function load() {
     setupFixtureFilter(seasonLabel);
 
     renderStandings(standings);
-    renderScorersLeaderboard(scorers.players || []);
+    renderTopScorers(scorers.players || []);
+    renderTopAssisters(assisters.players || scorers.players || []);
 
     if (season.accuracy != null) {
       const scorePart = season.score_accuracy != null

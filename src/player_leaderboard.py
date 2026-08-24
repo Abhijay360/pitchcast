@@ -10,18 +10,12 @@ import pandas as pd
 
 from src.config import PREDICT_SEASON, get_paths
 from src.ingest.fetch_squad_data import load_squad_data
+from src.ingest.season_events import load_season_events
 from src.player_profile import _load_tm_profiles, _norm_name
 
 
 def _player_key(team: str, name: str) -> str:
     return f"{team}|{name}"
-
-
-def load_season_events(season: str = PREDICT_SEASON) -> dict[str, Any]:
-    path = get_paths().data_dir / f"season_events_{season}.json"
-    if not path.exists():
-        return {"player_totals": {}, "matches": []}
-    return json.loads(path.read_text())
 
 
 def _pl_row(season_stats: list[dict] | None, team: str) -> dict | None:

@@ -1,0 +1,38 @@
+name: Matchday refresh
+
+on:
+  schedule:
+    # Daily at 06:00 UTC — catches Mon night games by Tue morning
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Sync results and refresh predictions
+        run: python -m src.matchday_refresh --check-only
+
+      - name: Commit updated data if changed
+        run: |
+          git config user.name "pitchcast-bot"
+          git config user.email "pitchcast-bot@users.noreply.github.com"
+          git add data/raw/pl_2627.csv data/processed/ data/models/ data/season_events_2627.json data/injuries/
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "Auto-refresh predictions after new match results."
+            git push
+          fi

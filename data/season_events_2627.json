@@ -3,27 +3,445 @@
   "matches": [
     {
       "date": "2026-08-21",
+      "round": 1,
       "home": "Arsenal",
       "away": "Coventry",
       "fthg": 3,
       "ftag": 0,
-      "ftr": "H",
       "goals": [
-        {"team": "Arsenal", "player": "Kai Havertz"},
-        {"team": "Arsenal", "player": "Bukayo Saka"},
-        {"team": "Arsenal", "player": "Martin Ødegaard"}
+        {
+          "team": "Arsenal",
+          "player": "Kai Havertz"
+        },
+        {
+          "team": "Arsenal",
+          "player": "Bukayo Saka"
+        },
+        {
+          "team": "Arsenal",
+          "player": "Martin Ødegaard"
+        }
       ],
       "assists": [
-        {"team": "Arsenal", "player": "Riccardo Calafiori", "for": "Kai Havertz"},
-        {"team": "Arsenal", "player": "Ben White", "for": "Martin Ødegaard"}
+        {
+          "team": "Arsenal",
+          "player": "Riccardo Calafiori",
+          "for": "Kai Havertz"
+        },
+        {
+          "team": "Arsenal",
+          "player": "Ben White",
+          "for": "Martin Ødegaard"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "round": 1,
+      "home": "Hull",
+      "away": "Man United",
+      "fthg": 2,
+      "ftag": 0,
+      "goals": [
+        {
+          "team": "Hull",
+          "player": "Semi Ajayi"
+        },
+        {
+          "team": "Hull",
+          "player": "Nobel Mendy"
+        }
+      ],
+      "assists": []
+    },
+    {
+      "date": "2026-08-22",
+      "round": 1,
+      "home": "Everton",
+      "away": "Crystal Palace",
+      "fthg": 2,
+      "ftag": 0,
+      "goals": [
+        {
+          "team": "Everton",
+          "player": "Kiernan Dewsbury-Hall"
+        },
+        {
+          "team": "Everton",
+          "player": "Thierno Barry"
+        }
+      ],
+      "assists": [
+        {
+          "team": "Everton",
+          "player": "Iliman Ndiaye",
+          "for": "Thierno Barry"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "round": 1,
+      "home": "Ipswich",
+      "away": "Sunderland",
+      "fthg": 2,
+      "ftag": 1,
+      "goals": [
+        {
+          "team": "Ipswich",
+          "player": "Emersonn"
+        },
+        {
+          "team": "Sunderland",
+          "player": "Nilson Angulo"
+        },
+        {
+          "team": "Ipswich",
+          "player": "Jack Clarke"
+        }
+      ],
+      "assists": [
+        {
+          "team": "Ipswich",
+          "player": "Julio Enciso",
+          "for": "Emersonn"
+        },
+        {
+          "team": "Ipswich",
+          "player": "Saša Lukic",
+          "for": "Jack Clarke"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "round": 1,
+      "home": "Nott'm Forest",
+      "away": "Leeds",
+      "fthg": 0,
+      "ftag": 1,
+      "goals": [
+        {
+          "team": "Leeds",
+          "player": "Anton Stach"
+        }
+      ],
+      "assists": []
+    },
+    {
+      "date": "2026-08-22",
+      "round": 1,
+      "home": "Brentford",
+      "away": "Tottenham",
+      "fthg": 3,
+      "ftag": 0,
+      "goals": [
+        {
+          "team": "Brentford",
+          "player": "Keane Lewis-Potter"
+        },
+        {
+          "team": "Brentford",
+          "player": "Vitaly Janelt"
+        },
+        {
+          "team": "Brentford",
+          "player": "Michael Kayode"
+        }
+      ],
+      "assists": [
+        {
+          "team": "Brentford",
+          "player": "Mamadou Sangare",
+          "for": "Keane Lewis-Potter"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-23",
+      "round": 1,
+      "home": "Brighton",
+      "away": "Aston Villa",
+      "fthg": 4,
+      "ftag": 0,
+      "goals": [
+        {
+          "team": "Brighton",
+          "player": "Jack Hinshelwood"
+        },
+        {
+          "team": "Brighton",
+          "player": "Jack Hinshelwood"
+        },
+        {
+          "team": "Brighton",
+          "player": "Maxim De Cuyper"
+        },
+        {
+          "team": "Aston Villa",
+          "player": "Victor Lindelöf"
+        }
+      ],
+      "assists": []
+    },
+    {
+      "date": "2026-08-23",
+      "round": 1,
+      "home": "Man City",
+      "away": "Bournemouth",
+      "fthg": 2,
+      "ftag": 1,
+      "goals": [
+        {
+          "team": "Bournemouth",
+          "player": "Marcus Tavernier"
+        },
+        {
+          "team": "Man City",
+          "player": "Marc Guehi"
+        },
+        {
+          "team": "Man City",
+          "player": "Josko Gvardiol"
+        }
+      ],
+      "assists": [
+        {
+          "team": "Man City",
+          "player": "Rayan Cherki",
+          "for": "Marc Guehi"
+        },
+        {
+          "team": "Man City",
+          "player": "Rayan Cherki",
+          "for": "Josko Gvardiol"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-23",
+      "round": 1,
+      "home": "Newcastle",
+      "away": "Liverpool",
+      "fthg": 2,
+      "ftag": 2,
+      "goals": [
+        {
+          "team": "Newcastle",
+          "player": "Anthony Elanga"
+        },
+        {
+          "team": "Liverpool",
+          "player": "Cody Gakpo"
+        },
+        {
+          "team": "Newcastle",
+          "player": "Joe Willock"
+        },
+        {
+          "team": "Liverpool",
+          "player": "Dominik Szoboszlai"
+        }
+      ],
+      "assists": [
+        {
+          "team": "Newcastle",
+          "player": "Yoane Wissa",
+          "for": "Joe Willock"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-24",
+      "round": 1,
+      "home": "Fulham",
+      "away": "Chelsea",
+      "fthg": 2,
+      "ftag": 3,
+      "goals": [
+        {
+          "team": "Chelsea",
+          "player": "João Pedro"
+        },
+        {
+          "team": "Fulham",
+          "player": "Josh King"
+        },
+        {
+          "team": "Chelsea",
+          "player": "Morgan Rogers"
+        },
+        {
+          "team": "Chelsea",
+          "player": "Cole Palmer"
+        },
+        {
+          "team": "Fulham",
+          "player": "Gonzalo Garcia"
+        }
+      ],
+      "assists": [
+        {
+          "team": "Chelsea",
+          "player": "Cole Palmer",
+          "for": "João Pedro"
+        },
+        {
+          "team": "Chelsea",
+          "player": "João Pedro",
+          "for": "Cole Palmer"
+        }
       ]
     }
   ],
   "player_totals": {
-    "Arsenal|Kai Havertz": {"goals": 1, "assists": 0},
-    "Arsenal|Bukayo Saka": {"goals": 1, "assists": 0},
-    "Arsenal|Martin Ødegaard": {"goals": 1, "assists": 0},
-    "Arsenal|Riccardo Calafiori": {"goals": 0, "assists": 1},
-    "Arsenal|Ben White": {"goals": 0, "assists": 1}
+    "Arsenal|Kai Havertz": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Arsenal|Bukayo Saka": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Arsenal|Martin Ødegaard": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Arsenal|Riccardo Calafiori": {
+      "goals": 0,
+      "assists": 1
+    },
+    "Arsenal|Ben White": {
+      "goals": 0,
+      "assists": 1
+    },
+    "Hull|Semi Ajayi": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Hull|Nobel Mendy": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Everton|Kiernan Dewsbury-Hall": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Everton|Thierno Barry": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Everton|Iliman Ndiaye": {
+      "goals": 0,
+      "assists": 1
+    },
+    "Ipswich|Emersonn": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Sunderland|Nilson Angulo": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Ipswich|Jack Clarke": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Ipswich|Julio Enciso": {
+      "goals": 0,
+      "assists": 1
+    },
+    "Ipswich|Saša Lukic": {
+      "goals": 0,
+      "assists": 1
+    },
+    "Leeds|Anton Stach": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Brentford|Keane Lewis-Potter": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Brentford|Vitaly Janelt": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Brentford|Michael Kayode": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Brentford|Mamadou Sangare": {
+      "goals": 0,
+      "assists": 1
+    },
+    "Brighton|Jack Hinshelwood": {
+      "goals": 2,
+      "assists": 0
+    },
+    "Brighton|Maxim De Cuyper": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Aston Villa|Victor Lindelöf": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Bournemouth|Marcus Tavernier": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Man City|Marc Guehi": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Man City|Josko Gvardiol": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Man City|Rayan Cherki": {
+      "goals": 0,
+      "assists": 2
+    },
+    "Newcastle|Anthony Elanga": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Liverpool|Cody Gakpo": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Newcastle|Joe Willock": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Liverpool|Dominik Szoboszlai": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Newcastle|Yoane Wissa": {
+      "goals": 0,
+      "assists": 1
+    },
+    "Chelsea|João Pedro": {
+      "goals": 1,
+      "assists": 1
+    },
+    "Fulham|Josh King": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Chelsea|Morgan Rogers": {
+      "goals": 1,
+      "assists": 0
+    },
+    "Chelsea|Cole Palmer": {
+      "goals": 1,
+      "assists": 1
+    },
+    "Fulham|Gonzalo Garcia": {
+      "goals": 1,
+      "assists": 0
+    }
   }
 }

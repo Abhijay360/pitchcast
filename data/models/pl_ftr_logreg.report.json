@@ -1,9 +1,9 @@
 {
-  "n_rows": 3420,
+  "n_rows": 3800,
   "n_features": 22,
   "splits": 5,
-  "avg_log_loss": 0.993410961966385,
-  "avg_accuracy": 0.523157894736842,
+  "avg_log_loss": 0.9869888171180751,
+  "avg_accuracy": 0.530173775671406,
   "feature_cols": [
     "home_avg_gf",
     "home_avg_ga",
@@ -29,6 +29,7 @@
     "away_squad_boost"
   ],
   "train_seasons": [
+    "1617",
     "1718",
     "1819",
     "1920",

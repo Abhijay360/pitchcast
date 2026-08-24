@@ -32,10 +32,9 @@ def run_pipeline(
     _run([py, "-m", "src.ingest.fetch_injuries", "--season", predict_season])
     _run([py, "scripts/download_stadiums.py"])
 
-    # 3) Official fixture list for the season we're predicting
+    # 3) Official fixture list + latest results (fixturedownload + overrides)
     _run([py, "-m", "src.ingest.download_official_fixtures", "--season", predict_season])
-
-    # 3) If football-data publishes results for predict season, merge them in
+    _run([py, "-m", "src.ingest.sync_season_results", "--season", predict_season])
     _run([py, "-m", "src.ingest.merge_season_results", "--season", predict_season])
 
     _run([py, "-m", "src.features.build_features", "--seasons", *all_seasons])

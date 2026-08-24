@@ -7,6 +7,8 @@ from typing import Any
 import joblib
 import numpy as np
 import pandas as pd
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -24,7 +26,19 @@ paths = get_paths()
 WEB_DIR = Path(__file__).resolve().parent
 STATIC_DIR = WEB_DIR / "static"
 
-app = FastAPI(title="PitchCast", version="1.0.0")
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    """On startup, pull latest results and refresh if new scores landed."""
+    try:
+        from src.matchday_refresh import maybe_refresh
+        maybe_refresh(PREDICT_SEASON)
+    except Exception as exc:
+        print(f"Startup matchday sync skipped: {exc}")
+    yield
+
+
+app = FastAPI(title="PitchCast", version="1.0.0", lifespan=lifespan)
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
@@ -208,8 +222,8 @@ def methodology() -> dict[str, Any]:
             "Market betting odds",
         ],
         "how_predictions_update": (
-            "Re-run fetch_squad_data + fetch_injuries, then simulate_season after matchdays. "
-            "H2H, squad, and injury data refresh; Monte Carlo re-simulates the full season."
+            "Results sync automatically from fixturedownload.com daily (GitHub Action + on server startup). "
+            "When new scores land, the pipeline rebuilds features, retrains, and re-simulates the season."
         ),
         "manager_adjustments": MANAGER_BOOST,
         "manager_notes": MANAGER_NOTES,

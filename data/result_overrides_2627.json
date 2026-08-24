@@ -1,0 +1,8 @@
+{
+  "matches": {
+    "Brighton|Aston Villa": {"fthg": 4, "ftag": 0},
+    "Man City|Bournemouth": {"fthg": 2, "ftag": 1},
+    "Newcastle|Liverpool": {"fthg": 2, "ftag": 2},
+    "Fulham|Chelsea": {"fthg": 2, "ftag": 3}
+  }
+}
