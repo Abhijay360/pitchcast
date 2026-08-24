@@ -30,8 +30,13 @@ def load_raw_season_csv(path: Path) -> pd.DataFrame:
         if col not in df.columns:
             df[col] = pd.NA
 
-    out = df[["Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR"]].copy()
+    cols = ["Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR"]
+    if "Round" in df.columns:
+        cols.append("Round")
+    out = df[cols].copy()
     out["Date"] = _parse_date_col(out["Date"])
+    if "Round" in out.columns:
+        out["Round"] = pd.to_numeric(out["Round"], errors="coerce").astype("Int64")
     out = out.dropna(subset=["Date", "HomeTeam", "AwayTeam"])
 
     # Coerce scores to nullable ints; keep NA for upcoming fixtures.

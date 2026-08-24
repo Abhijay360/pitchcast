@@ -62,7 +62,10 @@
         <div class="card mt">
           <div class="card-header">
             <h2>Latest Results</h2>
-            <span class="muted">Predicted vs actual score</span>
+            <div class="card-header-actions">
+              <span class="pill" id="latest-matchday-label">—</span>
+              <span class="muted">Predicted vs actual score</span>
+            </div>
           </div>
           <div class="table-wrap">
             <table class="results-table" id="recent-results-table">
@@ -201,9 +204,9 @@
   </div>
 
   <div id="toast" class="toast hidden"></div>
-  <script src="/static/js/scores.js"></script>
-  <script src="/static/js/team-theme.js"></script>
-  <script src="/static/js/search.js"></script>
-  <script src="/static/js/app.js"></script>
+  <script src="/static/js/scores.js?v=4"></script>
+  <script src="/static/js/team-theme.js?v=4"></script>
+  <script src="/static/js/search.js?v=4"></script>
+  <script src="/static/js/app.js?v=4"></script>
 </body>
 </html>

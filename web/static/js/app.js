@@ -282,10 +282,62 @@ function renderScorersLeaderboard(players) {
   renderTopAssisters(players);
 }
 
+function setTableLoading(tableId, cols, message = 'Loading…') {
+  const tbody = document.querySelector(`#${tableId} tbody`);
+  if (tbody) {
+    tbody.innerHTML = `<tr><td colspan="${cols}" class="empty-state">${message}</td></tr>`;
+  }
+}
+
+function safeRender(fn, ...args) {
+  try {
+    fn(...args);
+  } catch (err) {
+    console.error(`Render failed (${fn.name}):`, err);
+  }
+}
+
+function latestMatchdayMatches(seasonData) {
+  if (seasonData?.latest_matchday?.matches?.length) {
+    return seasonData.latest_matchday.matches;
+  }
+  return seasonData?.played || [];
+}
+
+function updateLatestMatchdayLabel(seasonData) {
+  const el = $('#latest-matchday-label');
+  if (!el) return;
+  const md = seasonData?.latest_matchday;
+  if (md?.round != null) {
+    el.textContent = `Matchweek ${md.round} · ${md.count} games`;
+  } else if (md?.count) {
+    el.textContent = `${md.count} games`;
+  } else if (seasonData?.played_count) {
+    el.textContent = `${seasonData.played_count} played`;
+  } else {
+    el.textContent = '—';
+  }
+}
+
+function renderSeasonResults(seasonData, seasonLabel) {
+  updateLatestMatchdayLabel(seasonData);
+  renderRecentResults(latestMatchdayMatches(seasonData));
+  if (seasonData.accuracy != null) {
+    const scorePart = seasonData.score_accuracy != null
+      ? ` · ${pct(seasonData.score_accuracy)} exact score`
+      : '';
+    $('#season-accuracy').textContent = `${pct(seasonData.accuracy)} outcome (${seasonData.played_count} played)${scorePart}`;
+  } else if (seasonData.played_count === 0) {
+    $('#season-accuracy').textContent = 'Season not started';
+  }
+  $('#season-results-label').textContent = `${seasonLabel} Season`;
+  renderResults(seasonData.played || []);
+}
+
 function renderRecentResults(matches) {
   const tbody = $('#recent-results-table tbody');
   if (!tbody) return;
-  const recent = [...(matches || [])].reverse().slice(0, 10);
+  const recent = [...(matches || [])];
   if (!recent.length) {
     tbody.innerHTML = '<tr><td colspan="4" class="empty-state">No played matches yet.</td></tr>';
     return;
@@ -374,6 +426,10 @@ function setupTabs() {
 }
 
 async function load() {
+  setTableLoading('recent-results-table', 4);
+  setTableLoading('top-scorers-table', 4);
+  setTableLoading('top-assisters-table', 4);
+
   try {
     const config = await fetchJSON('/api/config').catch(() => ({ predict_season: PREDICT_SEASON, season_label: SEASON_LABEL }));
     PREDICT_SEASON = config.predict_season;
@@ -381,23 +437,13 @@ async function load() {
 
     TEAMS = await fetchJSON('/api/teams').catch(() => ({}));
 
-    const [report, accuracy, upcoming, standings, season, manifest, methodology, scorers, assisters] = await Promise.all([
-      fetchJSON('/api/report').catch(() => null),
-      fetchJSON('/api/accuracy/recent?n=200').catch(() => null),
-      fetchJSON('/api/predictions/upcoming').catch(() => []),
-      fetchJSON('/api/standings').catch(() => []),
-      fetchJSON(`/api/matches/season/${PREDICT_SEASON}`).catch(() => ({ played: [], played_count: 0, accuracy: null })),
-      fetchJSON('/api/training-manifest').catch(() => null),
-      fetchJSON('/api/methodology').catch(() => null),
-      fetchJSON('/api/players/leaderboard?sort=goals').catch(() => ({ players: [] })),
-      fetchJSON('/api/players/leaderboard?sort=assists').catch(() => ({ players: [] })),
-    ]);
+    const seasonPromise = fetchJSON(`/api/matches/season/${PREDICT_SEASON}`).catch(
+      () => ({ played: [], played_count: 0, accuracy: null, latest_matchday: null }),
+    );
+    const upcomingPromise = fetchJSON('/api/predictions/upcoming').catch(() => []);
 
-    renderHeroStats(report, accuracy, season, seasonLabel);
-    renderModelMetrics(report);
-    renderAccuracyBreakdown(accuracy);
-    renderTrainingManifest(manifest);
-    renderMethodology(methodology);
+    const [season, upcoming] = await Promise.all([seasonPromise, upcomingPromise]);
+    safeRender(renderSeasonResults, season, seasonLabel);
 
     ALL_UPCOMING = upcoming;
     const next5 = upcoming.slice(0, 5);
@@ -405,25 +451,27 @@ async function load() {
       ? next5.map(renderFixtureCard).join('')
       : '<p class="empty-state">No upcoming fixtures. Re-run the pipeline to refresh.</p>';
     bindFixtureCards($('#next-fixtures'));
-
     renderUpcomingList(upcoming, seasonLabel);
     setupFixtureFilter(seasonLabel);
 
-    renderStandings(standings);
-    renderTopScorers(scorers.players || []);
-    renderTopAssisters(assisters.players || scorers.players || []);
+    const [report, accuracy, standings, manifest, methodology, scorers, assisters] = await Promise.all([
+      fetchJSON('/api/report').catch(() => null),
+      fetchJSON('/api/accuracy/recent?n=200').catch(() => null),
+      fetchJSON('/api/standings').catch(() => []),
+      fetchJSON('/api/training-manifest').catch(() => null),
+      fetchJSON('/api/methodology').catch(() => null),
+      fetchJSON('/api/players/leaderboard?sort=goals').catch(() => ({ players: [] })),
+      fetchJSON('/api/players/leaderboard?sort=assists').catch(() => ({ players: [] })),
+    ]);
 
-    if (season.accuracy != null) {
-      const scorePart = season.score_accuracy != null
-        ? ` · ${pct(season.score_accuracy)} exact score`
-        : '';
-      $('#season-accuracy').textContent = `${pct(season.accuracy)} outcome (${season.played_count} played)${scorePart}`;
-    } else if (season.played_count === 0) {
-      $('#season-accuracy').textContent = 'Season not started';
-    }
-    $('#season-results-label').textContent = `${seasonLabel} Season`;
-    renderRecentResults(season.played || []);
-    renderResults(season.played || []);
+    safeRender(renderHeroStats, report, accuracy, season, seasonLabel);
+    safeRender(renderModelMetrics, report);
+    safeRender(renderAccuracyBreakdown, accuracy);
+    safeRender(renderTrainingManifest, manifest);
+    safeRender(renderMethodology, methodology);
+    safeRender(renderStandings, standings);
+    safeRender(renderTopScorers, scorers.players || []);
+    safeRender(renderTopAssisters, assisters.players || scorers.players || []);
   } catch (err) {
     toast(`Failed to load data: ${err.message}`, true);
   }

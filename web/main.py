@@ -361,6 +361,41 @@ def upcoming_predictions() -> list[dict[str, Any]]:
     return records
 
 
+def _latest_matchday(played_records: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """Most recently completed matchweek from played fixtures."""
+    if not played_records:
+        return None
+
+    with_round = [m for m in played_records if m.get("Round") is not None]
+    if with_round:
+        latest_round = max(int(m["Round"]) for m in with_round)
+        md_matches = [m for m in with_round if int(m["Round"]) == latest_round]
+        md_matches.sort(key=lambda m: (m.get("Date") or "", m.get("HomeTeam") or ""))
+        return {"round": latest_round, "count": len(md_matches), "matches": md_matches}
+
+    # Fallback when Round is missing: group by calendar week of latest played date.
+    dated = sorted(played_records, key=lambda m: m.get("Date") or "")
+    latest_date = dated[-1].get("Date")
+    if not latest_date:
+        return {"round": None, "count": len(dated), "matches": dated}
+
+    from datetime import datetime, timedelta
+
+    latest_dt = datetime.strptime(str(latest_date)[:10], "%Y-%m-%d")
+    week_start = latest_dt - timedelta(days=latest_dt.weekday())
+    week_end = week_start + timedelta(days=6)
+
+    def in_week(d: str | None) -> bool:
+        if not d:
+            return False
+        dt = datetime.strptime(str(d)[:10], "%Y-%m-%d")
+        return week_start <= dt <= week_end
+
+    md_matches = [m for m in played_records if in_week(m.get("Date"))]
+    md_matches.sort(key=lambda m: (m.get("Date") or "", m.get("HomeTeam") or ""))
+    return {"round": None, "count": len(md_matches), "matches": md_matches}
+
+
 @app.get("/api/matches/season/{season}")
 def season_matches(season: str) -> dict[str, Any]:
     """Played matches with Dixon-Coles predictions vs actual results."""
@@ -387,6 +422,8 @@ def season_matches(season: str) -> dict[str, Any]:
             score_accuracy = float(played["score_correct"].mean())
             played_with_preds = _df_to_records(played)
 
+    latest_matchday = _latest_matchday(played_with_preds)
+
     upcoming_count = 0
     preds_path = paths.processed_dir / "predictions_upcoming.parquet"
     if preds_path.exists():
@@ -395,6 +432,7 @@ def season_matches(season: str) -> dict[str, Any]:
     return {
         "season": season,
         "played": played_with_preds,
+        "latest_matchday": latest_matchday,
         "upcoming_count": upcoming_count,
         "played_count": played_count,
         "accuracy": accuracy,
@@ -446,19 +484,23 @@ def recent_accuracy(n: int = 100) -> dict[str, Any]:
     if not feat_path.exists() or not model_path.exists():
         raise HTTPException(404, "Model or features missing.")
 
-    df = load_parquet(feat_path).sort_values("Date").tail(n)
-    model = joblib.load(model_path)
-    X = df[FEATURE_COLS].astype(float)
-    proba = model.predict_proba(X)
-    pred = np.argmax(proba, axis=1)
-    pred_ftr = pd.Series(pred).map({0: "H", 1: "D", 2: "A"})
-    acc = float((pred_ftr == df["FTR"]).mean())
+    try:
+        df = load_parquet(feat_path).sort_values("Date").tail(n)
+        model = joblib.load(model_path)
+        X = df[FEATURE_COLS].astype(float)
+        proba = model.predict_proba(X)
+        pred = np.argmax(proba, axis=1)
+        pred_ftr = pd.Series(pred, index=df.index).map({0: "H", 1: "D", 2: "A"})
+        acc = float((pred_ftr == df["FTR"]).mean())
 
-    by_outcome: dict[str, float] = {}
-    for label, code in [("Home wins", "H"), ("Draws", "D"), ("Away wins", "A")]:
-        subset = df[df["FTR"] == code]
-        if len(subset) > 0:
-            p = np.argmax(model.predict_proba(subset[FEATURE_COLS].astype(float)), axis=1)
-            by_outcome[label] = float((pd.Series(p).map({0: "H", 1: "D", 2: "A"}) == code).mean())
+        by_outcome: dict[str, float] = {}
+        for label, code in [("Home wins", "H"), ("Draws", "D"), ("Away wins", "A")]:
+            subset = df[df["FTR"] == code]
+            if len(subset) > 0:
+                p = np.argmax(model.predict_proba(subset[FEATURE_COLS].astype(float)), axis=1)
+                pred_sub = pd.Series(p, index=subset.index).map({0: "H", 1: "D", 2: "A"})
+                by_outcome[label] = float((pred_sub == code).mean())
 
-    return {"n": int(len(df)), "accuracy": acc, "by_outcome": by_outcome}
+        return {"n": int(len(df)), "accuracy": acc, "by_outcome": by_outcome}
+    except Exception as exc:
+        raise HTTPException(503, f"Accuracy unavailable: {exc}") from exc
