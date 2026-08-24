@@ -83,3 +83,64 @@ def build_standings_from_simulation(sim: pd.DataFrame) -> pd.DataFrame:
     table = pd.DataFrame(rows).sort_values(["points", "gd", "gf"], ascending=False).reset_index(drop=True)
     table["position"] = np.arange(1, len(table) + 1)
     return table[["position", "team", "played", "won", "drawn", "lost", "gf", "ga", "gd", "points"]]
+
+
+def build_current_standings_from_simulation(sim: pd.DataFrame) -> pd.DataFrame:
+    """Actual table from completed matches only (live season standings)."""
+    played = sim[sim["played"] == True].copy()  # noqa: E712
+    stats: dict[str, dict[str, int]] = {}
+
+    def ensure(team: str) -> None:
+        if team not in stats:
+            stats[team] = {"p": 0, "w": 0, "d": 0, "l": 0, "gf": 0, "ga": 0, "pts": 0}
+
+    for _, r in played.iterrows():
+        home, away = str(r["HomeTeam"]), str(r["AwayTeam"])
+        hg, ag = int(r["FTHG"]), int(r["FTAG"])
+        ftr = str(r["FTR"])
+
+        ensure(home)
+        ensure(away)
+
+        stats[home]["p"] += 1
+        stats[home]["gf"] += hg
+        stats[home]["ga"] += ag
+        stats[away]["p"] += 1
+        stats[away]["gf"] += ag
+        stats[away]["ga"] += hg
+
+        if ftr == "H":
+            stats[home]["w"] += 1
+            stats[away]["l"] += 1
+            stats[home]["pts"] += 3
+        elif ftr == "D":
+            stats[home]["d"] += 1
+            stats[away]["d"] += 1
+            stats[home]["pts"] += 1
+            stats[away]["pts"] += 1
+        else:
+            stats[home]["l"] += 1
+            stats[away]["w"] += 1
+            stats[away]["pts"] += 3
+
+    if not stats:
+        return pd.DataFrame(columns=["position", "team", "played", "won", "drawn", "lost", "gf", "ga", "gd", "points"])
+
+    rows = [
+        {
+            "team": team,
+            "played": s["p"],
+            "won": s["w"],
+            "drawn": s["d"],
+            "lost": s["l"],
+            "gf": s["gf"],
+            "ga": s["ga"],
+            "gd": s["gf"] - s["ga"],
+            "points": s["pts"],
+        }
+        for team, s in stats.items()
+    ]
+
+    table = pd.DataFrame(rows).sort_values(["points", "gd", "gf"], ascending=False).reset_index(drop=True)
+    table["position"] = np.arange(1, len(table) + 1)
+    return table[["position", "team", "played", "won", "drawn", "lost", "gf", "ga", "gd", "points"]]

@@ -42,7 +42,7 @@
     <nav class="tabs" id="tabs">
       <button class="tab active" data-tab="overview">Overview</button>
       <button class="tab" data-tab="predictions">Upcoming Fixtures</button>
-      <button class="tab" data-tab="standings">Projected Table</button>
+      <button class="tab" data-tab="standings">League Table</button>
       <button class="tab" data-tab="methodology">Data & Limits</button>
       <button class="tab" data-tab="results">Season Results</button>
     </nav>
@@ -110,29 +110,64 @@
       <section id="panel-standings" class="panel">
         <div class="card">
           <div class="card-header">
-            <h2>Projected League Table</h2>
-            <span class="muted">Projected from match probabilities; * = 2025/26 PL baseline for player stats</span>
+            <h2>League Table</h2>
+            <span class="muted" id="standings-subtitle">Projected end-of-season vs current live table</span>
           </div>
-          <div class="table-wrap">
-            <table class="standings-table" id="standings-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Team</th>
-                  <th>P</th>
-                  <th>W</th>
-                  <th>D</th>
-                  <th>L</th>
-                  <th>GF</th>
-                  <th>GA</th>
-                  <th>GD</th>
-                  <th>Pts</th>
-                  <th>Top scorer</th>
-                  <th>Top assister</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+          <div class="grid-2 standings-compare">
+            <div class="standings-panel">
+              <div class="standings-panel-head">
+                <h3 class="table-subhead">Projected Table</h3>
+                <span class="pill">End of season</span>
+              </div>
+              <div class="table-wrap">
+                <table class="standings-table" id="standings-table-projected">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Team</th>
+                      <th>P</th>
+                      <th>W</th>
+                      <th>D</th>
+                      <th>L</th>
+                      <th>GF</th>
+                      <th>GA</th>
+                      <th>GD</th>
+                      <th>Pts</th>
+                      <th>Top scorer</th>
+                      <th>Top assister</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="standings-panel">
+              <div class="standings-panel-head">
+                <h3 class="table-subhead">Current Table</h3>
+                <span class="pill" id="current-table-badge">Live</span>
+              </div>
+              <div class="table-wrap">
+                <table class="standings-table" id="standings-table-current">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Team</th>
+                      <th>P</th>
+                      <th>W</th>
+                      <th>D</th>
+                      <th>L</th>
+                      <th>GF</th>
+                      <th>GA</th>
+                      <th>GD</th>
+                      <th>Pts</th>
+                      <th>Top scorer</th>
+                      <th>Top assister</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
         <div class="card mt">
@@ -204,9 +239,9 @@
   </div>
 
   <div id="toast" class="toast hidden"></div>
-  <script src="/static/js/scores.js?v=4"></script>
-  <script src="/static/js/team-theme.js?v=4"></script>
-  <script src="/static/js/search.js?v=4"></script>
-  <script src="/static/js/app.js?v=4"></script>
+  <script src="/static/js/scores.js?v=5"></script>
+  <script src="/static/js/team-theme.js?v=5"></script>
+  <script src="/static/js/search.js?v=5"></script>
+  <script src="/static/js/app.js?v=5"></script>
 </body>
 </html>

@@ -18,7 +18,7 @@ from src.dataio import load_parquet
 from src.ingest.fetch_squad_data import load_squad_data
 from src.manager_adjustments import MANAGER_BOOST, MANAGER_NOTES, manager_ranking
 from src.player_leaderboard import enrich_standings_with_leaders, league_leaderboard
-from src.standings import build_standings_from_simulation
+from src.standings import build_current_standings_from_simulation, build_standings_from_simulation
 from src.teams_meta import team_info, team_stadium, team_stadium_image
 from src.train.train_model import FEATURE_COLS
 
@@ -450,13 +450,20 @@ def monte_carlo_standings() -> list[dict[str, Any]]:
 
 
 @app.get("/api/standings")
-def standings() -> list[dict[str, Any]]:
+def standings() -> dict[str, Any]:
     sim_path = paths.processed_dir / "season_simulation.parquet"
     if sim_path.exists():
         sim = load_parquet(sim_path)
-        table = build_standings_from_simulation(sim)
-        table = enrich_standings_with_leaders(table, PREDICT_SEASON)
-        return _df_to_records(table)
+        projected = build_standings_from_simulation(sim)
+        current = build_current_standings_from_simulation(sim)
+        projected = enrich_standings_with_leaders(projected, PREDICT_SEASON)
+        current = enrich_standings_with_leaders(current, PREDICT_SEASON)
+        played_count = int((sim["played"] == True).sum())  # noqa: E712
+        return {
+            "projected": _df_to_records(projected),
+            "current": _df_to_records(current),
+            "played_count": played_count,
+        }
 
     mc_path = paths.processed_dir / "monte_carlo_standings.parquet"
     if mc_path.exists():
@@ -464,7 +471,8 @@ def standings() -> list[dict[str, Any]]:
         mc = load_parquet(mc_path)
         table = monte_carlo_to_standings(mc)
         table = enrich_standings_with_leaders(table, PREDICT_SEASON)
-        return _df_to_records(table)
+        records = _df_to_records(table)
+        return {"projected": records, "current": [], "played_count": 0}
 
     raise HTTPException(404, "Season simulation not found. Run the pipeline first.")
 

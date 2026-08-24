@@ -213,8 +213,9 @@ function renderAccuracyBreakdown(data) {
   el.innerHTML = html;
 }
 
-function renderStandings(rows) {
-  const tbody = $('#standings-table tbody');
+function renderStandingsTable(tableId, rows) {
+  const tbody = document.querySelector(`#${tableId} tbody`);
+  if (!tbody) return;
   if (!rows.length) {
     tbody.innerHTML = '<tr><td colspan="12" class="empty-state">No standings data yet.</td></tr>';
     return;
@@ -243,6 +244,18 @@ function renderStandings(rows) {
       <td class="player-stat-cell">${assisterLabel}</td>
     </tr>`;
   }).join('');
+}
+
+function renderStandings(data) {
+  const payload = Array.isArray(data) ? { projected: data, current: [] } : (data || {});
+  renderStandingsTable('standings-table-projected', payload.projected || []);
+  renderStandingsTable('standings-table-current', payload.current || []);
+  const badge = $('#current-table-badge');
+  if (badge && payload.played_count != null) {
+    badge.textContent = payload.played_count
+      ? `After ${payload.played_count} games`
+      : 'Live';
+  }
 }
 
 function renderTopScorers(players, limit = 25) {
@@ -427,6 +440,8 @@ function setupTabs() {
 
 async function load() {
   setTableLoading('recent-results-table', 4);
+  setTableLoading('standings-table-projected', 12);
+  setTableLoading('standings-table-current', 12);
   setTableLoading('top-scorers-table', 4);
   setTableLoading('top-assisters-table', 4);
 
@@ -457,7 +472,7 @@ async function load() {
     const [report, accuracy, standings, manifest, methodology, scorers, assisters] = await Promise.all([
       fetchJSON('/api/report').catch(() => null),
       fetchJSON('/api/accuracy/recent?n=200').catch(() => null),
-      fetchJSON('/api/standings').catch(() => []),
+      fetchJSON('/api/standings').catch(() => ({ projected: [], current: [], played_count: 0 })),
       fetchJSON('/api/training-manifest').catch(() => null),
       fetchJSON('/api/methodology').catch(() => null),
       fetchJSON('/api/players/leaderboard?sort=goals').catch(() => ({ players: [] })),
