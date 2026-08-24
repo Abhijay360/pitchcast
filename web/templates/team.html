@@ -5,7 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Team Profile · PitchCast</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="/static/css/style.css?v=team-full" />
+  <script>
+    (function () {
+      var colors = {
+        Arsenal:'#EF0107','Aston Villa':'#670E36',Bournemouth:'#DA291C',Brentford:'#E30613',
+        Brighton:'#0057B8',Chelsea:'#034694',Coventry:'#69B3E7','Crystal Palace':'#1B458F',
+        Everton:'#003399',Fulham:'#000000',Hull:'#F58220',Ipswich:'#003B94',Leeds:'#1D428A',
+        Liverpool:'#C8102E','Man City':'#6CABDD','Man United':'#DA291C',Newcastle:'#241F20',
+        "Nott'm Forest":'#DD0000',Sunderland:'#EB172B',Tottenham:'#132257'
+      };
+      var team = new URLSearchParams(location.search).get('team');
+      var c = team && colors[team];
+      if (!c) return;
+      var deep = c;
+      if (c === '#FFFFFF') c = '#1D428A';
+      if (c === '#000000') deep = '#111111';
+      document.documentElement.style.background = 'linear-gradient(180deg,' + c + ' 0%,' + deep + ' 100%)';
+      document.documentElement.classList.add('team-page-root');
+    })();
+  </script>
 </head>
 <body>
   <div class="app" id="team-app">
@@ -24,7 +43,7 @@
     </main>
   </div>
   <script src="/static/js/scores.js"></script>
-  <script src="/static/js/team-theme.js"></script>
+  <script src="/static/js/team-theme.js?v=2"></script>
   <script src="/static/js/search.js"></script>
   <script src="/static/js/team.js"></script>
 </body>
