@@ -106,7 +106,7 @@ def team_stadium(team: str) -> str:
 def team_stadium_image(team: str) -> str:
     slug = LOGO_SLUG.get(team)
     if slug:
-        return f"/static/stadiums/{slug}.jpg?v=6"
+        return f"/static/stadiums/{slug}.jpg?v=7"
     return ""
 
 

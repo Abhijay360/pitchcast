@@ -5,40 +5,40 @@
     "source": "wikimedia"
   },
   "Aston Villa": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Birmingham_aston_villa_park_stadium.jpg/1280px-Birmingham_aston_villa_park_stadium.jpg",
-    "source": "wikimedia"
+    "url": "local:aston-villa",
+    "source": "user-provided"
   },
   "Bournemouth": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Deancourt_14092013_vblackpool.jpg/1280px-Deancourt_14092013_vblackpool.jpg",
-    "source": "wikimedia"
+    "url": "local:bournemouth",
+    "source": "user-provided"
   },
   "Brentford": {
     "url": "local:brentford",
     "source": "user-provided"
   },
   "Brighton": {
-    "url": "https://resources-uk.yinzcam.com/fa/shared/bha/images/og-image.jpg",
-    "source": "brightonfc.com"
+    "url": "local:brighton",
+    "source": "user-provided"
   },
   "Chelsea": {
     "url": "local:chelsea",
     "source": "user-provided"
   },
   "Crystal Palace": {
-    "url": "https://media-cdn.incrowdsports.com/c1caf632-bd20-48e3-a04b-f0bcd8ac1df5.jpg",
-    "source": "cpfc.co.uk"
+    "url": "local:crystal-palace",
+    "source": "user-provided"
   },
   "Everton": {
     "url": "local:everton",
     "source": "user-provided"
   },
   "Fulham": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Craven_Cottage%2C_Fulham_FC_Stadium_-_panoramio.jpg/1280px-Craven_Cottage%2C_Fulham_FC_Stadium_-_panoramio.jpg",
-    "source": "wikimedia"
+    "url": "local:fulham",
+    "source": "user-provided"
   },
   "Leeds": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Elland_Road_%2811th_August_2023%29_004.jpg/1280px-Elland_Road_%2811th_August_2023%29_004.jpg",
-    "source": "wikimedia"
+    "url": "local:leeds",
+    "source": "user-provided"
   },
   "Liverpool": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Anfield_panorama%2C_20_October_2012.jpg/1280px-Anfield_panorama%2C_20_October_2012.jpg",
@@ -57,16 +57,16 @@
     "source": "user-provided"
   },
   "Nott'm Forest": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/City_Ground%2C_Nottingham_-_geograph.org.uk_-_83567.jpg",
-    "source": "wikimedia"
+    "url": "local:nottm-forest",
+    "source": "user-provided"
   },
   "Sunderland": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Sunderland_stadium_of_light.jpg/1280px-Sunderland_stadium_of_light.jpg",
     "source": "wikimedia"
   },
   "Tottenham": {
-    "url": "https://resources.thfc.pulselive.com/photo-resources/2026/03/04/9f640749-29f8-4768-ba06-017fe117220e/The-Stadium.jpg",
-    "source": "tottenhamhotspur.com"
+    "url": "local:tottenham",
+    "source": "user-provided"
   },
   "West Ham": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/London_Olympic_Stadium_West_Ham.jpg/1280px-London_Olympic_Stadium_West_Ham.jpg",
@@ -77,15 +77,15 @@
     "source": "wikimedia"
   },
   "Coventry": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Coventry_%2C_Coventry_Building_Society_Arena_-_geograph.org.uk_-_6974086.jpg/1280px-Coventry_%2C_Coventry_Building_Society_Arena_-_geograph.org.uk_-_6974086.jpg",
-    "source": "wikimedia"
+    "url": "local:coventry",
+    "source": "user-provided"
   },
   "Hull": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/KC_South_Stand.JPG",
-    "source": "wikimedia"
+    "url": "local:hull",
+    "source": "user-provided"
   },
   "Ipswich": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Portman_Road_aerial_%28cropped%29.jpg/1280px-Portman_Road_aerial_%28cropped%29.jpg",
-    "source": "wikimedia"
+    "url": "local:ipswich",
+    "source": "user-provided"
   }
 }
