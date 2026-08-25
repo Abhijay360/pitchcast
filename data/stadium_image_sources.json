@@ -13,24 +13,24 @@
     "source": "wikimedia"
   },
   "Brentford": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Brentford_Community_Stadium_2020.jpg/1280px-Brentford_Community_Stadium_2020.jpg",
-    "source": "wikimedia"
+    "url": "local:brentford",
+    "source": "user-provided"
   },
   "Brighton": {
     "url": "https://resources-uk.yinzcam.com/fa/shared/bha/images/og-image.jpg",
     "source": "brightonfc.com"
   },
   "Chelsea": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Fulham%2C_Stamford_Bridge_stadium_-_geograph.org.uk_-_864514.jpg",
-    "source": "wikimedia"
+    "url": "local:chelsea",
+    "source": "user-provided"
   },
   "Crystal Palace": {
     "url": "https://media-cdn.incrowdsports.com/c1caf632-bd20-48e3-a04b-f0bcd8ac1df5.jpg",
     "source": "cpfc.co.uk"
   },
   "Everton": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Goodison_Park_-_geograph.org.uk_-_206329.jpg",
-    "source": "wikimedia"
+    "url": "local:everton",
+    "source": "user-provided"
   },
   "Fulham": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Craven_Cottage%2C_Fulham_FC_Stadium_-_panoramio.jpg/1280px-Craven_Cottage%2C_Fulham_FC_Stadium_-_panoramio.jpg",
@@ -49,12 +49,12 @@
     "source": "wikimedia"
   },
   "Man United": {
-    "url": "https://scoreplay-mam-media.s3.amazonaws.com/472/5391175/media_114961081_114570209.jpg",
-    "source": "manutd.com"
+    "url": "local:man-united",
+    "source": "user-provided"
   },
   "Newcastle": {
-    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/St_James%27_Park%2C_Newcastle.jpg",
-    "source": "wikimedia"
+    "url": "local:newcastle",
+    "source": "user-provided"
   },
   "Nott'm Forest": {
     "url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/City_Ground%2C_Nottingham_-_geograph.org.uk_-_83567.jpg",
