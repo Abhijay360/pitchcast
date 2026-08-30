@@ -1,10 +1,10 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-08-29T12:04:11.366148+00:00",
-  "injury_count": 130,
-  "matched_count": 90,
-  "unmatched_count": 40,
+  "fetched_at": "2026-08-30T10:59:59.541170+00:00",
+  "injury_count": 129,
+  "matched_count": 88,
+  "unmatched_count": 41,
   "injuries": [
     {
       "team": "Arsenal",
@@ -203,19 +203,6 @@
     },
     {
       "team": "Bournemouth",
-      "player": "Julio Soler",
-      "fpl_web_name": "Soler",
-      "fpl_id": 66,
-      "tm_player_id": 1009658,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Hamstring injury - 75% chance of playing",
-      "market_value_m": 8.0
-    },
-    {
-      "team": "Bournemouth",
       "player": "Juli\u00e1n Araujo",
       "fpl_web_name": "J.Araujo",
       "fpl_id": 65,
@@ -313,9 +300,9 @@
       "tm_player_id": 867688,
       "matched": true,
       "status": "d",
-      "chance_of_playing": 25,
-      "health": 0.25,
-      "news": "Unspecified injury - 25% chance of playing",
+      "chance_of_playing": 50,
+      "health": 0.5,
+      "news": "Unspecified injury - 50% chance of playing",
       "market_value_m": 28.0
     },
     {
@@ -645,32 +632,6 @@
     },
     {
       "team": "Everton",
-      "player": "Hayden Hackney",
-      "fpl_web_name": "Hackney",
-      "fpl_id": 247,
-      "tm_player_id": 538216,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Ankle injury - 50% chance of playing",
-      "market_value_m": 32.0
-    },
-    {
-      "team": "Everton",
-      "player": "Tim Iroegbunam",
-      "fpl_web_name": "Iroegbunam",
-      "fpl_id": 240,
-      "tm_player_id": 696589,
-      "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Thigh injury - Unknown return date",
-      "market_value_m": 18.0
-    },
-    {
-      "team": "Everton",
       "player": "Christian N\u00f8rgaard",
       "fpl_web_name": "N\u00f8rgaard",
       "fpl_id": 21,
@@ -679,7 +640,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Unspecified injury - Unknown return date",
+      "news": "Groin injury - Unknown return date",
       "market_value_m": 5.0
     },
     {
@@ -785,6 +746,32 @@
       "health": 0.0,
       "news": "Thigh injury - Unknown return date",
       "market_value_m": 1.5
+    },
+    {
+      "team": "Hull",
+      "player": "Lewie Coyle",
+      "fpl_web_name": "Coyle",
+      "fpl_id": 280,
+      "tm_player_id": 413402,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Unspecified injury - 75% chance of playing",
+      "market_value_m": 1.2
+    },
+    {
+      "team": "Hull",
+      "player": "Matt Crooks",
+      "fpl_web_name": "Crooks",
+      "fpl_id": 289,
+      "tm_player_id": 169416,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Thigh injury - 75% chance of playing",
+      "market_value_m": 0.7
     },
     {
       "team": "Hull",
@@ -1014,10 +1001,10 @@
       "fpl_id": 344,
       "tm_player_id": 381753,
       "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Knee injury - Unknown return date",
+      "status": "d",
+      "chance_of_playing": 25,
+      "health": 0.25,
+      "news": "Knee injury - 25% chance of playing",
       "market_value_m": 12.0
     },
     {
@@ -1581,19 +1568,6 @@
     },
     {
       "team": "Tottenham",
-      "player": "Mohammed Kudus",
-      "fpl_web_name": "Kudus",
-      "fpl_id": 512,
-      "tm_player_id": 543499,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Thigh injury - 75% chance of playing",
-      "market_value_m": 50.0
-    },
-    {
-      "team": "Tottenham",
       "player": "Xavi Simons",
       "fpl_web_name": "Xavi",
       "fpl_id": 513,
@@ -1694,6 +1668,19 @@
       "chance_of_playing": 0,
       "health": 0.0,
       "news": "Has joined Juventus on loan for the rest of the season",
+      "market_value_m": 0.0
+    },
+    {
+      "team": "Tottenham",
+      "player": "S\u00e1vio Moreira de Oliveira",
+      "fpl_web_name": "S\u00e1vio",
+      "fpl_id": 403,
+      "tm_player_id": null,
+      "matched": false,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Muscular injury - 75% chance of playing",
       "market_value_m": 0.0
     }
   ]
