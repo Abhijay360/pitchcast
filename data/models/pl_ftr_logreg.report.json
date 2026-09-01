@@ -2,8 +2,8 @@
   "n_rows": 3800,
   "n_features": 22,
   "splits": 5,
-  "avg_log_loss": 0.987030934372072,
-  "avg_accuracy": 0.5311216429699842,
+  "avg_log_loss": 0.9866101522579847,
+  "avg_accuracy": 0.5298578199052132,
   "feature_cols": [
     "home_avg_gf",
     "home_avg_ga",

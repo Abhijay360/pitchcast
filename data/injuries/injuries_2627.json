@@ -1,10 +1,10 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-08-30T10:59:59.541170+00:00",
+  "fetched_at": "2026-09-01T10:54:11.961744+00:00",
   "injury_count": 129,
-  "matched_count": 88,
-  "unmatched_count": 41,
+  "matched_count": 89,
+  "unmatched_count": 40,
   "injuries": [
     {
       "team": "Arsenal",
@@ -18,19 +18,6 @@
       "health": 0.0,
       "news": "Back injury - Unknown return date",
       "market_value_m": 100.0
-    },
-    {
-      "team": "Arsenal",
-      "player": "Bruno Guimar\u00e3es",
-      "fpl_web_name": "Bruno G.",
-      "fpl_id": 452,
-      "tm_player_id": 520624,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Thigh injury - 75% chance of playing",
-      "market_value_m": 70.0
     },
     {
       "team": "Arsenal",
@@ -96,19 +83,6 @@
       "health": 0.0,
       "news": "Suspended until 19 Sep",
       "market_value_m": 40.0
-    },
-    {
-      "team": "Aston Villa",
-      "player": "Tammy Abraham",
-      "fpl_web_name": "Abraham",
-      "fpl_id": 56,
-      "tm_player_id": 331726,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Knock - 50% chance of playing",
-      "market_value_m": 18.0
     },
     {
       "team": "Aston Villa",
@@ -267,6 +241,19 @@
       "market_value_m": 15.0
     },
     {
+      "team": "Brentford",
+      "player": "Mathias Jensen",
+      "fpl_web_name": "Jensen",
+      "fpl_id": 97,
+      "tm_player_id": 319859,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Unspecified injury - 75% chance of playing",
+      "market_value_m": 10.0
+    },
+    {
       "team": "Brighton",
       "player": "Yankuba Minteh",
       "fpl_web_name": "Minteh",
@@ -278,6 +265,19 @@
       "health": 0.0,
       "news": "Leg injury - Expected back 28 Nov",
       "market_value_m": 45.0
+    },
+    {
+      "team": "Brighton",
+      "player": "Yasin Ayari",
+      "fpl_web_name": "Ayari",
+      "fpl_id": 129,
+      "tm_player_id": 667287,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Ankle injury - 75% chance of playing",
+      "market_value_m": 40.0
     },
     {
       "team": "Brighton",
@@ -905,6 +905,19 @@
     },
     {
       "team": "Ipswich",
+      "player": "Emersonn",
+      "fpl_web_name": "Emersonn",
+      "fpl_id": 316,
+      "tm_player_id": 743599,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Knee injury - 75% chance of playing",
+      "market_value_m": 8.0
+    },
+    {
+      "team": "Ipswich",
       "player": "Jack Taylor",
       "fpl_web_name": "Taylor",
       "fpl_id": 312,
@@ -970,29 +983,16 @@
     },
     {
       "team": "Leeds",
-      "player": "Gabriel Gudmundsson",
-      "fpl_web_name": "Gudmundsson",
-      "fpl_id": 331,
-      "tm_player_id": 362108,
+      "player": "Joe Rodon",
+      "fpl_web_name": "Rodon",
+      "fpl_id": 329,
+      "tm_player_id": 297212,
       "matched": true,
       "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Hamstring injury - 75% chance of playing",
-      "market_value_m": 20.0
-    },
-    {
-      "team": "Leeds",
-      "player": "Wilfried Gnonto",
-      "fpl_web_name": "Gnonto",
-      "fpl_id": 341,
-      "tm_player_id": 627626,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Hamstring injury - 75% chance of playing",
-      "market_value_m": 16.0
+      "chance_of_playing": 50,
+      "health": 0.5,
+      "news": "Hamstring injury - 50% chance of playing",
+      "market_value_m": 18.0
     },
     {
       "team": "Leeds",
@@ -1490,6 +1490,19 @@
     },
     {
       "team": "Sunderland",
+      "player": "Habib Diarra",
+      "fpl_web_name": "Diarra",
+      "fpl_id": 543,
+      "tm_player_id": 876631,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Unspecified injury - 75% chance of playing",
+      "market_value_m": 35.0
+    },
+    {
+      "team": "Sunderland",
       "player": "Simon Adingra",
       "fpl_web_name": "Adingra",
       "fpl_id": 546,
@@ -1538,19 +1551,6 @@
       "chance_of_playing": 0,
       "health": 0.0,
       "news": "Has joined Konyaspor permanently",
-      "market_value_m": 0.0
-    },
-    {
-      "team": "Sunderland",
-      "player": "Dayann M\u00e9thalie",
-      "fpl_web_name": "Methalie",
-      "fpl_id": 612,
-      "tm_player_id": null,
-      "matched": false,
-      "status": "s",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Suspended until 5 Sep",
       "market_value_m": 0.0
     },
     {
