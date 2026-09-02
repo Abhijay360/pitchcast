@@ -1,10 +1,10 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-09-01T10:54:11.961744+00:00",
-  "injury_count": 129,
-  "matched_count": 89,
-  "unmatched_count": 40,
+  "fetched_at": "2026-09-02T10:20:02.761372+00:00",
+  "injury_count": 138,
+  "matched_count": 97,
+  "unmatched_count": 41,
   "injuries": [
     {
       "team": "Arsenal",
@@ -83,6 +83,19 @@
       "health": 0.0,
       "news": "Suspended until 19 Sep",
       "market_value_m": 40.0
+    },
+    {
+      "team": "Aston Villa",
+      "player": "Ollie Watkins",
+      "fpl_web_name": "Watkins",
+      "fpl_id": 55,
+      "tm_player_id": 324358,
+      "matched": true,
+      "status": "u",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Has joined Al Hilal permanently",
+      "market_value_m": 25.0
     },
     {
       "team": "Aston Villa",
@@ -437,6 +450,19 @@
     },
     {
       "team": "Chelsea",
+      "player": "Marc Guiu",
+      "fpl_web_name": "Marc Guiu",
+      "fpl_id": 168,
+      "tm_player_id": 938158,
+      "matched": true,
+      "status": "u",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Has joined RB Leipzig permanently",
+      "market_value_m": 12.0
+    },
+    {
+      "team": "Chelsea",
       "player": "Jordan Henderson",
       "fpl_web_name": "Henderson",
       "fpl_id": 101,
@@ -632,6 +658,19 @@
     },
     {
       "team": "Everton",
+      "player": "Adam Aznou",
+      "fpl_web_name": "Aznou",
+      "fpl_id": 235,
+      "tm_player_id": 938146,
+      "matched": true,
+      "status": "u",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Has joined Malaga on loan for the rest of the season",
+      "market_value_m": 6.0
+    },
+    {
+      "team": "Everton",
       "player": "Christian N\u00f8rgaard",
       "fpl_web_name": "N\u00f8rgaard",
       "fpl_id": 21,
@@ -668,6 +707,19 @@
       "health": 0.0,
       "news": "Knee injury - Expected back 10 Oct",
       "market_value_m": 0.5
+    },
+    {
+      "team": "Fulham",
+      "player": "Alfie McNally",
+      "fpl_web_name": "McNally",
+      "fpl_id": 252,
+      "tm_player_id": null,
+      "matched": false,
+      "status": "u",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Has joined York City on loan for the rest of the season",
+      "market_value_m": 0.0
     },
     {
       "team": "Hull",
@@ -1009,6 +1061,19 @@
     },
     {
       "team": "Leeds",
+      "player": "Lucas Perri",
+      "fpl_web_name": "Perri",
+      "fpl_id": 326,
+      "tm_player_id": 352041,
+      "matched": true,
+      "status": "u",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Has joined Torino on loan for the rest of the season",
+      "market_value_m": 10.0
+    },
+    {
+      "team": "Leeds",
       "player": "Mateo Joseph",
       "fpl_web_name": "Mateo Joseph",
       "fpl_id": 349,
@@ -1157,10 +1222,10 @@
       "fpl_id": 376,
       "tm_player_id": 864799,
       "matched": true,
-      "status": "i",
+      "status": "u",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Hamstring injury - Unknown return date",
+      "news": "Has joined Celta Vigo permanently",
       "market_value_m": 4.0
     },
     {
@@ -1334,6 +1399,19 @@
     },
     {
       "team": "Man United",
+      "player": "Toby Collyer",
+      "fpl_web_name": "Collyer",
+      "fpl_id": 436,
+      "tm_player_id": 654253,
+      "matched": true,
+      "status": "u",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Has joined West Brom permanently",
+      "market_value_m": 5.0
+    },
+    {
+      "team": "Man United",
       "player": "Tom Heaton",
       "fpl_web_name": "Heaton",
       "fpl_id": 414,
@@ -1451,6 +1529,19 @@
     },
     {
       "team": "Nott'm Forest",
+      "player": "Omari Hutchinson",
+      "fpl_web_name": "Hutchinson",
+      "fpl_id": 484,
+      "tm_player_id": 741238,
+      "matched": true,
+      "status": "u",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Has joined AC Milan on loan for the rest of the season",
+      "market_value_m": 30.0
+    },
+    {
+      "team": "Nott'm Forest",
       "player": "Dilane Bakwa",
       "fpl_web_name": "Bakwa",
       "fpl_id": 485,
@@ -1487,6 +1578,19 @@
       "health": 0.0,
       "news": "Knee injury - Unknown return date",
       "market_value_m": 15.0
+    },
+    {
+      "team": "Nott'm Forest",
+      "player": "Tyler Bindon",
+      "fpl_web_name": "Bindon",
+      "fpl_id": 479,
+      "tm_player_id": 1007720,
+      "matched": true,
+      "status": "u",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Has joined Charlton Athletic on loan for the rest of the season",
+      "market_value_m": 3.5
     },
     {
       "team": "Sunderland",
@@ -1617,6 +1721,19 @@
       "health": 0.0,
       "news": "Knee injury - Unknown return date",
       "market_value_m": 17.0
+    },
+    {
+      "team": "Tottenham",
+      "player": "Souza",
+      "fpl_web_name": "Souza",
+      "fpl_id": 511,
+      "tm_player_id": 1086258,
+      "matched": true,
+      "status": "u",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Has joined FC Porto on loan for the rest of the season",
+      "market_value_m": 12.0
     },
     {
       "team": "Tottenham",
