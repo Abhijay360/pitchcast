@@ -98,11 +98,15 @@ def _recent_form(df: pd.DataFrame, team: str, n: int = 5) -> TeamRecentForm:
 
 
 def _form_momentum(sequence: tuple[str, ...]) -> tuple[float, str]:
-    """Recency-weighted form score in [-1, 1] and a short label."""
+    """Recency-weighted form score in [-1, 1] and a short label.
+
+    `sequence` is chronological (oldest → newest). Newest results weigh more.
+    """
     if not sequence:
         return 0.0, "No recent data"
-    weights = np.array([1.0, 0.85, 0.7, 0.55, 0.4, 0.3][: len(sequence)], dtype=float)
-    weights = weights / weights.sum()
+    # Newest game gets the largest weight
+    raw_w = np.array([1.0, 0.85, 0.7, 0.55, 0.4, 0.3][: len(sequence)], dtype=float)[::-1]
+    weights = raw_w / raw_w.sum()
     pts = {"W": 1.0, "D": 0.15, "L": -1.0}
     raw = sum(weights[i] * pts.get(sequence[i], 0.0) for i in range(len(sequence)))
     score = float(np.clip(raw, -1.0, 1.0))
@@ -348,8 +352,10 @@ def fixture_insights(
     p_draw = float(fixture_row.get("p_draw") or 0.23)
     p_away = float(fixture_row.get("p_away") or 0.33)
 
-    # History for recent form uses training seasons only (no look-ahead into predicted season).
-    hist = load_raw_seasons(TRAIN_SEASONS)
+    # Recent form + H2H: prior seasons plus any completed matches in the current season.
+    # Using TRAIN_SEASONS alone ignored MD results (e.g. Liverpool's back-to-back draws).
+    seasons = list(dict.fromkeys([*TRAIN_SEASONS, season]))
+    hist = load_raw_seasons(seasons)
     home_form = _recent_form(hist, home, n=recent_n)
     away_form = _recent_form(hist, away, n=recent_n)
     h2h = _h2h(hist, home, away, n=8)
