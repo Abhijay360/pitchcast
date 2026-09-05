@@ -94,3 +94,8 @@ PREDICT_SEASON = "2627"  # 2026-27
 ## License
 
 MIT
+
+
+## Credit
+
+Aryan Bardeja  - https://github.com/aryanbardeja1-alt
