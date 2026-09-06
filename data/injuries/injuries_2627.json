@@ -1,9 +1,9 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-09-05T09:46:10.941044+00:00",
-  "injury_count": 172,
-  "matched_count": 77,
+  "fetched_at": "2026-09-06T10:02:10.433963+00:00",
+  "injury_count": 171,
+  "matched_count": 76,
   "unmatched_count": 95,
   "injuries": [
     {
@@ -346,6 +346,19 @@
     },
     {
       "team": "Brentford",
+      "player": "Nathan Collins",
+      "fpl_web_name": "Collins",
+      "fpl_id": 84,
+      "tm_player_id": 469050,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 25,
+      "health": 0.25,
+      "news": "Calf injury - 25% chance of playing",
+      "market_value_m": 30.0
+    },
+    {
+      "team": "Brentford",
       "player": "Antoni Milambo",
       "fpl_web_name": "Milambo",
       "fpl_id": 99,
@@ -395,19 +408,6 @@
       "health": 0.0,
       "news": "Leg injury - Expected back 28 Nov",
       "market_value_m": 45.0
-    },
-    {
-      "team": "Brighton",
-      "player": "Yasin Ayari",
-      "fpl_web_name": "Ayari",
-      "fpl_id": 129,
-      "tm_player_id": 667287,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Ankle injury - 75% chance of playing",
-      "market_value_m": 40.0
     },
     {
       "team": "Brighton",
@@ -1087,19 +1087,6 @@
     },
     {
       "team": "Hull",
-      "player": "Lewie Coyle",
-      "fpl_web_name": "Coyle",
-      "fpl_id": 280,
-      "tm_player_id": 413402,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
-      "market_value_m": 1.2
-    },
-    {
-      "team": "Hull",
       "player": "Matt Crooks",
       "fpl_web_name": "Crooks",
       "fpl_id": 289,
@@ -1615,8 +1602,21 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Calf injury - Expected back 5 Sep",
+      "news": "Calf injury - Expected back 13 Sep",
       "market_value_m": 75.0
+    },
+    {
+      "team": "Man City",
+      "player": "Nico O'Reilly",
+      "fpl_web_name": "O'Reilly",
+      "fpl_id": 387,
+      "tm_player_id": 743413,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Back injury - 75% chance of playing",
+      "market_value_m": 70.0
     },
     {
       "team": "Man City",
@@ -1825,19 +1825,6 @@
       "health": 0.0,
       "news": "Has joined Lausanne-Sport permanently",
       "market_value_m": 0.0
-    },
-    {
-      "team": "Newcastle",
-      "player": "Tino Livramento",
-      "fpl_web_name": "Livramento",
-      "fpl_id": 450,
-      "tm_player_id": 503981,
-      "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Calf injury - Unknown return date",
-      "market_value_m": 45.0
     },
     {
       "team": "Newcastle",
