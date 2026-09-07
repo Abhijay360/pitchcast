@@ -1,9 +1,9 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-09-06T10:02:10.433963+00:00",
-  "injury_count": 171,
-  "matched_count": 76,
+  "fetched_at": "2026-09-07T11:14:09.781563+00:00",
+  "injury_count": 170,
+  "matched_count": 75,
   "unmatched_count": 95,
   "injuries": [
     {
@@ -44,19 +44,6 @@
       "health": 0.0,
       "news": "Has joined FC Barcelona permanently",
       "market_value_m": 75.0
-    },
-    {
-      "team": "Arsenal",
-      "player": "Bruno Guimar\u00e3es",
-      "fpl_web_name": "Bruno G.",
-      "fpl_id": 452,
-      "tm_player_id": 520624,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Knock - 75% chance of playing",
-      "market_value_m": 70.0
     },
     {
       "team": "Arsenal",
@@ -931,6 +918,19 @@
     },
     {
       "team": "Everton",
+      "player": "James Garner",
+      "fpl_web_name": "Garner",
+      "fpl_id": 239,
+      "tm_player_id": 505219,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Unspecified injury - 75% chance of playing",
+      "market_value_m": 45.0
+    },
+    {
+      "team": "Everton",
       "player": "Christian N\u00f8rgaard",
       "fpl_web_name": "N\u00f8rgaard",
       "fpl_id": 21,
@@ -1759,19 +1759,6 @@
       "chance_of_playing": 0,
       "health": 0.0,
       "news": "Knee injury - Unknown return date",
-      "market_value_m": 25.0
-    },
-    {
-      "team": "Man United",
-      "player": "Mason Mount",
-      "fpl_web_name": "Mount",
-      "fpl_id": 430,
-      "tm_player_id": 346483,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Foot injury - 75% chance of playing",
       "market_value_m": 25.0
     },
     {
