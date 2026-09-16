@@ -1,10 +1,10 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-09-13T10:53:14.175723+00:00",
-  "injury_count": 187,
-  "matched_count": 92,
-  "unmatched_count": 95,
+  "fetched_at": "2026-09-16T10:36:36.561466+00:00",
+  "injury_count": 195,
+  "matched_count": 99,
+  "unmatched_count": 96,
   "injuries": [
     {
       "team": "Arsenal",
@@ -57,6 +57,19 @@
       "health": 0.5,
       "news": "Muscular injury - 50% chance of playing",
       "market_value_m": 40.0
+    },
+    {
+      "team": "Arsenal",
+      "player": "Ben White",
+      "fpl_web_name": "White",
+      "fpl_id": 10,
+      "tm_player_id": 335721,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Muscular injury - 75% chance of playing",
+      "market_value_m": 30.0
     },
     {
       "team": "Arsenal",
@@ -385,6 +398,19 @@
     },
     {
       "team": "Brentford",
+      "player": "Kaye Furo",
+      "fpl_web_name": "Furo",
+      "fpl_id": 107,
+      "tm_player_id": 1011936,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Unspecified injury - Unknown return date",
+      "market_value_m": 8.0
+    },
+    {
+      "team": "Brentford",
       "player": "Josh Dasilva",
       "fpl_web_name": "Dasilva",
       "fpl_id": 103,
@@ -408,19 +434,6 @@
       "health": 0.0,
       "news": "Leg injury - Expected back 28 Nov",
       "market_value_m": 45.0
-    },
-    {
-      "team": "Brighton",
-      "player": "Georginio Rutter",
-      "fpl_web_name": "Georginio",
-      "fpl_id": 125,
-      "tm_player_id": 538977,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
-      "market_value_m": 30.0
     },
     {
       "team": "Brighton",
@@ -746,6 +759,32 @@
       "health": 0.0,
       "news": "Unspecified injury - Expected back 12 Oct",
       "market_value_m": 9.0
+    },
+    {
+      "team": "Coventry",
+      "player": "Frank Onyeka",
+      "fpl_web_name": "Onyeka",
+      "fpl_id": 104,
+      "tm_player_id": 421637,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 50,
+      "health": 0.5,
+      "news": "Hand injury - 50% chance of playing",
+      "market_value_m": 8.0
+    },
+    {
+      "team": "Coventry",
+      "player": "Taiwo Awoniyi",
+      "fpl_web_name": "Awoniyi",
+      "fpl_id": 492,
+      "tm_player_id": 295313,
+      "matched": true,
+      "status": "s",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Suspended until 19 Oct",
+      "market_value_m": 8.0
     },
     {
       "team": "Coventry",
@@ -1084,6 +1123,19 @@
       "health": 0.0,
       "news": "Has joined Fiorentina permanently",
       "market_value_m": 0.0
+    },
+    {
+      "team": "Fulham",
+      "player": "Ryan Sessegnon",
+      "fpl_web_name": "Sessegnon",
+      "fpl_id": 269,
+      "tm_player_id": 392775,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Groin injury - 75% chance of playing",
+      "market_value_m": 22.0
     },
     {
       "team": "Fulham",
@@ -1612,10 +1664,10 @@
       "fpl_id": 359,
       "tm_player_id": 256178,
       "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Muscular injury - Unknown return date",
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Muscular injury - 75% chance of playing",
       "market_value_m": 13.0
     },
     {
@@ -1708,6 +1760,19 @@
       "health": 0.0,
       "news": "Calf injury - Expected back 20 Sep",
       "market_value_m": 75.0
+    },
+    {
+      "team": "Man City",
+      "player": "Phil Foden",
+      "fpl_web_name": "Foden",
+      "fpl_id": 398,
+      "tm_player_id": 406635,
+      "matched": true,
+      "status": "s",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Suspended until 17 Oct",
+      "market_value_m": 70.0
     },
     {
       "team": "Man City",
@@ -1893,6 +1958,19 @@
     },
     {
       "team": "Man United",
+      "player": "Chido Obi",
+      "fpl_web_name": "Obi",
+      "fpl_id": 441,
+      "tm_player_id": null,
+      "matched": false,
+      "status": "u",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Has joined Willem II on loan for the rest of the season",
+      "market_value_m": 0.0
+    },
+    {
+      "team": "Man United",
       "player": "Toby Collyer",
       "fpl_web_name": "Collyer",
       "fpl_id": 436,
@@ -1919,6 +1997,45 @@
     },
     {
       "team": "Newcastle",
+      "player": "Nico Gonz\u00e1lez",
+      "fpl_web_name": "N.Gonzalez",
+      "fpl_id": 405,
+      "tm_player_id": 466805,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 50,
+      "health": 0.5,
+      "news": "Concussion - 50% chance of playing",
+      "market_value_m": 40.0
+    },
+    {
+      "team": "Newcastle",
+      "player": "Jacob Ramsey",
+      "fpl_web_name": "J.Ramsey",
+      "fpl_id": 456,
+      "tm_player_id": 503749,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 25,
+      "health": 0.25,
+      "news": "Thigh injury - 25% chance of playing",
+      "market_value_m": 35.0
+    },
+    {
+      "team": "Newcastle",
+      "player": "Anthony Elanga",
+      "fpl_web_name": "Elanga",
+      "fpl_id": 454,
+      "tm_player_id": 583189,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Unspecified injury - Unknown return date",
+      "market_value_m": 32.0
+    },
+    {
+      "team": "Newcastle",
       "player": "William Osula",
       "fpl_web_name": "Osula",
       "fpl_id": 465,
@@ -1942,19 +2059,6 @@
       "health": 0.0,
       "news": "Unspecified injury - Unknown return date",
       "market_value_m": 25.0
-    },
-    {
-      "team": "Newcastle",
-      "player": "Amar Dedic",
-      "fpl_web_name": "Dedi\u0107",
-      "fpl_id": 593,
-      "tm_player_id": 519184,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Hamstring injury - 75% chance of playing",
-      "market_value_m": 20.0
     },
     {
       "team": "Newcastle",
@@ -1992,7 +2096,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Ankle injury - Expected back 14 Sep",
+      "news": "Ankle injury - Expected back 19 Sep",
       "market_value_m": 4.0
     },
     {
@@ -2041,10 +2145,10 @@
       "fpl_id": 471,
       "tm_player_id": 413507,
       "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Hamstring injury - 75% chance of playing",
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Hamstring injury - Expected back 11 Oct",
       "market_value_m": 28.0
     },
     {
@@ -2055,9 +2159,9 @@
       "tm_player_id": 984096,
       "matched": true,
       "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Hamstring injury - 75% chance of playing",
+      "chance_of_playing": 50,
+      "health": 0.5,
+      "news": "Hamstring injury - 50% chance of playing",
       "market_value_m": 15.0
     },
     {
@@ -2244,6 +2348,19 @@
     },
     {
       "team": "Tottenham",
+      "player": "Sandro Tonali",
+      "fpl_web_name": "Tonali",
+      "fpl_id": 455,
+      "tm_player_id": 397033,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Knock - 75% chance of playing",
+      "market_value_m": 80.0
+    },
+    {
+      "team": "Tottenham",
       "player": "Pedro Porro",
       "fpl_web_name": "Pedro Porro",
       "fpl_id": 499,
@@ -2267,19 +2384,6 @@
       "health": 0.0,
       "news": "Knee injury - Unknown return date",
       "market_value_m": 40.0
-    },
-    {
-      "team": "Tottenham",
-      "player": "Destiny Udogie",
-      "fpl_web_name": "Udogie",
-      "fpl_id": 506,
-      "tm_player_id": 556385,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
-      "market_value_m": 30.0
     },
     {
       "team": "Tottenham",
