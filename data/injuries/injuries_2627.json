@@ -1,9 +1,9 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-09-20T10:23:27.924737+00:00",
-  "injury_count": 195,
-  "matched_count": 99,
+  "fetched_at": "2026-09-21T11:38:28.111701+00:00",
+  "injury_count": 194,
+  "matched_count": 98,
   "unmatched_count": 96,
   "injuries": [
     {
@@ -44,6 +44,19 @@
       "health": 0.0,
       "news": "Has joined FC Barcelona permanently",
       "market_value_m": 75.0
+    },
+    {
+      "team": "Arsenal",
+      "player": "Ben White",
+      "fpl_web_name": "White",
+      "fpl_id": 10,
+      "tm_player_id": 335721,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Groin injury - 75% chance of playing",
+      "market_value_m": 30.0
     },
     {
       "team": "Arsenal",
@@ -265,6 +278,19 @@
       "health": 0.0,
       "news": "Foot injury - Expected back 7 Nov",
       "market_value_m": 70.0
+    },
+    {
+      "team": "Bournemouth",
+      "player": "Justin Kluivert",
+      "fpl_web_name": "Kluivert",
+      "fpl_id": 70,
+      "tm_player_id": 330659,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Unspecified injury - Unknown return date",
+      "market_value_m": 25.0
     },
     {
       "team": "Bournemouth",
@@ -1126,32 +1152,6 @@
     },
     {
       "team": "Fulham",
-      "player": "Ryan Sessegnon",
-      "fpl_web_name": "Sessegnon",
-      "fpl_id": 269,
-      "tm_player_id": 392775,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Groin injury - 75% chance of playing",
-      "market_value_m": 22.0
-    },
-    {
-      "team": "Fulham",
-      "player": "Kenny Tete",
-      "fpl_web_name": "Tete",
-      "fpl_id": 256,
-      "tm_player_id": 206746,
-      "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Concussion - Expected back 10 Oct",
-      "market_value_m": 8.0
-    },
-    {
-      "team": "Fulham",
       "player": "Luc De Fougerolles",
       "fpl_web_name": "De Fougerolles",
       "fpl_id": 610,
@@ -1188,6 +1188,19 @@
       "health": 0.0,
       "news": "Has joined York City on loan for the rest of the season",
       "market_value_m": 0.0
+    },
+    {
+      "team": "Hull",
+      "player": "Brooke Norton-Cuffy",
+      "fpl_web_name": "Norton-Cuffy",
+      "fpl_id": 638,
+      "tm_player_id": 728733,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Hamstring injury - 75% chance of playing",
+      "market_value_m": 15.0
     },
     {
       "team": "Hull",
@@ -1763,19 +1776,6 @@
     },
     {
       "team": "Man City",
-      "player": "J\u00e9r\u00e9my Doku",
-      "fpl_web_name": "Doku",
-      "fpl_id": 400,
-      "tm_player_id": 486049,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Calf injury - 75% chance of playing",
-      "market_value_m": 75.0
-    },
-    {
-      "team": "Man City",
       "player": "Phil Foden",
       "fpl_web_name": "Foden",
       "fpl_id": 398,
@@ -1880,16 +1880,16 @@
     },
     {
       "team": "Man United",
-      "player": "Carlos Baleba",
-      "fpl_web_name": "Baleba",
-      "fpl_id": 131,
-      "tm_player_id": 973085,
+      "player": "Benjamin Sesko",
+      "fpl_web_name": "\u0160e\u0161ko",
+      "fpl_id": 439,
+      "tm_player_id": 627442,
       "matched": true,
       "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Ankle injury - 50% chance of playing",
-      "market_value_m": 55.0
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Shin injury - 75% chance of playing",
+      "market_value_m": 75.0
     },
     {
       "team": "Man United",
@@ -1903,6 +1903,19 @@
       "health": 0.0,
       "news": "Unspecified injury - Unknown return date",
       "market_value_m": 45.0
+    },
+    {
+      "team": "Man United",
+      "player": "Marcus Rashford",
+      "fpl_web_name": "Rashford",
+      "fpl_id": 429,
+      "tm_player_id": 258923,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Unspecified injury - 75% chance of playing",
+      "market_value_m": 40.0
     },
     {
       "team": "Man United",
@@ -1929,19 +1942,6 @@
       "health": 0.0,
       "news": "Knee injury - Unknown return date",
       "market_value_m": 25.0
-    },
-    {
-      "team": "Man United",
-      "player": "Luke Shaw",
-      "fpl_web_name": "Shaw",
-      "fpl_id": 423,
-      "tm_player_id": 183288,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Unspecified injury - 50% chance of playing",
-      "market_value_m": 8.0
     },
     {
       "team": "Man United",
@@ -2280,19 +2280,6 @@
       "health": 0.0,
       "news": "Knee injury - Unknown return date",
       "market_value_m": 7.0
-    },
-    {
-      "team": "Sunderland",
-      "player": "Reinildo Mandava",
-      "fpl_web_name": "Reinildo",
-      "fpl_id": 536,
-      "tm_player_id": 240692,
-      "matched": true,
-      "status": "s",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Suspended until 10 Oct",
-      "market_value_m": 4.0
     },
     {
       "team": "Sunderland",
