@@ -49,16 +49,16 @@ E0,19/09/2026,Man City,Sunderland,5.0,3.0,H,5
 E0,19/09/2026,Newcastle,Hull,2.0,1.0,H,5
 E0,19/09/2026,Nott'm Forest,Coventry,0.0,1.0,A,5
 E0,19/09/2026,Tottenham,Aston Villa,2.0,3.0,A,5
-E0,10/10/2026,Arsenal,Leeds,,,,6
-E0,10/10/2026,Aston Villa,Brentford,,,,6
-E0,10/10/2026,Chelsea,Bournemouth,,,,6
+E0,10/10/2026,Arsenal,Leeds,2.0,1.0,H,6
+E0,10/10/2026,Aston Villa,Brentford,2.0,2.0,D,6
+E0,10/10/2026,Chelsea,Bournemouth,5.0,1.0,H,6
 E0,10/10/2026,Coventry,Newcastle,,,,6
 E0,10/10/2026,Crystal Palace,Nott'm Forest,,,,6
 E0,10/10/2026,Hull,Everton,,,,6
-E0,10/10/2026,Ipswich,Fulham,,,,6
+E0,10/10/2026,Ipswich,Fulham,2.0,1.0,H,6
 E0,10/10/2026,Liverpool,Man City,,,,6
-E0,10/10/2026,Man United,Tottenham,,,,6
-E0,10/10/2026,Sunderland,Brighton,,,,6
+E0,10/10/2026,Man United,Tottenham,1.0,1.0,D,6
+E0,10/10/2026,Sunderland,Brighton,0.0,2.0,A,6
 E0,17/10/2026,Bournemouth,Sunderland,,,,7
 E0,17/10/2026,Brentford,Liverpool,,,,7
 E0,17/10/2026,Brighton,Crystal Palace,,,,7
