@@ -1,9 +1,9 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-10-11T11:54:51.239203+00:00",
-  "injury_count": 204,
-  "matched_count": 108,
+  "fetched_at": "2026-10-12T14:04:17.716351+00:00",
+  "injury_count": 199,
+  "matched_count": 103,
   "unmatched_count": 96,
   "injuries": [
     {
@@ -1113,32 +1113,6 @@
     },
     {
       "team": "Everton",
-      "player": "Merlin R\u00f6hl",
-      "fpl_web_name": "R\u00f6hl",
-      "fpl_id": 246,
-      "tm_player_id": 608832,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Unspecified injury - 50% chance of playing",
-      "market_value_m": 16.0
-    },
-    {
-      "team": "Everton",
-      "player": "Christian N\u00f8rgaard",
-      "fpl_web_name": "N\u00f8rgaard",
-      "fpl_id": 21,
-      "tm_player_id": 148367,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Groin injury - 50% chance of playing",
-      "market_value_m": 5.0
-    },
-    {
-      "team": "Everton",
       "player": "Adam Aznou",
       "fpl_web_name": "Aznou",
       "fpl_id": 235,
@@ -1633,6 +1607,19 @@
     },
     {
       "team": "Liverpool",
+      "player": "Dominik Szoboszlai",
+      "fpl_web_name": "Szoboszlai",
+      "fpl_id": 368,
+      "tm_player_id": 451276,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Hamstring injury - 75% chance of playing",
+      "market_value_m": 100.0
+    },
+    {
+      "team": "Liverpool",
       "player": "Alexander Isak",
       "fpl_web_name": "Isak",
       "fpl_id": 379,
@@ -1655,6 +1642,19 @@
       "chance_of_playing": 0,
       "health": 0.0,
       "news": "Achilles injury - Unknown return date",
+      "market_value_m": 80.0
+    },
+    {
+      "team": "Liverpool",
+      "player": "Ryan Gravenberch",
+      "fpl_web_name": "Gravenberch",
+      "fpl_id": 371,
+      "tm_player_id": 478573,
+      "matched": true,
+      "status": "s",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Suspended until 25 Oct",
       "market_value_m": 80.0
     },
     {
@@ -1695,19 +1695,6 @@
       "health": 0.0,
       "news": "Knee injury - Unknown return date",
       "market_value_m": 25.0
-    },
-    {
-      "team": "Liverpool",
-      "player": "Federico Chiesa",
-      "fpl_web_name": "Chiesa",
-      "fpl_id": 370,
-      "tm_player_id": 341092,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 25,
-      "health": 0.25,
-      "news": "Back injury - 25% chance of playing",
-      "market_value_m": 13.0
     },
     {
       "team": "Liverpool",
@@ -1786,45 +1773,6 @@
       "health": 0.0,
       "news": "Has joined Celta Vigo permanently",
       "market_value_m": 0.0
-    },
-    {
-      "team": "Man City",
-      "player": "Antoine Semenyo",
-      "fpl_web_name": "Semenyo",
-      "fpl_id": 397,
-      "tm_player_id": 583255,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Ankle injury - 75% chance of playing",
-      "market_value_m": 80.0
-    },
-    {
-      "team": "Man City",
-      "player": "Nico O'Reilly",
-      "fpl_web_name": "O'Reilly",
-      "fpl_id": 387,
-      "tm_player_id": 743413,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
-      "market_value_m": 70.0
-    },
-    {
-      "team": "Man City",
-      "player": "Phil Foden",
-      "fpl_web_name": "Foden",
-      "fpl_id": 398,
-      "tm_player_id": 406635,
-      "matched": true,
-      "status": "s",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Suspended until 17 Oct",
-      "market_value_m": 70.0
     },
     {
       "team": "Man City",
@@ -2215,19 +2163,6 @@
       "health": 0.0,
       "news": "Has joined Wolves on loan for the rest of the season",
       "market_value_m": 0.0
-    },
-    {
-      "team": "Nott'm Forest",
-      "player": "Neco Williams",
-      "fpl_web_name": "N.Williams",
-      "fpl_id": 469,
-      "tm_player_id": 503680,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Illness - 50% chance of playing",
-      "market_value_m": 28.0
     },
     {
       "team": "Nott'm Forest",
