@@ -1,10 +1,10 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-10-13T13:17:36.961505+00:00",
+  "fetched_at": "2026-10-18T10:10:57.396427+00:00",
   "injury_count": 197,
-  "matched_count": 101,
-  "unmatched_count": 96,
+  "matched_count": 100,
+  "unmatched_count": 97,
   "injuries": [
     {
       "team": "Arsenal",
@@ -65,10 +65,10 @@
       "fpl_id": 9,
       "tm_player_id": 659813,
       "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Ankle injury - 75% chance of playing",
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Ankle injury - Expected back 24 Oct",
       "market_value_m": 50.0
     },
     {
@@ -125,6 +125,19 @@
     },
     {
       "team": "Aston Villa",
+      "player": "Johan Manzambi",
+      "fpl_web_name": "Manzambi",
+      "fpl_id": 53,
+      "tm_player_id": 927353,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Calf injury - 75% chance of playing",
+      "market_value_m": 65.0
+    },
+    {
+      "team": "Aston Villa",
       "player": "Amadou Onana",
       "fpl_web_name": "Onana",
       "fpl_id": 48,
@@ -156,37 +169,24 @@
       "fpl_id": 596,
       "tm_player_id": 616631,
       "matched": true,
-      "status": "d",
-      "chance_of_playing": 25,
-      "health": 0.25,
-      "news": "Hamstring injury - 25% chance of playing",
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Hamstring injury - Unknown return date",
       "market_value_m": 28.0
     },
     {
       "team": "Aston Villa",
-      "player": "Brian Madjo",
-      "fpl_web_name": "Madjo",
-      "fpl_id": 582,
-      "tm_player_id": 1226357,
+      "player": "Aaron Wan-Bissaka",
+      "fpl_web_name": "Wan-Bissaka",
+      "fpl_id": 611,
+      "tm_player_id": 477758,
       "matched": true,
       "status": "d",
       "chance_of_playing": 75,
       "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
-      "market_value_m": 12.0
-    },
-    {
-      "team": "Aston Villa",
-      "player": "Leon Goretzka",
-      "fpl_web_name": "Goretzka",
-      "fpl_id": 618,
-      "tm_player_id": 153084,
-      "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Knee injury - Expected back 17 Oct",
-      "market_value_m": 12.0
+      "news": "Hamstring injury - 75% chance of playing",
+      "market_value_m": 15.0
     },
     {
       "team": "Aston Villa",
@@ -307,32 +307,6 @@
     },
     {
       "team": "Bournemouth",
-      "player": "Justin Kluivert",
-      "fpl_web_name": "Kluivert",
-      "fpl_id": 70,
-      "tm_player_id": 330659,
-      "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Unspecified injury - Unknown return date",
-      "market_value_m": 25.0
-    },
-    {
-      "team": "Bournemouth",
-      "player": "Amine Adli",
-      "fpl_web_name": "Adli",
-      "fpl_id": 77,
-      "tm_player_id": 532776,
-      "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Calf injury - Unknown return date",
-      "market_value_m": 20.0
-    },
-    {
-      "team": "Bournemouth",
       "player": "Veljko Milosavljevic",
       "fpl_web_name": "Milosavljevi\u0107",
       "fpl_id": 63,
@@ -385,45 +359,6 @@
     },
     {
       "team": "Brentford",
-      "player": "Kevin Schade",
-      "fpl_web_name": "Schade",
-      "fpl_id": 94,
-      "tm_player_id": 473050,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Shoulder injury - 75% chance of playing",
-      "market_value_m": 35.0
-    },
-    {
-      "team": "Brentford",
-      "player": "Mikkel Damsgaard",
-      "fpl_web_name": "Damsgaard",
-      "fpl_id": 96,
-      "tm_player_id": 540941,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
-      "market_value_m": 30.0
-    },
-    {
-      "team": "Brentford",
-      "player": "Nathan Collins",
-      "fpl_web_name": "Collins",
-      "fpl_id": 84,
-      "tm_player_id": 469050,
-      "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Calf injury - Unknown return date",
-      "market_value_m": 30.0
-    },
-    {
-      "team": "Brentford",
       "player": "Jannik Schuster",
       "fpl_web_name": "Schuster",
       "fpl_id": 93,
@@ -434,6 +369,19 @@
       "health": 0.75,
       "news": "Ankle injury - 75% chance of playing",
       "market_value_m": 18.0
+    },
+    {
+      "team": "Brentford",
+      "player": "Vitaly Janelt",
+      "fpl_web_name": "Janelt",
+      "fpl_id": 98,
+      "tm_player_id": 270171,
+      "matched": true,
+      "status": "s",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Suspended until 31 Oct",
+      "market_value_m": 16.0
     },
     {
       "team": "Brentford",
@@ -475,6 +423,19 @@
       "market_value_m": 1.5
     },
     {
+      "team": "Brentford",
+      "player": "Yehor Yarmoliuk",
+      "fpl_web_name": "Yarmoliuk",
+      "fpl_id": 102,
+      "tm_player_id": null,
+      "matched": false,
+      "status": "s",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Suspended until 23 Nov",
+      "market_value_m": 0.0
+    },
+    {
       "team": "Brighton",
       "player": "Yankuba Minteh",
       "fpl_web_name": "Minteh",
@@ -486,19 +447,6 @@
       "health": 0.0,
       "news": "Leg injury - Expected back 28 Nov",
       "market_value_m": 45.0
-    },
-    {
-      "team": "Brighton",
-      "player": "Jack Hinshelwood",
-      "fpl_web_name": "Hinshelwood",
-      "fpl_id": 123,
-      "tm_player_id": 867688,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Ankle injury - 50% chance of playing",
-      "market_value_m": 28.0
     },
     {
       "team": "Brighton",
@@ -533,10 +481,10 @@
       "fpl_id": 328,
       "tm_player_id": 410708,
       "matched": true,
-      "status": "s",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Suspended until 25 Oct",
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Hamstring injury - 75% chance of playing",
       "market_value_m": 22.0
     },
     {
@@ -663,11 +611,24 @@
       "fpl_id": 142,
       "tm_player_id": 472423,
       "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Knee injury - Unknown return date",
+      "market_value_m": 60.0
+    },
+    {
+      "team": "Chelsea",
+      "player": "Malo Gusto",
+      "fpl_web_name": "Gusto",
+      "fpl_id": 144,
+      "tm_player_id": 620322,
+      "matched": true,
       "status": "d",
       "chance_of_playing": 75,
       "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
-      "market_value_m": 60.0
+      "news": "Illness - 75% chance of playing",
+      "market_value_m": 35.0
     },
     {
       "team": "Chelsea",
@@ -694,6 +655,32 @@
       "health": 0.0,
       "news": "Hamstring injury - Expected back 17 Oct",
       "market_value_m": 25.0
+    },
+    {
+      "team": "Chelsea",
+      "player": "Emiliano Mart\u00ednez",
+      "fpl_web_name": "Martinez",
+      "fpl_id": 28,
+      "tm_player_id": 111873,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Head injury - Unknown return date",
+      "market_value_m": 12.0
+    },
+    {
+      "team": "Chelsea",
+      "player": "Pep Chavarr\u00eda",
+      "fpl_web_name": "Chavarria",
+      "fpl_id": 583,
+      "tm_player_id": 596122,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Unspecified injury - 75% chance of playing",
+      "market_value_m": 10.0
     },
     {
       "team": "Chelsea",
@@ -822,7 +809,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Unspecified injury - Unknown return date",
+      "news": "Ankle injury - Unknown return date",
       "market_value_m": 9.0
     },
     {
@@ -833,9 +820,9 @@
       "tm_player_id": 626888,
       "matched": true,
       "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Hamstring injury - 50% chance of playing",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Hamstring injury - 75% chance of playing",
       "market_value_m": 3.0
     },
     {
@@ -962,10 +949,10 @@
       "fpl_id": 198,
       "tm_player_id": 258919,
       "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Foot injury - Expected back 18 Oct",
+      "status": "d",
+      "chance_of_playing": 50,
+      "health": 0.5,
+      "news": "Foot injury - 50% chance of playing",
       "market_value_m": 28.0
     },
     {
@@ -993,6 +980,19 @@
       "health": 0.0,
       "news": "Suspended until 25 Oct",
       "market_value_m": 15.0
+    },
+    {
+      "team": "Crystal Palace",
+      "player": "Ben Chilwell",
+      "fpl_web_name": "Chilwell",
+      "fpl_id": 643,
+      "tm_player_id": 316125,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Unspecified injury - Unknown return date",
+      "market_value_m": 10.0
     },
     {
       "team": "Crystal Palace",
@@ -1100,19 +1100,6 @@
     },
     {
       "team": "Everton",
-      "player": "Vitaliy Mykolenko",
-      "fpl_web_name": "Mykolenko",
-      "fpl_id": 233,
-      "tm_player_id": 404842,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Leg injury - 75% chance of playing",
-      "market_value_m": 25.0
-    },
-    {
-      "team": "Everton",
       "player": "Adam Aznou",
       "fpl_web_name": "Aznou",
       "fpl_id": 235,
@@ -1152,15 +1139,28 @@
     },
     {
       "team": "Fulham",
-      "player": "Antonee Robinson",
-      "fpl_web_name": "Robinson",
-      "fpl_id": 254,
-      "tm_player_id": 349701,
+      "player": "Hugo Larsson",
+      "fpl_web_name": "Larsson",
+      "fpl_id": 635,
+      "tm_player_id": 931838,
       "matched": true,
       "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Ankle injury - 75% chance of playing",
+      "chance_of_playing": 25,
+      "health": 0.25,
+      "news": "Groin injury - 25% chance of playing",
+      "market_value_m": 28.0
+    },
+    {
+      "team": "Fulham",
+      "player": "Ryan Sessegnon",
+      "fpl_web_name": "Sessegnon",
+      "fpl_id": 269,
+      "tm_player_id": 392775,
+      "matched": true,
+      "status": "s",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Suspended until 21 Nov",
       "market_value_m": 22.0
     },
     {
@@ -1178,19 +1178,6 @@
     },
     {
       "team": "Fulham",
-      "player": "Tom Cairney",
-      "fpl_web_name": "Cairney",
-      "fpl_id": 266,
-      "tm_player_id": 123275,
-      "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Knee injury - Expected back 17 Oct",
-      "market_value_m": 0.5
-    },
-    {
-      "team": "Fulham",
       "player": "Alfie McNally",
       "fpl_web_name": "McNally",
       "fpl_id": 252,
@@ -1201,6 +1188,32 @@
       "health": 0.0,
       "news": "Has joined York City on loan for the rest of the season",
       "market_value_m": 0.0
+    },
+    {
+      "team": "Hull",
+      "player": "Robinio Vaz",
+      "fpl_web_name": "Vaz",
+      "fpl_id": 637,
+      "tm_player_id": 1131161,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 50,
+      "health": 0.5,
+      "news": "Achilles injury - 50% chance of playing",
+      "market_value_m": 18.0
+    },
+    {
+      "team": "Hull",
+      "player": "Mohamed-Ali Cho",
+      "fpl_web_name": "Cho",
+      "fpl_id": 617,
+      "tm_player_id": 670847,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Unspecified injury - Expected back 25 Oct",
+      "market_value_m": 15.0
     },
     {
       "team": "Hull",
@@ -1227,6 +1240,32 @@
       "health": 0.0,
       "news": "Groin injury - Unknown return date",
       "market_value_m": 10.0
+    },
+    {
+      "team": "Hull",
+      "player": "Nobel Mendy",
+      "fpl_web_name": "Mendy",
+      "fpl_id": 586,
+      "tm_player_id": 1034853,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Groin injury - Expected back 31 Oct",
+      "market_value_m": 7.5
+    },
+    {
+      "team": "Hull",
+      "player": "Lucas Gourna-Douath",
+      "fpl_web_name": "Gourna-Douath",
+      "fpl_id": 589,
+      "tm_player_id": 620313,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Calf injury - Expected back 25 Oct",
+      "market_value_m": 6.0
     },
     {
       "team": "Hull",
@@ -1508,10 +1547,10 @@
       "fpl_id": 343,
       "tm_player_id": 566799,
       "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Back injury - Expected back 18 Oct",
+      "status": "d",
+      "chance_of_playing": 50,
+      "health": 0.5,
+      "news": "Back injury - 50% chance of playing",
       "market_value_m": 25.0
     },
     {
@@ -1612,24 +1651,11 @@
       "fpl_id": 368,
       "tm_player_id": 451276,
       "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Hamstring injury - 75% chance of playing",
-      "market_value_m": 100.0
-    },
-    {
-      "team": "Liverpool",
-      "player": "Alexander Isak",
-      "fpl_web_name": "Isak",
-      "fpl_id": 379,
-      "tm_player_id": 349066,
-      "matched": true,
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Thigh injury - Unknown return date",
-      "market_value_m": 85.0
+      "news": "Hamstring injury - Unknown return date",
+      "market_value_m": 100.0
     },
     {
       "team": "Liverpool",
@@ -1646,29 +1672,16 @@
     },
     {
       "team": "Liverpool",
-      "player": "Ryan Gravenberch",
-      "fpl_web_name": "Gravenberch",
-      "fpl_id": 371,
-      "tm_player_id": 478573,
-      "matched": true,
-      "status": "s",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Suspended until 25 Oct",
-      "market_value_m": 80.0
-    },
-    {
-      "team": "Liverpool",
-      "player": "Cody Gakpo",
-      "fpl_web_name": "Gakpo",
-      "fpl_id": 367,
-      "tm_player_id": 434675,
+      "player": "Jeremie Frimpong",
+      "fpl_web_name": "Frimpong",
+      "fpl_id": 357,
+      "tm_player_id": 484547,
       "matched": true,
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Ankle injury - Unknown return date",
-      "market_value_m": 60.0
+      "news": "Hamstring injury - Unknown return date",
+      "market_value_m": 35.0
     },
     {
       "team": "Liverpool",
@@ -1773,6 +1786,19 @@
       "health": 0.0,
       "news": "Has joined Celta Vigo permanently",
       "market_value_m": 0.0
+    },
+    {
+      "team": "Man City",
+      "player": "Antoine Semenyo",
+      "fpl_web_name": "Semenyo",
+      "fpl_id": 397,
+      "tm_player_id": 583255,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Knee injury - 75% chance of playing",
+      "market_value_m": 80.0
     },
     {
       "team": "Man City",
@@ -1906,19 +1932,6 @@
     },
     {
       "team": "Man United",
-      "player": "Matthijs de Ligt",
-      "fpl_web_name": "De Ligt",
-      "fpl_id": 416,
-      "tm_player_id": 326031,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Back injury - 75% chance of playing",
-      "market_value_m": 30.0
-    },
-    {
-      "team": "Man United",
       "player": "Manuel Ugarte",
       "fpl_web_name": "Ugarte",
       "fpl_id": 433,
@@ -1938,9 +1951,9 @@
       "tm_player_id": 340456,
       "matched": true,
       "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Back injury - 75% chance of playing",
+      "chance_of_playing": 25,
+      "health": 0.25,
+      "news": "Back injury - 25% chance of playing",
       "market_value_m": 18.0
     },
     {
@@ -2023,28 +2036,15 @@
     },
     {
       "team": "Newcastle",
-      "player": "Bazoumana Tour\u00e9",
-      "fpl_web_name": "Tour\u00e9",
-      "fpl_id": 461,
-      "tm_player_id": 1067904,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
-      "market_value_m": 50.0
-    },
-    {
-      "team": "Newcastle",
       "player": "Tino Livramento",
       "fpl_web_name": "Livramento",
       "fpl_id": 450,
       "tm_player_id": 503981,
       "matched": true,
-      "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Unspecified injury - 50% chance of playing",
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Unspecified injury - Expected back 2 Nov",
       "market_value_m": 45.0
     },
     {
@@ -2070,7 +2070,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Unspecified injury - Unknown return date",
+      "news": "Unspecified injury - Expected back 25 Oct",
       "market_value_m": 32.0
     },
     {
@@ -2140,15 +2140,28 @@
     },
     {
       "team": "Nott'm Forest",
+      "player": "Morgan Gibbs-White",
+      "fpl_web_name": "Gibbs-White",
+      "fpl_id": 480,
+      "tm_player_id": 429014,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Muscular injury - 75% chance of playing",
+      "market_value_m": 70.0
+    },
+    {
+      "team": "Nott'm Forest",
       "player": "Nikola Milenkovi\u0107",
       "fpl_web_name": "Milenkovi\u0107",
       "fpl_id": 471,
       "tm_player_id": 413507,
       "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Knee injury - Unknown return date",
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Knee injury - 75% chance of playing",
       "market_value_m": 28.0
     },
     {
@@ -2244,32 +2257,6 @@
     },
     {
       "team": "Sunderland",
-      "player": "Brian Brobbey",
-      "fpl_web_name": "Brobbey",
-      "fpl_id": 552,
-      "tm_player_id": 473169,
-      "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Hamstring injury - Expected back 25 Oct",
-      "market_value_m": 40.0
-    },
-    {
-      "team": "Sunderland",
-      "player": "Habib Diarra",
-      "fpl_web_name": "Diarra",
-      "fpl_id": 543,
-      "tm_player_id": 876631,
-      "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Hamstring injury - Expected back 18 Oct",
-      "market_value_m": 35.0
-    },
-    {
-      "team": "Sunderland",
       "player": "Dan Ballard",
       "fpl_web_name": "Ballard",
       "fpl_id": 532,
@@ -2280,6 +2267,19 @@
       "health": 0.0,
       "news": "Hamstring injury - Unknown return date",
       "market_value_m": 20.0
+    },
+    {
+      "team": "Sunderland",
+      "player": "Wilson Isidor",
+      "fpl_web_name": "Isidor",
+      "fpl_id": 553,
+      "tm_player_id": 494237,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 50,
+      "health": 0.5,
+      "news": "Knock - 50% chance of playing",
+      "market_value_m": 18.0
     },
     {
       "team": "Sunderland",

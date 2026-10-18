@@ -60,13 +60,13 @@ E0,10/10/2026,Liverpool,Man City,0.0,3.0,A,6
 E0,10/10/2026,Man United,Tottenham,1.0,1.0,D,6
 E0,10/10/2026,Sunderland,Brighton,0.0,2.0,A,6
 E0,17/10/2026,Bournemouth,Sunderland,,,,7
-E0,17/10/2026,Brentford,Liverpool,,,,7
+E0,17/10/2026,Brentford,Liverpool,1.0,2.0,A,7
 E0,17/10/2026,Brighton,Crystal Palace,,,,7
-E0,17/10/2026,Everton,Chelsea,,,,7
-E0,17/10/2026,Fulham,Hull,,,,7
+E0,17/10/2026,Everton,Chelsea,0.0,2.0,A,7
+E0,17/10/2026,Fulham,Hull,1.0,0.0,H,7
 E0,17/10/2026,Leeds,Man United,,,,7
-E0,17/10/2026,Man City,Ipswich,,,,7
-E0,17/10/2026,Newcastle,Aston Villa,,,,7
+E0,17/10/2026,Man City,Ipswich,3.0,2.0,H,7
+E0,17/10/2026,Newcastle,Aston Villa,0.0,1.0,A,7
 E0,17/10/2026,Nott'm Forest,Arsenal,,,,7
 E0,17/10/2026,Tottenham,Coventry,,,,7
 E0,24/10/2026,Arsenal,Everton,,,,8
