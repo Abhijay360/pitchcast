@@ -1,9 +1,9 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-10-18T10:10:57.396427+00:00",
-  "injury_count": 197,
-  "matched_count": 100,
+  "fetched_at": "2026-10-20T10:45:29.663329+00:00",
+  "injury_count": 204,
+  "matched_count": 107,
   "unmatched_count": 97,
   "injuries": [
     {
@@ -43,19 +43,6 @@
       "chance_of_playing": 0,
       "health": 0.0,
       "news": "Has joined FC Barcelona permanently",
-      "market_value_m": 75.0
-    },
-    {
-      "team": "Arsenal",
-      "player": "Mart\u00edn Zubimendi",
-      "fpl_web_name": "Zubimendi",
-      "fpl_id": 19,
-      "tm_player_id": 423440,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
       "market_value_m": 75.0
     },
     {
@@ -432,7 +419,7 @@
       "status": "s",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Suspended until 23 Nov",
+      "news": "Suspended until 8 Nov",
       "market_value_m": 0.0
     },
     {
@@ -471,7 +458,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Hamstring injury - Expected back 18 Oct",
+      "news": "Hamstring injury - Expected back 31 Oct",
       "market_value_m": 22.0
     },
     {
@@ -497,7 +484,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Ankle injury - Expected back 18 Oct",
+      "news": "Ankle injury - Unknown return date",
       "market_value_m": 20.0
     },
     {
@@ -523,7 +510,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Unspecified injury - Expected back 18 Oct",
+      "news": "Unspecified injury - Expected back 31 Oct",
       "market_value_m": 18.0
     },
     {
@@ -536,7 +523,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Hamstring injury - Expected back 18 Oct",
+      "news": "Hamstring injury - Expected back 31 Oct",
       "market_value_m": 15.0
     },
     {
@@ -653,7 +640,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Hamstring injury - Expected back 17 Oct",
+      "news": "Hamstring injury - Unknown return date",
       "market_value_m": 25.0
     },
     {
@@ -814,19 +801,6 @@
     },
     {
       "team": "Coventry",
-      "player": "Kaine Kesler-Hayden",
-      "fpl_web_name": "Kesler-Hayden",
-      "fpl_id": 177,
-      "tm_player_id": 626888,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Hamstring injury - 75% chance of playing",
-      "market_value_m": 3.0
-    },
-    {
-      "team": "Coventry",
       "player": "Luke Woolfenden",
       "fpl_web_name": "Woolfenden",
       "fpl_id": 180,
@@ -931,19 +905,6 @@
     },
     {
       "team": "Crystal Palace",
-      "player": "Jean-Philippe Mateta",
-      "fpl_web_name": "Mateta",
-      "fpl_id": 223,
-      "tm_player_id": 420002,
-      "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Hamstring injury - Expected back 18 Oct",
-      "market_value_m": 30.0
-    },
-    {
-      "team": "Crystal Palace",
       "player": "Dean Henderson",
       "fpl_web_name": "Henderson",
       "fpl_id": 198,
@@ -967,19 +928,6 @@
       "health": 0.0,
       "news": "Knee injury - Unknown return date",
       "market_value_m": 20.0
-    },
-    {
-      "team": "Crystal Palace",
-      "player": "Axel Disasi",
-      "fpl_web_name": "Disasi",
-      "fpl_id": 153,
-      "tm_player_id": 386047,
-      "matched": true,
-      "status": "s",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Suspended until 25 Oct",
-      "market_value_m": 15.0
     },
     {
       "team": "Crystal Palace",
@@ -1030,7 +978,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Calf injury - Expected back 18 Oct",
+      "news": "Calf injury - Expected back 25 Oct",
       "market_value_m": 5.0
     },
     {
@@ -1160,7 +1108,7 @@
       "status": "s",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Suspended until 21 Nov",
+      "news": "Suspended until 7 Nov",
       "market_value_m": 22.0
     },
     {
@@ -1435,6 +1383,19 @@
       "health": 0.0,
       "news": "Has joined Colchester United on loan for the rest of the season",
       "market_value_m": 0.0
+    },
+    {
+      "team": "Ipswich",
+      "player": "Sa\u0161a Luki\u0107",
+      "fpl_web_name": "Luki\u0107",
+      "fpl_id": 267,
+      "tm_player_id": 245056,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Groin injury - 75% chance of playing",
+      "market_value_m": 10.0
     },
     {
       "team": "Ipswich",
@@ -1789,16 +1750,68 @@
     },
     {
       "team": "Man City",
+      "player": "Erling Haaland",
+      "fpl_web_name": "Haaland",
+      "fpl_id": 411,
+      "tm_player_id": 418560,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Unspecified injury - 75% chance of playing",
+      "market_value_m": 220.0
+    },
+    {
+      "team": "Man City",
       "player": "Antoine Semenyo",
       "fpl_web_name": "Semenyo",
       "fpl_id": 397,
       "tm_player_id": 583255,
       "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Knee injury - Unknown return date",
+      "market_value_m": 80.0
+    },
+    {
+      "team": "Man City",
+      "player": "Nico O'Reilly",
+      "fpl_web_name": "O'Reilly",
+      "fpl_id": 387,
+      "tm_player_id": 743413,
+      "matched": true,
       "status": "d",
       "chance_of_playing": 75,
       "health": 0.75,
-      "news": "Knee injury - 75% chance of playing",
-      "market_value_m": 80.0
+      "news": "Back injury - 75% chance of playing",
+      "market_value_m": 70.0
+    },
+    {
+      "team": "Man City",
+      "player": "Matheus Nunes",
+      "fpl_web_name": "Matheus N.",
+      "fpl_id": 389,
+      "tm_player_id": 601883,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Unspecified injury - 75% chance of playing",
+      "market_value_m": 50.0
+    },
+    {
+      "team": "Man City",
+      "player": "Mateo Kovacic",
+      "fpl_web_name": "Kova\u010di\u0107",
+      "fpl_id": 406,
+      "tm_player_id": 51471,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Unspecified injury - 75% chance of playing",
+      "market_value_m": 10.0
     },
     {
       "team": "Man City",
@@ -1901,7 +1914,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Shin injury - Expected back 18 Oct",
+      "news": "Shin injury - Expected back 31 Oct",
       "market_value_m": 75.0
     },
     {
@@ -1916,6 +1929,19 @@
       "health": 0.75,
       "news": "Unspecified injury - 75% chance of playing",
       "market_value_m": 70.0
+    },
+    {
+      "team": "Man United",
+      "player": "Lisandro Mart\u00ednez",
+      "fpl_web_name": "Martinez",
+      "fpl_id": 419,
+      "tm_player_id": 480762,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Thigh injury - 75% chance of playing",
+      "market_value_m": 45.0
     },
     {
       "team": "Man United",
@@ -1942,19 +1968,6 @@
       "health": 0.0,
       "news": "Knee injury - Unknown return date",
       "market_value_m": 25.0
-    },
-    {
-      "team": "Man United",
-      "player": "Noussair Mazraoui",
-      "fpl_web_name": "Mazraoui",
-      "fpl_id": 422,
-      "tm_player_id": 340456,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 25,
-      "health": 0.25,
-      "news": "Back injury - 25% chance of playing",
-      "market_value_m": 18.0
     },
     {
       "team": "Man United",
@@ -2153,19 +2166,6 @@
     },
     {
       "team": "Nott'm Forest",
-      "player": "Nikola Milenkovi\u0107",
-      "fpl_web_name": "Milenkovi\u0107",
-      "fpl_id": 471,
-      "tm_player_id": 413507,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Knee injury - 75% chance of playing",
-      "market_value_m": 28.0
-    },
-    {
-      "team": "Nott'm Forest",
       "player": "Igor Jesus",
       "fpl_web_name": "Igor Jesus",
       "fpl_id": 491,
@@ -2257,6 +2257,19 @@
     },
     {
       "team": "Sunderland",
+      "player": "Brian Brobbey",
+      "fpl_web_name": "Brobbey",
+      "fpl_id": 552,
+      "tm_player_id": 473169,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Hamstring injury - 75% chance of playing",
+      "market_value_m": 40.0
+    },
+    {
+      "team": "Sunderland",
       "player": "Dan Ballard",
       "fpl_web_name": "Ballard",
       "fpl_id": 532,
@@ -2266,6 +2279,19 @@
       "chance_of_playing": 0,
       "health": 0.0,
       "news": "Hamstring injury - Unknown return date",
+      "market_value_m": 20.0
+    },
+    {
+      "team": "Sunderland",
+      "player": "Kevin Danso",
+      "fpl_web_name": "Danso",
+      "fpl_id": 501,
+      "tm_player_id": 263236,
+      "matched": true,
+      "status": "s",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Suspended until 31 Oct",
       "market_value_m": 20.0
     },
     {
@@ -2374,6 +2400,19 @@
     },
     {
       "team": "Tottenham",
+      "player": "Omar Marmoush",
+      "fpl_web_name": "Marmoush",
+      "fpl_id": 401,
+      "tm_player_id": 445939,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Calf injury - 75% chance of playing",
+      "market_value_m": 50.0
+    },
+    {
+      "team": "Tottenham",
       "player": "Pedro Porro",
       "fpl_web_name": "Pedro Porro",
       "fpl_id": 499,
@@ -2382,7 +2421,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Hamstring injury - Unknown return date",
+      "news": "Hamstring injury - Expected back 24 Oct",
       "market_value_m": 45.0
     },
     {
@@ -2397,6 +2436,45 @@
       "health": 0.0,
       "news": "Knee injury - Unknown return date",
       "market_value_m": 40.0
+    },
+    {
+      "team": "Tottenham",
+      "player": "Lucas Bergvall",
+      "fpl_web_name": "Bergvall",
+      "fpl_id": 520,
+      "tm_player_id": 866246,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Knee injury - Expected back 31 Oct",
+      "market_value_m": 35.0
+    },
+    {
+      "team": "Tottenham",
+      "player": "S\u00e1vio",
+      "fpl_web_name": "S\u00e1vio",
+      "fpl_id": 403,
+      "tm_player_id": 743591,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Muscular injury - Expected back 7 Nov",
+      "market_value_m": 35.0
+    },
+    {
+      "team": "Tottenham",
+      "player": "Destiny Udogie",
+      "fpl_web_name": "Udogie",
+      "fpl_id": 506,
+      "tm_player_id": 556385,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Knee injury - 75% chance of playing",
+      "market_value_m": 30.0
     },
     {
       "team": "Tottenham",
@@ -2439,16 +2517,29 @@
     },
     {
       "team": "Tottenham",
-      "player": "Dejan Kulusevski",
-      "fpl_web_name": "Kulusevski",
-      "fpl_id": 521,
-      "tm_player_id": 431755,
+      "player": "Tosin Adarabioyo",
+      "fpl_web_name": "Tosin",
+      "fpl_id": 147,
+      "tm_player_id": 258878,
       "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Knee injury - Unknown return date",
-      "market_value_m": 17.0
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Calf injury - 75% chance of playing",
+      "market_value_m": 16.0
+    },
+    {
+      "team": "Tottenham",
+      "player": "Andrew Robertson",
+      "fpl_web_name": "Robertson",
+      "fpl_id": 502,
+      "tm_player_id": 234803,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Foot injury - 75% chance of playing",
+      "market_value_m": 7.0
     },
     {
       "team": "Tottenham",
