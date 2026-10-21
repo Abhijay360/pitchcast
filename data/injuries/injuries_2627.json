@@ -1,9 +1,9 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-10-20T10:45:29.663329+00:00",
-  "injury_count": 204,
-  "matched_count": 107,
+  "fetched_at": "2026-10-21T10:56:57.284893+00:00",
+  "injury_count": 206,
+  "matched_count": 109,
   "unmatched_count": 97,
   "injuries": [
     {
@@ -52,10 +52,10 @@
       "fpl_id": 9,
       "tm_player_id": 659813,
       "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Ankle injury - Expected back 24 Oct",
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Ankle injury - 75% chance of playing",
       "market_value_m": 50.0
     },
     {
@@ -143,10 +143,10 @@
       "fpl_id": 36,
       "tm_player_id": 485585,
       "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Ankle injury - Unknown return date",
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Ankle injury - 75% chance of playing",
       "market_value_m": 30.0
     },
     {
@@ -159,7 +159,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Hamstring injury - Unknown return date",
+      "news": "Hamstring injury - Expected back 2 Jan",
       "market_value_m": 28.0
     },
     {
@@ -169,10 +169,10 @@
       "fpl_id": 611,
       "tm_player_id": 477758,
       "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Hamstring injury - 75% chance of playing",
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Hamstring injury - Expected back 21 Nov",
       "market_value_m": 15.0
     },
     {
@@ -1145,9 +1145,9 @@
       "tm_player_id": 1131161,
       "matched": true,
       "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Achilles injury - 50% chance of playing",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Achilles injury - 75% chance of playing",
       "market_value_m": 18.0
     },
     {
@@ -1157,10 +1157,10 @@
       "fpl_id": 617,
       "tm_player_id": 670847,
       "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Unspecified injury - Expected back 25 Oct",
+      "status": "d",
+      "chance_of_playing": 50,
+      "health": 0.5,
+      "news": "Unspecified injury - 50% chance of playing",
       "market_value_m": 15.0
     },
     {
@@ -1209,10 +1209,10 @@
       "fpl_id": 589,
       "tm_player_id": 620313,
       "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Calf injury - Expected back 25 Oct",
+      "status": "d",
+      "chance_of_playing": 50,
+      "health": 0.5,
+      "news": "Calf injury - 50% chance of playing",
       "market_value_m": 6.0
     },
     {
@@ -1646,6 +1646,19 @@
     },
     {
       "team": "Liverpool",
+      "player": "V\u00edctor Mu\u00f1oz",
+      "fpl_web_name": "Munoz",
+      "fpl_id": 377,
+      "tm_player_id": 935231,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Knee injury - 75% chance of playing",
+      "market_value_m": 30.0
+    },
+    {
+      "team": "Liverpool",
       "player": "Conor Bradley",
       "fpl_web_name": "Bradley",
       "fpl_id": 360,
@@ -1747,19 +1760,6 @@
       "health": 0.0,
       "news": "Has joined Celta Vigo permanently",
       "market_value_m": 0.0
-    },
-    {
-      "team": "Man City",
-      "player": "Erling Haaland",
-      "fpl_web_name": "Haaland",
-      "fpl_id": 411,
-      "tm_player_id": 418560,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
-      "market_value_m": 220.0
     },
     {
       "team": "Man City",
@@ -1924,10 +1924,10 @@
       "fpl_id": 432,
       "tm_player_id": 820374,
       "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Unspecified injury - Expected back 8 Nov",
       "market_value_m": 70.0
     },
     {
@@ -1945,6 +1945,19 @@
     },
     {
       "team": "Man United",
+      "player": "Marcus Rashford",
+      "fpl_web_name": "Rashford",
+      "fpl_id": 429,
+      "tm_player_id": 258923,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Hip injury - 75% chance of playing",
+      "market_value_m": 40.0
+    },
+    {
+      "team": "Man United",
       "player": "Patrick Dorgu",
       "fpl_web_name": "Dorgu",
       "fpl_id": 415,
@@ -1955,6 +1968,19 @@
       "health": 0.0,
       "news": "Hamstring injury - Expected back 25 Oct",
       "market_value_m": 35.0
+    },
+    {
+      "team": "Man United",
+      "player": "Ayden Heaven",
+      "fpl_web_name": "Heaven",
+      "fpl_id": 421,
+      "tm_player_id": 1078163,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Illness - 75% chance of playing",
+      "market_value_m": 30.0
     },
     {
       "team": "Man United",
@@ -1976,10 +2002,10 @@
       "fpl_id": 423,
       "tm_player_id": 183288,
       "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Unspecified injury - Unknown return date",
       "market_value_m": 8.0
     },
     {
