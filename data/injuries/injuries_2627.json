@@ -1,9 +1,9 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-10-26T12:01:23.387196+00:00",
-  "injury_count": 198,
-  "matched_count": 100,
+  "fetched_at": "2026-10-27T11:21:55.782306+00:00",
+  "injury_count": 199,
+  "matched_count": 101,
   "unmatched_count": 98,
   "injuries": [
     {
@@ -902,6 +902,19 @@
       "health": 0.0,
       "news": "Has joined Burton Albion on loan for the rest of the season",
       "market_value_m": 0.0
+    },
+    {
+      "team": "Crystal Palace",
+      "player": "Isma\u00efla Sarr",
+      "fpl_web_name": "Sarr",
+      "fpl_id": 208,
+      "tm_player_id": 410225,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Groin injury - 75% chance of playing",
+      "market_value_m": 45.0
     },
     {
       "team": "Crystal Palace",
