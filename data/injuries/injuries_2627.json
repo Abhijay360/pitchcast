@@ -1,9 +1,9 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-11-02T14:25:13.174136+00:00",
-  "injury_count": 193,
-  "matched_count": 96,
+  "fetched_at": "2026-11-03T13:24:00.644624+00:00",
+  "injury_count": 192,
+  "matched_count": 95,
   "unmatched_count": 97,
   "injuries": [
     {
@@ -1074,19 +1074,6 @@
     },
     {
       "team": "Everton",
-      "player": "Jarrad Branthwaite",
-      "fpl_web_name": "Branthwaite",
-      "fpl_id": 230,
-      "tm_player_id": 661053,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Concussion - 75% chance of playing",
-      "market_value_m": 40.0
-    },
-    {
-      "team": "Everton",
       "player": "Adam Aznou",
       "fpl_web_name": "Aznou",
       "fpl_id": 235,
@@ -1984,6 +1971,19 @@
     },
     {
       "team": "Newcastle",
+      "player": "Jacob Ramsey",
+      "fpl_web_name": "J.Ramsey",
+      "fpl_id": 456,
+      "tm_player_id": 503749,
+      "matched": true,
+      "status": "s",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Suspended until 21 Nov",
+      "market_value_m": 35.0
+    },
+    {
+      "team": "Newcastle",
       "player": "Matias Fernandez-Pardo",
       "fpl_web_name": "Fernandez-Pardo",
       "fpl_id": 634,
@@ -1994,19 +1994,6 @@
       "health": 0.75,
       "news": "Illness - 75% chance of playing",
       "market_value_m": 35.0
-    },
-    {
-      "team": "Newcastle",
-      "player": "William Osula",
-      "fpl_web_name": "Osula",
-      "fpl_id": 465,
-      "tm_player_id": 609556,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Ankle injury - 50% chance of playing",
-      "market_value_m": 28.0
     },
     {
       "team": "Newcastle",
