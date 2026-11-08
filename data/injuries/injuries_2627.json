@@ -1,9 +1,9 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-11-07T12:13:04.687012+00:00",
-  "injury_count": 192,
-  "matched_count": 95,
+  "fetched_at": "2026-11-08T12:33:36.380996+00:00",
+  "injury_count": 190,
+  "matched_count": 93,
   "unmatched_count": 97,
   "injuries": [
     {
@@ -1113,6 +1113,19 @@
     },
     {
       "team": "Fulham",
+      "player": "Josh King",
+      "fpl_web_name": "King",
+      "fpl_id": 268,
+      "tm_player_id": 1011131,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Groin injury - 75% chance of playing",
+      "market_value_m": 25.0
+    },
+    {
+      "team": "Fulham",
       "player": "Luc De Fougerolles",
       "fpl_web_name": "De Fougerolles",
       "fpl_id": 610,
@@ -1191,19 +1204,6 @@
     },
     {
       "team": "Hull",
-      "player": "Lucas Gourna-Douath",
-      "fpl_web_name": "Gourna-Douath",
-      "fpl_id": 589,
-      "tm_player_id": 620313,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Calf injury - 75% chance of playing",
-      "market_value_m": 6.0
-    },
-    {
-      "team": "Hull",
       "player": "Matt Targett",
       "fpl_web_name": "Targett",
       "fpl_id": 556,
@@ -1253,19 +1253,6 @@
       "health": 0.0,
       "news": "Has joined Omonoia FC permanently",
       "market_value_m": 1.0
-    },
-    {
-      "team": "Hull",
-      "player": "Matt Crooks",
-      "fpl_web_name": "Crooks",
-      "fpl_id": 289,
-      "tm_player_id": 169416,
-      "matched": true,
-      "status": "s",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Suspended until 22 Nov",
-      "market_value_m": 0.7
     },
     {
       "team": "Hull",
@@ -1487,6 +1474,19 @@
       "health": 0.5,
       "news": "Foot injury - 50% chance of playing",
       "market_value_m": 28.0
+    },
+    {
+      "team": "Leeds",
+      "player": "Gabriel Gudmundsson",
+      "fpl_web_name": "Gudmundsson",
+      "fpl_id": 331,
+      "tm_player_id": 362108,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Hamstring injury - 75% chance of playing",
+      "market_value_m": 20.0
     },
     {
       "team": "Leeds",
@@ -1724,6 +1724,32 @@
     },
     {
       "team": "Man City",
+      "player": "Josko Gvardiol",
+      "fpl_web_name": "Gvardiol",
+      "fpl_id": 391,
+      "tm_player_id": 475959,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Unspecified injury - 75% chance of playing",
+      "market_value_m": 70.0
+    },
+    {
+      "team": "Man City",
+      "player": "Marc Gu\u00e9hi",
+      "fpl_web_name": "Gu\u00e9hi",
+      "fpl_id": 388,
+      "tm_player_id": 392757,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Unspecified injury - 75% chance of playing",
+      "market_value_m": 70.0
+    },
+    {
+      "team": "Man City",
       "player": "Claudio Echeverri",
       "fpl_web_name": "Echeverri",
       "fpl_id": 407,
@@ -1958,45 +1984,6 @@
     },
     {
       "team": "Newcastle",
-      "player": "Tino Livramento",
-      "fpl_web_name": "Livramento",
-      "fpl_id": 450,
-      "tm_player_id": 503981,
-      "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Knee injury - Unknown return date",
-      "market_value_m": 45.0
-    },
-    {
-      "team": "Newcastle",
-      "player": "Jacob Ramsey",
-      "fpl_web_name": "J.Ramsey",
-      "fpl_id": 456,
-      "tm_player_id": 503749,
-      "matched": true,
-      "status": "s",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Suspended until 21 Nov",
-      "market_value_m": 35.0
-    },
-    {
-      "team": "Newcastle",
-      "player": "Matias Fernandez-Pardo",
-      "fpl_web_name": "Fernandez-Pardo",
-      "fpl_id": 634,
-      "tm_player_id": 724129,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Illness - 75% chance of playing",
-      "market_value_m": 35.0
-    },
-    {
-      "team": "Newcastle",
       "player": "Joelinton",
       "fpl_web_name": "Joelinton",
       "fpl_id": 458,
@@ -2006,19 +1993,6 @@
       "chance_of_playing": 0,
       "health": 0.0,
       "news": "Unspecified injury - Unknown return date",
-      "market_value_m": 25.0
-    },
-    {
-      "team": "Newcastle",
-      "player": "Lewis Miley",
-      "fpl_web_name": "L.Miley",
-      "fpl_id": 459,
-      "tm_player_id": 922769,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Muscular injury - 50% chance of playing",
       "market_value_m": 25.0
     },
     {
@@ -2085,19 +2059,6 @@
       "health": 0.0,
       "news": "Has joined Wolves on loan for the rest of the season",
       "market_value_m": 0.0
-    },
-    {
-      "team": "Nott'm Forest",
-      "player": "Igor Jesus",
-      "fpl_web_name": "Igor Jesus",
-      "fpl_id": 491,
-      "tm_player_id": 432164,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Calf injury - 75% chance of playing",
-      "market_value_m": 25.0
     },
     {
       "team": "Nott'm Forest",
@@ -2371,6 +2332,19 @@
       "health": 0.0,
       "news": "not included in squad.",
       "market_value_m": 25.0
+    },
+    {
+      "team": "Tottenham",
+      "player": "Mathys Tel",
+      "fpl_web_name": "Tel",
+      "fpl_id": 514,
+      "tm_player_id": 801734,
+      "matched": true,
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Ankle injury - 75% chance of playing",
+      "market_value_m": 22.0
     },
     {
       "team": "Tottenham",
