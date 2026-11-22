@@ -99,16 +99,16 @@ E0,07/11/2026,Leeds,Tottenham,1.0,0.0,H,10
 E0,07/11/2026,Man United,Aston Villa,4.0,4.0,D,10
 E0,07/11/2026,Nott'm Forest,Man City,3.0,1.0,H,10
 E0,07/11/2026,Sunderland,Chelsea,1.0,0.0,H,10
-E0,21/11/2026,Bournemouth,Nott'm Forest,,,,11
-E0,21/11/2026,Aston Villa,Sunderland,,,,11
+E0,21/11/2026,Bournemouth,Nott'm Forest,2.0,0.0,H,11
+E0,21/11/2026,Aston Villa,Sunderland,0.0,0.0,D,11
 E0,21/11/2026,Brentford,Everton,,,,11
-E0,21/11/2026,Chelsea,Leeds,,,,11
-E0,21/11/2026,Coventry,Crystal Palace,,,,11
+E0,21/11/2026,Chelsea,Leeds,1.0,4.0,A,11
+E0,21/11/2026,Coventry,Crystal Palace,3.0,2.0,H,11
 E0,21/11/2026,Hull,Brighton,,,,11
 E0,21/11/2026,Liverpool,Man United,,,,11
-E0,21/11/2026,Man City,Fulham,,,,11
-E0,21/11/2026,Newcastle,Arsenal,,,,11
-E0,21/11/2026,Tottenham,Ipswich,,,,11
+E0,21/11/2026,Man City,Fulham,1.0,1.0,D,11
+E0,21/11/2026,Newcastle,Arsenal,2.0,2.0,D,11
+E0,21/11/2026,Tottenham,Ipswich,2.0,0.0,H,11
 E0,28/11/2026,Arsenal,Man City,,,,12
 E0,28/11/2026,Brighton,Newcastle,,,,12
 E0,28/11/2026,Crystal Palace,Hull,,,,12
