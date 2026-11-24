@@ -1,7 +1,7 @@
 {
   "season": "2627",
   "source": "fantasy.premierleague.com/api/bootstrap-static",
-  "fetched_at": "2026-11-22T13:52:27.331678+00:00",
+  "fetched_at": "2026-11-24T16:48:10.798230+00:00",
   "injury_count": 194,
   "matched_count": 97,
   "unmatched_count": 97,
@@ -66,9 +66,9 @@
       "tm_player_id": 262749,
       "matched": true,
       "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Shoulder injury - 75% chance of playing",
+      "chance_of_playing": 50,
+      "health": 0.5,
+      "news": "Shoulder injury - 50% chance of playing",
       "market_value_m": 30.0
     },
     {
@@ -143,24 +143,11 @@
       "fpl_id": 32,
       "tm_player_id": 425334,
       "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Concussion - Expected back 28 Nov",
-      "market_value_m": 22.0
-    },
-    {
-      "team": "Aston Villa",
-      "player": "Victor Lindel\u00f6f",
-      "fpl_web_name": "Lindel\u00f6f",
-      "fpl_id": 37,
-      "tm_player_id": 184573,
-      "matched": true,
       "status": "d",
       "chance_of_playing": 75,
       "health": 0.75,
-      "news": "Illness - 75% chance of playing",
-      "market_value_m": 5.0
+      "news": "Concussion - 75% chance of playing",
+      "market_value_m": 22.0
     },
     {
       "team": "Aston Villa",
@@ -263,7 +250,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Thigh injury - Expected back 31 Oct",
+      "news": "Thigh injury - Unknown return date",
       "market_value_m": 20.0
     },
     {
@@ -398,19 +385,6 @@
     },
     {
       "team": "Brentford",
-      "player": "F\u00e1bio Carvalho",
-      "fpl_web_name": "Carvalho",
-      "fpl_id": 100,
-      "tm_player_id": 559263,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Knock - 75% chance of playing",
-      "market_value_m": 8.0
-    },
-    {
-      "team": "Brentford",
       "player": "Kaye Furo",
       "fpl_web_name": "Furo",
       "fpl_id": 107,
@@ -486,6 +460,32 @@
       "health": 0.0,
       "news": "Unspecified injury - Unknown return date",
       "market_value_m": 18.0
+    },
+    {
+      "team": "Brighton",
+      "player": "Malick Yalcouy\u00e9",
+      "fpl_web_name": "Yalcouy\u00e9",
+      "fpl_id": 605,
+      "tm_player_id": 1178758,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Unspecified injury - Unknown return date",
+      "market_value_m": 12.0
+    },
+    {
+      "team": "Brighton",
+      "player": "Costinha",
+      "fpl_web_name": "Costinha",
+      "fpl_id": 119,
+      "tm_player_id": 539252,
+      "matched": true,
+      "status": "s",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Suspended until 2 Dec",
+      "market_value_m": 7.0
     },
     {
       "team": "Brighton",
@@ -1087,6 +1087,19 @@
     },
     {
       "team": "Everton",
+      "player": "James Tarkowski",
+      "fpl_web_name": "Tarkowski",
+      "fpl_id": 229,
+      "tm_player_id": 173504,
+      "matched": true,
+      "status": "s",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Suspended until 13 Dec",
+      "market_value_m": 5.0
+    },
+    {
+      "team": "Everton",
       "player": "Adam Aznou",
       "fpl_web_name": "Aznou",
       "fpl_id": 235,
@@ -1175,6 +1188,32 @@
       "health": 0.0,
       "news": "Has joined York City on loan for the rest of the season",
       "market_value_m": 0.0
+    },
+    {
+      "team": "Hull",
+      "player": "Tim Iroegbunam",
+      "fpl_web_name": "Iroegbunam",
+      "fpl_id": 240,
+      "tm_player_id": 696589,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Hamstring injury - Unknown return date",
+      "market_value_m": 18.0
+    },
+    {
+      "team": "Hull",
+      "player": "Joe Gelhardt",
+      "fpl_web_name": "Gelhardt",
+      "fpl_id": 340,
+      "tm_player_id": 503980,
+      "matched": true,
+      "status": "i",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Thigh injury - Unknown return date",
+      "market_value_m": 14.0
     },
     {
       "team": "Hull",
@@ -1594,16 +1633,16 @@
     },
     {
       "team": "Liverpool",
-      "player": "Jeremie Frimpong",
-      "fpl_web_name": "Frimpong",
-      "fpl_id": 357,
-      "tm_player_id": 484547,
+      "player": "Cody Gakpo",
+      "fpl_web_name": "Gakpo",
+      "fpl_id": 367,
+      "tm_player_id": 434675,
       "matched": true,
       "status": "d",
       "chance_of_playing": 75,
       "health": 0.75,
-      "news": "Hamstring injury - 75% chance of playing",
-      "market_value_m": 35.0
+      "news": "Calf injury - 75% chance of playing",
+      "market_value_m": 60.0
     },
     {
       "team": "Liverpool",
@@ -1615,7 +1654,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Knee injury - Unknown return date",
+      "news": "Knee injury - Expected back 12 Dec",
       "market_value_m": 25.0
     },
     {
@@ -1628,7 +1667,7 @@
       "status": "i",
       "chance_of_playing": 0,
       "health": 0.0,
-      "news": "Knee injury - Unknown return date",
+      "news": "Knee injury - Expected back 12 Dec",
       "market_value_m": 25.0
     },
     {
@@ -1721,19 +1760,6 @@
       "health": 0.0,
       "news": "Knee injury - Unknown return date",
       "market_value_m": 80.0
-    },
-    {
-      "team": "Man City",
-      "player": "Matheus Nunes",
-      "fpl_web_name": "Matheus N.",
-      "fpl_id": 389,
-      "tm_player_id": 601883,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 50,
-      "health": 0.5,
-      "news": "Unspecified injury - 50% chance of playing",
-      "market_value_m": 50.0
     },
     {
       "team": "Man City",
@@ -1854,6 +1880,19 @@
     },
     {
       "team": "Man United",
+      "player": "Leny Yoro",
+      "fpl_web_name": "Yoro",
+      "fpl_id": 420,
+      "tm_player_id": 923831,
+      "matched": true,
+      "status": "s",
+      "chance_of_playing": 0,
+      "health": 0.0,
+      "news": "Suspended until 2 Dec",
+      "market_value_m": 50.0
+    },
+    {
+      "team": "Man United",
       "player": "Marcus Rashford",
       "fpl_web_name": "Rashford",
       "fpl_id": 429,
@@ -1864,32 +1903,6 @@
       "health": 0.0,
       "news": "Hip injury - Unknown return date",
       "market_value_m": 40.0
-    },
-    {
-      "team": "Man United",
-      "player": "Patrick Dorgu",
-      "fpl_web_name": "Dorgu",
-      "fpl_id": 415,
-      "tm_player_id": 926952,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Hamstring injury - 75% chance of playing",
-      "market_value_m": 35.0
-    },
-    {
-      "team": "Man United",
-      "player": "Ayden Heaven",
-      "fpl_web_name": "Heaven",
-      "fpl_id": 421,
-      "tm_player_id": 1078163,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Unspecified injury - 75% chance of playing",
-      "market_value_m": 30.0
     },
     {
       "team": "Man United",
@@ -1906,28 +1919,15 @@
     },
     {
       "team": "Man United",
-      "player": "Harry Maguire",
-      "fpl_web_name": "Maguire",
-      "fpl_id": 418,
-      "tm_player_id": 177907,
-      "matched": true,
-      "status": "d",
-      "chance_of_playing": 75,
-      "health": 0.75,
-      "news": "Back injury - 75% chance of playing",
-      "market_value_m": 8.0
-    },
-    {
-      "team": "Man United",
       "player": "Luke Shaw",
       "fpl_web_name": "Shaw",
       "fpl_id": 423,
       "tm_player_id": 183288,
       "matched": true,
-      "status": "i",
-      "chance_of_playing": 0,
-      "health": 0.0,
-      "news": "Unspecified injury - Unknown return date",
+      "status": "d",
+      "chance_of_playing": 75,
+      "health": 0.75,
+      "news": "Unspecified injury - 75% chance of playing",
       "market_value_m": 8.0
     },
     {
